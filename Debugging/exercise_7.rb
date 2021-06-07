@@ -29,8 +29,12 @@ def calculate_balance(month)
   plus - minus
 end
 
-[january, february, march].each do |month|
-  balance = calculate_balance(month)
+[ january, february ,march].each do |month|
+  #x = calculate_balance(month)
+  #balance += x
+  #This is correct however an easier solution would have been
+
+  balance += calculate_balance(month)
 end
 
 puts balance
