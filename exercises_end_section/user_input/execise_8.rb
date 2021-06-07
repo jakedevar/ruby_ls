@@ -1,1 +1,0 @@
-execise_8.rb
