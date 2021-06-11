@@ -1,0 +1,48 @@
+psuedo code practice
+# a method that returns the sum of two integers 
+-define a method
+  -give the method two argurments as parameters
+  -define a return variable 
+  -puts set return variable equall to arg one plus arg 2
+
+Formal Psuedo Code
+
+START
+DEF Sum give two argurments
+
+SET result = arg + arg
+
+PRINT Sum 
+END
+
+# a method that takes an array of strings 
+# and returns a string that is all those 
+# strings concatenated together
+
+-define a method with one arg  
+  -arg.each and define a variable
+  -get program to notice each indexed item
+  -make a string visible that adds each item from array to string
+  -maybe a += to a string 
+
+START
+DEF concat_array(X)
+SET x.each 
+SET S += var 
+PRINT S
+END
+
+# a method that takes an array of intergers,
+# and returns a new array with every otehr element
+
+-define a method
+  -make it take an array 
+  -make it reutrn a new array
+  -make the new array with every other interger in the old arr
+
+START 
+DEF new_arr SET arg
+SET arg.map do |d|
+next if d.index.odd?
+PRINT newarr
+END
