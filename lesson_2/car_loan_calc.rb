@@ -27,60 +27,53 @@ END
 =end
 #require 'yaml'
 #MESSAGES = Psych.load_file('car_loan_txt.yml')
+loop do
+  loan_amount = nil
+  apr = nil
+  years = nil
 
-loan_amount = nil
-apr = nil
-years = nil
-def prompt(message)
-  puts ">> #{message}"
-end
+  def prompt(message)
+    puts ">> #{message}"
+  end
 
-def valid_number?(num)
-  /\d/.match(num) && /^-?\d*\.?\d*$/.match(num)
+  def valid_number?(num)
+    num.to_i.to_s == num 
+  end
 
-  #num.to_i.to_s == num || num.to_f.to_s == num
-end
+  def apr_format(apr)
+    apr = (apr.to_f * 0.01) / 12
+  end
 
-def apr_format(apr)
-  x = apr * 0.1
-  x / 12
-end
-
-loop do 
-  prompt("Please enter the total amount of the loan")
-  loan_amount = gets.chomp
-  break if valid_number?(loan_amount)
-  prompt("Please enter a valid number") 
-end
-
- loop do 
-  prompt("Please enter the apr")
-  apr = gets.chomp
-  
-  if valid_number?(apr)
-    apr = (apr.to_f * 0.01) / 12    
-  else
+  loop do 
+    prompt("Please enter the total amount of the loan")
+    loan_amount = gets.chomp
+    break if valid_number?(loan_amount)
     prompt("Please enter a valid number") 
   end
-  break
+
+  loop do 
+    prompt("Please enter the apr as a whole number")
+    apr = gets.chomp
+    break if valid_number?(apr)
+    prompt("Please enter a valid number")
+  end
+
+  loop do 
+    prompt("Please enter the length of the loan in years")
+    years = gets.chomp
+    break if valid_number?(years)
+    prompt("Please enter a valid number") 
+  end
+
+
+  def calculate(loan_amount, monthly_interest, years)
+    m = loan_amount * (monthly_interest / (1 - (1 + monthly_interest)**(-years)))
+    puts m 
+  end
+
+  calculate(loan_amount.to_i, apr_format(apr), (years.to_i * 12))
+  
+  prompt("Do you want to do another calculation? (Y for yes)")
+  answer = gets.chomp.downcase
+  break if answer != 'y'
 end
-
-loop do 
-  prompt("Please enter the length of the loan in years")
-  years = gets.chomp
-  years = (years.to_f * 12)
-  break if valid_number?(years)
-  prompt("Please enter a valid number") 
-end
-
-
-
-
-
-
-def calculate(loan_amount, monthly_interest, years)
-  m = loan_amount * (monthly_interest / (1 - (1 + monthly_interest)**(-years)))
-  puts m 
-end
-
-calculate(loan_amount.to_i,  apr, years.to_i)
