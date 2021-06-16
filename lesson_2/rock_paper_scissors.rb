@@ -1,36 +1,74 @@
-#rock_paper_scissors.rb
+VALID_CHOICES = %w[r p sc l sp]
 
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+WINS = []
+COMPUTER_WINS = []
 
-def prompt(message)
-  puts ("=> #{message}")
+def win?(first, second)
+  ((first == 'r' && second == 'sc') ||
+  (first == 'r' && second == 'l')) ||
+    ((first == 'p' && second == 'r') ||
+    (first == 'p' && second == 'sp')) ||
+    ((first == 'sc' && second == 'p') ||
+    (first == 'sc' && second == 'l')) ||
+    ((first == 'sp' && second == 'sc') ||
+    (first == 'sp' && second == 'r')) ||
+    ((first == 'l' && second == 'p' ||
+      first == 'l' && second == 'sp'))
 end
-loop do
-choice = ''
-loop do
-prompt("Choose one : #{VALID_CHOICES.join(', ')}")
-choice = gets.chomp
 
-  if VALID_CHOICES.include?(choice)
-    break
+def display_results(player, computer)
+  if win?(player, computer)
+    'You won!!!!'
+  elsif win?(computer, player)
+    'Computer won!!!!'
   else
-    prompt("That's not a valid choice.")
+    'Its a tie!!!'
   end
 end
 
-computer_choice = VALID_CHOICES.sample
-
-prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
-
-if (choice =='rock' && computer_choice == 'scissors') || (choice == 'paper' && computer_choice == 'rock') || (choice == 'scissors' && computer_choice == 'paper')
-  puts "You won!!!!"
-elsif (choice =='scissors' && computer_choice == 'rock') || (choice == 'rock' && computer_choice == 'paper') || (choice == 'paper' && computer_choice == 'scissors')
-  puts "Computer won!!!!"
-else
-  puts "Its a tie!!!"
+def prompt(message)
+  puts("=> #{message}")
 end
-prompt("Do you want to play again?? (Y for yes)")
-answer = gets.chomp.downcase
-break if answer != 'y'
+
+def win_counter(player, computer)
+  win_point = display_results(player, computer)
+  win_keep = win_point
+  if win_keep == 'You won!!!!'
+    WINS << 1
+    prompt(win_keep)
+  elsif win_keep == 'Computer won!!!!'
+    COMPUTER_WINS << 1
+    prompt(win_keep)
+  else
+    prompt('It is a tie!!!!')
+  end
 end
-prompt("Thank you for playing Goodbye")
+
+prompt('First to win three wins!!!!')
+loop do
+  choice = ''
+
+  loop do
+    prompt("Choose one :
+      'r' (rock),
+      'sc' (scissors)
+      'sp' (spock)
+      'p' (paper)
+      'l' (lizard)")
+    choice = gets.chomp.downcase
+
+    if VALID_CHOICES.include?(choice)
+      break
+    else
+      prompt("That's not a valid choice.")
+    end
+  end
+
+  computer_choice = VALID_CHOICES.sample
+
+  prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
+  win_counter(choice, computer_choice)
+  prompt("You: #{WINS.length} Computer: #{COMPUTER_WINS.length}")
+  break if WINS.length == 3 || COMPUTER_WINS.length == 3
+end
+prompt('Thank you for playing Goodbye')

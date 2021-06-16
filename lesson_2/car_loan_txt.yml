@@ -1,6 +1,6 @@
-car_loan_txt.yml
-welcome : "Welcome to car loan calc"
-enter_loan : "Please enter the total amount of the loan"
-enter_apr : "Please enter the apr of the loan"
-enter_years : "Please enter how many years the loan will be"
-valid_number : "Please enter a valid number"
+
+welcome: "Welcome to car loan calc"
+enter_loan: "Please enter the total amount of the loan"
+enter_apr: "Please enter the apr of the loan"
+enter_years: "Please enter how many years the loan will be"
+valid_number: "Please enter a valid number"

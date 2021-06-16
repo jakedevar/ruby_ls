@@ -1,3 +1,3 @@
 # hello.rb
 
-Kernel.puts("hello world")
+Kernel.puts('hello world')
