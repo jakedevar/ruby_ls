@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def factors(number)
   divisor = number
   factors = []
