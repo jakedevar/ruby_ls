@@ -4,8 +4,22 @@ vehicles = [
   'car', 'car', 'truck', 'car', 'SUV', 'truck',
   'motorcycle', 'motorcycle', 'car', 'truck'
 ]
-scan = 'car' + 'truck' + 'SUV' + 'motorcycle'
-def count_occurrences(vehicle, scan1)
-  scan1
+def count_cars(vehicles_arr)
+  motor_vehicles = {car: [], SUV: [], truck: [], motorcycle: []}
+  vehicles_arr.each do |vehicle|
+    if vehicle == 'car'
+      motor_vehicles[:car] << vehicle
+    elsif vehicle == 'truck'
+      motor_vehicles[:truck] << vehicle
+    elsif vehicle == 'motorcycle'
+      motor_vehicles[:motorcycle] << vehicle
+    elsif vehicle == 'SUV'
+      motor_vehicles[:SUV] << vehicle
+    end
+  end
+  motor_vehicles.each do |key,value|
+    puts "#{key} => #{value.length}"
+  end
 end
-count_occurrences(vehicles)
+
+count_cars(vehicles)
