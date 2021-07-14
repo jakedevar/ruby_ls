@@ -9,10 +9,10 @@ def after_midnight(minutes)
 end
 
 def before_midnight(minutes)
-  
-  hours_to_minutes = minutes[0..1].to_i
-  subtract = (hours_to_minutes * 60) + minutes[3..4].to_i
-  result = (1440 - subtract)
+  if minutes[0..1].to_i != 0 || minutes[0..1].to_i != 24
+    hours_to_minutes = minutes[0..1].to_i
+    subtract = (hours_to_minutes * 60) + minutes[3..4].to_i
+    result = (1440 - subtract)
   else 
     return 0
   end
