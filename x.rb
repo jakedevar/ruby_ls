@@ -1,8 +1,9 @@
-def format_date(date)
-  date.sub(/\A(\d\d\d\d)-(\d\d)-(\d\d)/, '\3.\2.\1')
+def joinor(arr)
+  arr.insert(-2, 'or ')
 end
 
 
-
-p format_date('2016-06-17') # -> '17.06.2016'
-p format_date('2016/06/17') # -> '2016/06/17' (no change)
+p joinor([1, 2])                   # => "1 or 2"
+p joinor([1, 2, 3])                # => "1, 2, or 3"
+#joinor([1, 2, 3], '; ')          # => "1; 2; or 3"
+#joinor([1, 2, 3], ', ', 'and')   # => "1, 2, and 3"
