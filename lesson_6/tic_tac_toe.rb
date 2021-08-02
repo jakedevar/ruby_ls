@@ -1,7 +1,8 @@
 INITIAL_MARKER = ' '
 PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
-
+wins_player = 0
+wins_computer = 0
 def prompt(msg)
   puts "=> #{msg}"
 end
@@ -96,9 +97,18 @@ loop do
     prompt "It's a tie!"
   end
 
-  
-prompt('Want to play again? Y/N')
-play_again = gets.chomp
-break if play_again != 'Y'.downcase
-display_board(board)
+
+  if detect_winner(board) == 'Player'
+    wins_player += 1
+  elsif detect_winner(board) == 'Computer'
+    wins_computer += 1
+  end
+
+  if (wins_player == 5 || wins_computer == 5)
+    break
+  elsif (wins_player < 5 || wins_computer < 5)
+    prompt("Want to play again? Y/N (Player: #{wins_player} Computer: #{wins_computer})")
+    play_again = gets.chomp
+  end
+  display_board(board)
 end

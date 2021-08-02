@@ -1,9 +1,8 @@
-def xor?(one, two)
-  two || one
+def joinor(arr, symbol = ', ', conjunction = ' or ')
+  arr[-1] = (symbol + conjunction + arr[-1].to_s)
 end
 
-
-p xor?(5.even?, 4.even?) == true
-p xor?(5.odd?, 4.odd?) == true
-p xor?(5.odd?, 4.even?) == false
-p xor?(5.even?, 4.odd?) == false
+p joinor([1, 2])                   # => "1 or 2"
+p joinor([1, 2, 3])                # => "1, 2, or 3"
+#joinor([1, 2, 3], '; ')          # => "1; 2; or 3"
+#joinor([1, 2, 3], ', ', 'and')   # => "1, 2, and 3"
