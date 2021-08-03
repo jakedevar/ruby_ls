@@ -1,20 +1,15 @@
 #exercise_8.rb
 
-def fibonacci(int)
-  f1 = 1
-  f2 = 1
-  arr = []
-  
-  
-  fibonacci(int + 1) + int
-  
- 
+def sum(n)
+  return 1 if n == 1
+  p n + sum(n - 1)
 end
 
+p sum(3)
   
 
 
-p fibonacci(1)# == 1
+#p fibonacci(1)# == 1
 # fibonacci(2) == 1
 # fibonacci(3) == 2
 # fibonacci(4) == 3
