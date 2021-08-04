@@ -1,16 +1,11 @@
 #exercise_8.rb
 
-def sum(n)
-  return 1 if n == 1
-  p n + sum(n - 1)
+def fibonacci(nth)
+  
 end
 
-p sum(3)
-  
-
-
-#p fibonacci(1)# == 1
-# fibonacci(2) == 1
+p fibonacci(1)# == 1
+p fibonacci(2) #== 1
 # fibonacci(3) == 2
 # fibonacci(4) == 3
 # fibonacci(5) == 5
