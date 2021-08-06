@@ -1,8 +1,8 @@
 #exercise_8.rb
 
-def fibonacci(n)
-  return 1 if n <= 2
-  fibonacci(n - 1) + fibonacci(n - 2) 
+def fibonacci(nth)
+  return 1 if nth <= 2
+  fibonacci(nth - 1) + fibonacci(nth - 2)
 end
 #i looked at the solution but I was so close lol
 #if i had just tried to work out the thing with a sheet of paper
