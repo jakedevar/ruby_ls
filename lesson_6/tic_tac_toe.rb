@@ -9,7 +9,22 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
+def joinor(arr, symbol = ', ', conjunction = 'or')
+  result = []
+  arr.join.chars.each_with_index do |ele, index|
+    if arr.join.size == 2
+      index == 1 ? result << ele : result << ele + ' ' + conjunction + ' '
+    elsif (index != arr.size - 1)
+      result << ele + symbol
+    else
+      result << conjunction + ' ' + ele
+    end
+  end
+  result.join
+end
+
 def display_board(brd)
+  system 'clear'
   puts "You are the #{PLAYER_MARKER} the computer is #{COMPUTER_MARKER}"
   puts ''
   puts '     |     |'
@@ -39,7 +54,7 @@ end
 def player_places_peice!(brd)
   square = ''
   loop do
-    prompt "Choose a square (#{empty_squares(brd).join(', ')}):"
+    prompt "Choose a square (#{joinor(empty_squares(brd))}):"
     square = gets.chomp.to_i
     break if empty_squares(brd).include?(square)
 
@@ -80,6 +95,28 @@ def detect_winner(brd)
   end
   nil
 end
+
+def computer_defense(brd)
+  winning_lines = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
+                  [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # colums
+                  [[1, 5, 9], [3, 5, 7]]  # diagonals
+  winning_lines.each do |line|
+       
+      case brd
+      when (brd[line[0]] == PLAYER_MARKER &&
+          brd[line[1]] == PLAYER_MARKER) 
+        brd[line[2]] = COMPUTER_MARKER
+      when (brd[line[0]] == PLAYER_MARKER &&
+          brd[line[2]] == PLAYER_MARKER) 
+        brd[line[1]] = COMPUTER_MARKER
+      when (brd[line[1]] == PLAYER_MARKER &&
+          brd[line[2]] == PLAYER_MARKER) 
+         brd[line[0]] = COMPUTER_MARKER
+      end
+    end
+   
+end
+
 loop do
   board = initialize_board
 
@@ -112,7 +149,9 @@ loop do
   elsif wins_player < 5 || wins_computer < 5
     prompt("Want to play again? Y/N (Player: #{wins_player} Computer: #{wins_computer})")
     play_again = gets.chomp
+    break if play_again != 'y'.downcase
   end
-
+  
   display_board(board)
+  
 end

@@ -1,23 +1,43 @@
 #exercise_9.rb
 
 def bubble_sort!(arr)
-  first = 0
-  last = 1
-
-  arr.size.times do 
-    if arr[first] <= arr[last]
-      first += 1
-      last += 1
-    elsif arr[first] >= arr[last]
-      holder = arr[first]
-      arr[first] = arr[last]
-      arr[last] = holder
-      first += 1
-      last += 1
+  counter = 1
+  swap = 0
+  loop do 
+   if swap > 0 
+    loop do 
+      break if arr.size == counter
+      if arr[counter - 1] < arr[counter]
+        counter += 1
+        swap += 1
+      else
+        holder = arr[counter - 1]
+        arr[counter - 1] = arr[counter]
+        arr[counter] = holder
+        counter += 1
+        swap = true
+      end
     end
+  else 
   end
-  arr
+  end
+    arr
 end
+#LS solution
+def bubble_sort!(array)
+  loop do
+    swapped = false
+    1.upto(array.size - 1) do |index|
+      next if array[index - 1] <= array[index]
+      array[index - 1], array[index] = array[index], array[index - 1]
+      swapped = true
+    end
+
+    break unless swapped
+  end
+  nil
+end
+
 
 #array = [5, 3]
 # p bubble_sort!(array)
