@@ -5,10 +5,16 @@ PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
 wins_player = 0
 wins_computer = 0
+WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
+                [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # colums
+                [[1, 5, 9], [3, 5, 7]]
+COMPUTER_CHOICE = %w[c h].freeze
+
 def prompt(msg)
   puts "=> #{msg}"
 end
 
+# keeps everything neat when picking a place player
 def joinor(arr, symbol = ', ', conjunction = 'or')
   result = []
   arr.join.chars.each_with_index do |ele, index|
@@ -41,6 +47,7 @@ def display_board(brd)
   puts ''
 end
 
+# starts the board
 def initialize_board
   new_board = {}
   (1..9).each { |num| new_board[num] = INITIAL_MARKER }
@@ -51,6 +58,7 @@ def empty_squares(brd)
   brd.keys.select { |num| brd[num] == INITIAL_MARKER }
 end
 
+# player piece method
 def player_places_peice!(brd)
   square = ''
   loop do
@@ -67,15 +75,14 @@ def board_full?(brd)
   empty_squares(brd).empty?
 end
 
+# win?
 def someone_won?(brd)
   !!detect_winner(brd)
 end
 
+# win?
 def detect_winner(brd)
-  winning_lines = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
-                  [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # colums
-                  [[1, 5, 9], [3, 5, 7]] # diagonals
-  winning_lines.each do |line|
+  WINNING_LINES.each do |line|
     if brd[line[0]] == PLAYER_MARKER &&
        brd[line[1]] == PLAYER_MARKER &&
        brd[line[2]] == PLAYER_MARKER
@@ -91,41 +98,78 @@ def detect_winner(brd)
   nil
 end
 
-def computer_defense(brd)
-  square = empty_squares(brd).sample
-  winning_lines = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
-                  [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # colums
-                  [[1, 5, 9], [3, 5, 7]] # diagonals
-  winning_lines.each do |line|
-    if (brd[line[0]] == PLAYER_MARKER && brd[line[1]] == PLAYER_MARKER) && brd[line[2]] != COMPUTER_MARKER
-      brd[line[2]] = COMPUTER_MARKER
-    elsif (brd[line[0]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER) && brd[line[1]] != COMPUTER_MARKER
-      brd[line[1]] = COMPUTER_MARKER
-    elsif (brd[line[1]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER) && brd[line[0]] != COMPUTER_MARKER
-      brd[line[0]] = COMPUTER_MARKER
-    else
-      brd[square] = COMPUTER_MARKER
-    end
-    break
+# find squares computer
+def find_at_risk_square(line, board, marker)
+  if board.values_at(*line).count(marker) == 2
+    board.select { |k, v| line.include?(k) && v == INITIAL_MARKER }.keys.first
   end
 end
 
-# def computer_places_peice(brd)
-#   computer_defense(brd)
-#   # square = empty_squares(brd).sample
-#   # brd[square] = COMPUTER_MARKER
+def computer_places_piece!(brd)
+  square = nil
 
-# end
+  # offense
+  unless square
+    WINNING_LINES.each do |line|
+      square = find_at_risk_square(line, brd, COMPUTER_MARKER)
+      break if square
+    end
+  end
+  # defense
+  unless square
+    WINNING_LINES.each do |line|
+      square = find_at_risk_square(line, brd, PLAYER_MARKER)
+      break if square
+    end
+  end
 
+  if !square && brd[5] == ' '
+    brd[5] = COMPUTER_MARKER
+  elsif !square
+    square = empty_squares(brd).sample
+  end
+
+  brd[square] = COMPUTER_MARKER
+end
+
+def alternate_player(data)
+  data = if data == 'h'
+           'c'
+         else
+           'h'
+         end
+end
+
+# place piece both
+def place_piece!(brd, current_player)
+  if current_player == 'h'
+    player_places_peice!(brd)
+  else
+    computer_places_piece!(brd)
+  end
+end
+
+# GAME LOOP
 loop do
   board = initialize_board
 
-  loop do
-    display_board(board)
-    player_places_peice!(board)
-    break if someone_won?(board) || board_full?(board)
+  prompt('Who would you like to chose who goes first? (H for human C for computer)')
+  who_choses_first = gets.chomp.downcase
+  # below; who goes first?
+  case who_choses_first
+  when 'h'
+    prompt('Who would you like to go first? (C/H)?')
+    current_player = gets.chomp
+  when 'c'
+    current_player = COMPUTER_CHOICE.sample
+  else
+    prompt('That is not a valid response')
+  end
 
-    computer_defense(board)
+  loop do # play game loop
+    display_board(board)
+    place_piece!(board, current_player)
+    current_player = alternate_player(current_player)
     break if someone_won?(board) || board_full?(board)
   end
 
@@ -154,33 +198,3 @@ loop do
 
   display_board(board)
 end
-
-# def computer_defense(brd)
-#   square = empty_squares(brd).sample
-#   winning_lines = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
-#                   [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # colums
-#                   [[1, 5, 9], [3, 5, 7]]  # diagonals
-#   winning_lines.each do |line|
-#     if (brd[line[0]] == PLAYER_MARKER && brd[line[1]] == PLAYER_MARKER) && brd[line[2]] != COMPUTER_MARKER
-#       brd[line[2]] = COMPUTER_MARKER
-#       break
-#     elsif (brd[line[0]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER) && brd[line[1]] != COMPUTER_MARKER
-#        brd[line[1]] = COMPUTER_MARKER
-#        break
-#     elsif (brd[line[1]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER) && brd[line[0]] != COMPUTER_MARKER
-#        brd[line[0]] = COMPUTER_MARKER
-#        break
-#     else
-#      brd[square] = COMPUTER_MARKER
-#      break
-#     end
-#   end
-# end #this is my solution to the issue of computer defense. LS is below
-
-# def find_at_risk_square(line, board)
-#   if board.values_at(*line).count('X') == 2 || board.values_at(*line).count('O') == 2
-#     board.select{|k,v| line.include?(k) && v == ' '}.keys.first
-#   else
-#     nil
-#   end
-# end #my piggybacked solution on top of LS's defensive feature
