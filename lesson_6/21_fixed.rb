@@ -1,30 +1,38 @@
 # frozen_string_literal: true
 
-cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+cards = ['J', 'Q', 'K', 'A']
+suits = %w[H C S D]
+
 
 def prompt(string)
   puts "=> #{string}" # I like the arrow rocket better over the >>
 end
 
-def deck(cards)
-  deck = cards * 4
-  deck.shuffle
+def deck(cards, suits)
+  suits.product(cards).shuffle
 end
 
 def deal_conversion(arr)
-  arr.map do |ele|
-    if ele == 'A'
+  arr.map do |sub|
+    if sub[1] == 'A'
       11
-    elsif ele.to_i == 0
+    elsif sub[1].to_i == 0
       10
     else
-      ele
+      sub[1]
     end
   end
 end
 
 def total(cards)
-  deal_conversion(cards).sum
+  add = 0
+  if add > 21 && cards.include?('A')
+    cards.count {|ele| ele == 'A'}.times do
+                                 (add -= 10)
+    end
+  else
+    add += deal_conversion(cards).sum
+  end  
 end
 
 def bust?(cards)
@@ -33,7 +41,7 @@ end
 
 def display_cards(player, computer)
   prompt("Computer has: #{computer.join(', ')} Total: #{total(computer)}")
-  prompt("Player has: #{player.join(', ')} Total: #{total(player)}")
+  prompt("Player has: #{player} Total: #{total(player)}")
 end
 
 def play_again?
@@ -78,39 +86,39 @@ loop do #main loop
   dealer = []
 
   2.times do #init hands
-    player << deck(cards).pop
-    dealer << deck(cards).pop
+    player << deck(cards, suits).pop
+    dealer << deck(cards, suits).pop
   end
-  exit_loop = nil
+  
   loop do #player hit
     prompt("Computer has: #{dealer[0]}, Unknown")
-    prompt("Player has: #{player.join(', ')} Total: #{total(player)}")
+    prompt("Player has: #{player} Total: #{total(player)}")
     puts '========================='
     prompt('Player: Hit or Stay? (H/S)')
     player_input = gets.chomp
     if player_input == 'h'
       prompt 'You chose to hit!'
       puts '========================='
-      player << deck(cards).pop
+      player << deck(cards, suits).pop
     elsif player_input == 's'.downcase
       prompt 'You Chose to stay...'
-      exit_loop = true
     else
     prompt('That is not a valid input please enter H or S')
     end
-    break if total(player) > 21 || exit_loop == true
+    break if total(player) > 21 || player_input == 's'
   end
 
-  unless detect_win?(player, dealer) == :player_bust
-    break if total(dealer) >= 17
+  loop do
+    break if total(dealer) >= 17 ||  detect_win?(player, dealer) == :player_bust
     prompt 'Dealer Hits!'
-    dealer << deck(cards).pop
+    puts '========================='
+
+    dealer << deck(cards, suits).pop
   end
 
   display_cards(player, dealer)
   display_win(player, dealer)
 
-  puts '========================='
   puts '========================='
 
   break if !play_again? 
