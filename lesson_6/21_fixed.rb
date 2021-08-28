@@ -1,11 +1,8 @@
-# frozen_string_literal: true
-
-cards = ['J', 'Q', 'K', 'A']
+cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
 suits = %w[H C S D]
 
-
 def prompt(string)
-  puts "=> #{string}" # I like the arrow rocket better over the >>
+  puts "=> #{string}"
 end
 
 def deck(cards, suits)
@@ -26,21 +23,21 @@ end
 
 def total(cards)
   add = 0
-  if add > 21 && cards.include?('A')
-    cards.count {|ele| ele == 'A'}.times do
-                                 (add -= 10)
-    end
-  else
-    add += deal_conversion(cards).sum
-  end  
+  convert = deal_conversion(cards)
+  add += convert.sum
+
+  cards.flatten.select { |value| value == 'A' }.count.times do
+    add -= 10 if add > 21
+  end
+  add
 end
 
 def bust?(cards)
-  total(cards) > 21 ? true : false
+  total(cards) > 21
 end
 
 def display_cards(player, computer)
-  prompt("Computer has: #{computer.join(', ')} Total: #{total(computer)}")
+  prompt("Computer has: #{computer} Total: #{total(computer)}")
   prompt("Player has: #{player} Total: #{total(player)}")
 end
 
@@ -61,36 +58,36 @@ def detect_win?(player_hand, computer_hand)
     :player_win
   else
     :tie
-  end    
+  end
 end
 
 def display_win(player_hand, computer_hand)
   value = detect_win?(player_hand, computer_hand)
   case value
-    when :player_bust
-      prompt 'Player busted!! Dealer Wins'
-    when :computer_bust
-      prompt 'Dealer busted!! You Win!!!!'
-    when :computer_win 
-      prompt 'Dealer won :('
-    when :player_win
-      prompt 'Player won!!!!!!!!'
-    when :tie
-      prompt 'The result is a tie...'
+  when :player_bust
+    prompt 'Player busted!! Dealer Wins'
+  when :computer_bust
+    prompt 'Dealer busted!! You Win!!!!'
+  when :computer_win
+    prompt 'Dealer won :('
+  when :player_win
+    prompt 'Player won!!!!!!!!'
+  when :tie
+    prompt 'The result is a tie...'
   end
 end
 
-loop do #main loop
+loop do # main loop
   prompt('Lets begin!')
   player = []
   dealer = []
 
-  2.times do #init hands
+  2.times do # init hands
     player << deck(cards, suits).pop
     dealer << deck(cards, suits).pop
   end
-  
-  loop do #player hit
+
+  loop do # player hit
     prompt("Computer has: #{dealer[0]}, Unknown")
     prompt("Player has: #{player} Total: #{total(player)}")
     puts '========================='
@@ -102,14 +99,15 @@ loop do #main loop
       player << deck(cards, suits).pop
     elsif player_input == 's'.downcase
       prompt 'You Chose to stay...'
+      puts '========================='
     else
-    prompt('That is not a valid input please enter H or S')
+      prompt('That is not a valid input please enter H or S')
     end
     break if total(player) > 21 || player_input == 's'
   end
 
   loop do
-    break if total(dealer) >= 17 ||  detect_win?(player, dealer) == :player_bust
+    break if total(dealer) >= 17 || detect_win?(player, dealer) == :player_bust
     prompt 'Dealer Hits!'
     puts '========================='
 
@@ -121,7 +119,7 @@ loop do #main loop
 
   puts '========================='
 
-  break if !play_again? 
+  break unless play_again?
 end
 # I think the questions I should be asking are how can i make something as simple as possible. I used to do this and then decided I was beating myself up for not
 # having the simplest soltuion. I think a mix of the two should be good. One I think the code needs to be readable. also think where you can use occams razor on things

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-INITIAL_MARKER = ' '
-PLAYER_MARKER = 'X'
-COMPUTER_MARKER = 'O'
-wins_player = 0
-wins_computer = 0
+INITIAL_MARKER = ' '.freeze
+PLAYER_MARKER = 'X'.freeze
+COMPUTER_MARKER = 'O'.freeze
+
 def prompt(msg)
   puts "=> #{msg}"
 end

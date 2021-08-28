@@ -1,10 +1,6 @@
-# frozen_string_literal: true
-
-INITIAL_MARKER = ' '
-PLAYER_MARKER = 'X'
-COMPUTER_MARKER = 'O'
-wins_player = 0
-wins_computer = 0
+INITIAL_MARKER = ' '.freeze
+PLAYER_MARKER = 'X'.freeze
+COMPUTER_MARKER = 'O'.freeze
 WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
                 [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # colums
                 [[1, 5, 9], [3, 5, 7]]
@@ -14,7 +10,6 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
-# keeps everything neat when picking a place player
 def joinor(arr, symbol = ', ', conjunction = 'or')
   result = []
   arr.join.chars.each_with_index do |ele, index|
@@ -133,11 +128,7 @@ def computer_places_piece!(brd)
 end
 
 def alternate_player(data)
-  data = if data == 'h'
-           'c'
-         else
-           'h'
-         end
+  data == 'h' ? 'c' : 'h'
 end
 
 # place piece both
@@ -152,9 +143,12 @@ end
 # GAME LOOP
 loop do
   board = initialize_board
+  wins_player = 0
+  wins_computer = 0
 
   prompt('Who would you like to chose who goes first? (H for human C for computer)')
   who_choses_first = gets.chomp.downcase
+  
   # below; who goes first?
   case who_choses_first
   when 'h'
