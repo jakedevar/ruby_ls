@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-INITIAL_MARKER = ' '
-PLAYER_MARKER = 'X'
-COMPUTER_MARKER = 'O'
+INITIAL_MARKER = ' '.freeze
+PLAYER_MARKER = 'X'.freeze
+COMPUTER_MARKER = 'O'.freeze
 wins_player = 0
 wins_computer = 0
 def prompt(msg)
