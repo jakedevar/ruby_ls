@@ -1,6 +1,10 @@
 VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 SUIT = ['C', 'S', 'H', 'D']
 
+def prompt(phrase)
+  puts ">> #{phrase}"
+end
+
 def initilize_deck(s, v)
   s.product(v).shuffle
 end
@@ -26,7 +30,13 @@ def total(player_cards)
   total
 end
 
+def hit(card_deck, player_cards)
+  player_cards << card_deck.pop
+end
 
+def display_player_hand(cards)
+  puts "Player has #{cards[1]} of #{cards[0]} Total: #{total(cards)}"
+end
 
 loop do 
 deck = initilize_deck(SUIT, VALUES)
@@ -36,6 +46,10 @@ computer_cards = []
   human_cards << deck.pop
   computer_cards << deck.pop
 end
-puts total(human_cards), total(computer_cards)
-break
+display_player_hand(human_cards)
+loop do #player hit
+  prompt('Would you like to Hit or Stay? (H/S)')
+  affinity urgent care
+  elite urgent care
+end
 end
