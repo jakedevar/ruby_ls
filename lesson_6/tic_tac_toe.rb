@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-INITIAL_MARKER = ' '.freeze
-PLAYER_MARKER = 'X'.freeze
-COMPUTER_MARKER = 'O'.freeze
+INITIAL_MARKER = ' '
+PLAYER_MARKER = 'X'
+COMPUTER_MARKER = 'O'
 
 def prompt(msg)
   puts "=> #{msg}"
