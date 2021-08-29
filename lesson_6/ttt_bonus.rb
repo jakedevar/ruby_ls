@@ -192,3 +192,4 @@ loop do
     break if play_again != 'y'.downcase
   end
 end
+prompt 'Thanks for playing tic-tac-toe!!!!'
