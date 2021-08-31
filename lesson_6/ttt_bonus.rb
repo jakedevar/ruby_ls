@@ -86,37 +86,43 @@ end
 # win?
 def detect_winner(brd)
   WINNING_LINES.each do |line|
-    if brd.values_at(*line).count(PLAYER_MARKER) == 3
-      return 'Player'
-    elsif brd.values_at(*line).count(COMPUTER_MARKER) == 3
-      return 'Computer'
-    end
+    return 'Player' if brd.values_at(*line).count(PLAYER_MARKER) == 3
+    return 'Computer' if brd.values_at(*line).count(COMPUTER_MARKER) == 3
   end
   nil
 end
 
 # find squares computer
+# rubocop: disable Style/RedundantReturn
 def find_at_risk_square(line, board, marker)
   if board.values_at(*line).count(marker) == 2
     board.select { |k, v| line.include?(k) && v == INITIAL_MARKER }.keys.first
+  else
+    nil
   end
 end
+# rubocop: enable Style/RedundantReturn
 
 # offense helper
-def comp_offense(brd, square)
-  unless square
-    WINNING_LINES.each do |line|
-      return find_at_risk_square(line, brd, COMPUTER_MARKER)
-    end
+def comp_offense(brd, _square)
+  WINNING_LINES.each do |line|
+    return find_at_risk_square(line, brd, COMPUTER_MARKER)
   end
 end
 
 # defense helper
 def comp_defense(brd, square)
-  unless square
-    WINNING_LINES.each do |line|
-      return find_at_risk_square(line, brd, PLAYER_MARKER)
-    end
+  WINNING_LINES.each do |line|
+    return find_at_risk_square(line, brd, PLAYER_MARKER) unless square
+  end
+end
+
+# chose middle square
+def choose_middle_square_and_rand_square(brd, square)
+  if !square && brd[5] == ' '
+    brd[5] = COMPUTER_MARKER
+  elsif !square
+    empty_squares(brd).sample
   end
 end
 
@@ -124,18 +130,13 @@ def computer_places_piece!(brd)
   square = nil
 
   # offense
-
   square ||= comp_offense(brd, square)
+
   # defense
 
   square ||= comp_defense(brd, square)
 
-  # choose middle square first
-  if !square && brd[5] == ' '
-    brd[5] = COMPUTER_MARKER
-  elsif !square
-    square = empty_squares(brd).sample
-  end
+  square ||= choose_middle_square_and_rand_square(brd, square)
 
   brd[square] = COMPUTER_MARKER
 end

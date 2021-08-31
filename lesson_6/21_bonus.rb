@@ -4,6 +4,8 @@ require 'pry'
 BOARD = [[], []].freeze
 CARDS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'].freeze
 SUITS = %w[H C S D].freeze
+BUST_NUM = 21
+DEALER_STAY_AT = 17
 
 def prompt(string)
   puts "=> #{string}"
@@ -31,13 +33,13 @@ def total(cards)
   add += convert.sum
 
   cards.flatten.select { |value| value == 'A' }.count.times do
-    add -= 10 if add > 21
+    add -= 10 if add > BUST_NUM
   end
   add
 end
 
 def bust?(hand_total)
-  hand_total > 21
+  hand_total > BUST_NUM
 end
 
 def play_again?
@@ -141,7 +143,7 @@ def player_hit_loop(player, dealer) #player turn
     player_input = gets.chomp
     player_hit_or_stay(player_input, player)
     player_total = total(player)
-    break if player_total > 21 || player_input == 's'
+    break if player_total > BUST_NUM || player_input == 's'
   end
 end
 
@@ -149,7 +151,7 @@ def dealer_hit_loop(player, dealer)
   loop do # dealer hit
     player_total = total(player)
     dealer_total = total(dealer)
-    break if dealer_total >= 17 || bust?(player_total)
+    break if dealer_total >= DEALER_STAY_AT || bust?(player_total)
 
     prompt 'Dealer Hits!'
     puts '========================='
@@ -161,10 +163,8 @@ end
 def first_to_five?
   if BOARD[0][0] == 2
     prompt 'The player has won all five games congratulations!!!!'
-    2
   elsif BOARD[1][0] == 2
     prompt 'The dealer has won all five games... Better luck next time!!'
-    2
   else
     nil
   end
