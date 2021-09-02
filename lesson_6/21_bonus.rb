@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-require 'pry'
 BOARD = [[], []].freeze
 CARDS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'].freeze
 SUITS = %w[H C S D].freeze
@@ -151,12 +148,13 @@ def dealer_hit_loop(player, dealer)
   loop do # dealer hit
     player_total = total(player)
     dealer_total = total(dealer)
-    break if dealer_total >= DEALER_STAY_AT || bust?(player_total)
+    
 
     prompt 'Dealer Hits!'
     puts '========================='
     prompt("Dealer has: #{dealer} Total: #{dealer_total}")
     dealer << deck.pop
+    break if dealer_total >= DEALER_STAY_AT || bust?(player_total)
   end
 end
 
