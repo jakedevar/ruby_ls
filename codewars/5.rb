@@ -3,6 +3,7 @@ PEDAC Template
 ==============
 (Understand the) Problem
 return the length of the longest vowel chain in the string given 
+check the characters to the vowels given 
 ------------------------
 -  Inputs: a string
 -  Output: an integer representing the longest vowel chain
@@ -10,8 +11,8 @@ return the length of the longest vowel chain in the string given
 **Explicit **
 ---
 **Clarifying Questions:**
-1. 
-2.
+1. I cannot group or select because that would just return a conglomerate
+2. I need to count the length of the longest vowel chain
 3.
 ---
 **Implicit Requirements:**
@@ -42,8 +43,7 @@ and out puts a regular integer
 ---
 Algorithm
 ---------
-take the string and partition by the regex aeiou
-return the max of the subarrays
+take the string and create an array where the vowels are grouped together using split. then map by length and return max
 
 
 **Helper Methods??**
@@ -52,7 +52,7 @@ Code
 ----
 =end
 def solve(string)
-  string.split(/[^aeiou]/).sort_by {|n| n.length}[-1].size
+  string.downcase.split(/[^aeiou]/).map {|ele| ele.length}.max
 end
 
 

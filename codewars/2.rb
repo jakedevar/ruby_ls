@@ -52,7 +52,8 @@ Code
 =end
 
 def pairs(arr)
-  arr.uniq.inject(0) { |sum, x| sum + arr.count(x) / 2}
+ x = arr.tally.values
+ x.map {|ele| ele / 2}.sum
 end
 
   
