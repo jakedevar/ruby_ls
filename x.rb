@@ -1,3 +1,4 @@
-p [1, 2, 3].map {|n| n + 1}
+x = (5..10).chain([1, 2])
 
-p [1, 2, 3].map {|n| n += 1}
+
+p x.to_a.chunk {|n| n.even?}.each {|even, arr| p arr}

@@ -6,14 +6,14 @@ PEDAC Template
 -  Inputs:
 -  Output:
 ---
-**Problem Domain:**
----
-**Implicit Requirements:**
+**Explicit **
 ---
 **Clarifying Questions:**
 1.
 2.
 3.
+---
+**Implicit Requirements:**
 ---
 **Mental Model:**
 ---
@@ -42,6 +42,9 @@ Data Structure
 ---
 Algorithm
 ---------
+
+**Helper Methods??**
+
 Code
 ----
 =end
