@@ -1,26 +1,24 @@
-BOARD = [[], []].freeze
-CARDS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'].freeze
-SUITS = %w[H C S D].freeze
+# frozen_string_literal: true
+
+BOARD = { player: 0, dealer: 0 }.freeze
+CARDS = { 'Ace' => 11, 'Two' => 2, 'Three' => 3, 'Four' => 4, 'Five' => 5, 'Six' => 6, 'Seven' => 7, 'Eight' => 8,
+          'Nine' => 9, 'Ten' => 10, 'Jack' => 10, 'Queen' => 10, 'King' => 10 }.freeze
+SUITS = %w[Hearts Clubs Spades Diamonds].freeze
 BUST_NUM = 21
 DEALER_STAY_AT = 17
+NUM_OF_GAMES = 5
 
 def prompt(string)
   puts "=> #{string}"
 end
 
 def deck
-  SUITS.product(CARDS).shuffle
+  SUITS.product(CARDS.keys).shuffle
 end
 
 def deal_conversion(arr)
-  arr.map do |sub|
-    if sub[1] == 'A'
-      11
-    elsif sub[1].to_i.zero?
-      10
-    else
-      sub[1]
-    end
+  arr.map do |card_arr|
+    CARDS[card_arr[1]]
   end
 end
 
@@ -29,7 +27,7 @@ def total(cards)
   convert = deal_conversion(cards)
   add += convert.sum
 
-  cards.flatten.select { |value| value == 'A' }.count.times do
+  cards.flatten.select { |value| value == 'Ace' }.count.times do
     add -= 10 if add > BUST_NUM
   end
   add
@@ -46,14 +44,14 @@ def play_again?
 end
 
 # rubocop: disable Metrics/MethodLength
-def detect_win?(player_total, computer_total)
+def detect_win?(player_total, dealer_total)
   if bust?(player_total)
     :player_bust
-  elsif bust?(computer_total)
-    :computer_bust
-  elsif computer_total > player_total
-    :computer_win
-  elsif computer_total < player_total
+  elsif bust?(dealer_total)
+    :dealer_bust
+  elsif dealer_total > player_total
+    :dealer_win
+  elsif dealer_total < player_total
     :player_win
   else
     :tie
@@ -65,9 +63,9 @@ def display_win(player, dealer)
   case value
   when :player_bust
     prompt 'Player busted!! Dealer Wins'
-  when :computer_bust
+  when :dealer_bust
     prompt 'Dealer busted!! You Win!!!!'
-  when :computer_win
+  when :dealer_win
     prompt 'Dealer won :('
   when :player_win
     prompt 'Player won!!!!!!!!'
@@ -81,23 +79,19 @@ end
 def final_spread(dealer, player)
   puts '**************************************************'
   prompt 'Final Spread'
-  prompt("Dealer has: #{dealer} Total: #{total(dealer)}")
-  prompt("Player has: #{player} Total: #{total(player)}")
+  prompt("Dealer has: #{readable_hand(dealer)} | Total: #{total(dealer)}")
+  prompt("Player has: #{readable_hand(player)} | Total: #{total(player)}")
   puts '**************************************************'
 end
 
-def score_board(hand)
-  case hand
-  when :player_win
-    BOARD[0] << 1
-  when :computer_win
-    BOARD[1] << 1
-  when :computer_bust
-    BOARD[0] << 1
-  when :player_bust
-    BOARD[1] << 1
+def score_board(win)
+  case win
+  when :player_win, :dealer_bust
+    BOARD[:player] += 1
+  when :dealer_win, :player_bust
+    BOARD[:dealer] += 1
   end
-  prompt "Player Wins: #{BOARD[0].sum} Dealer Wins: #{BOARD[1].sum}"
+  prompt "Player Wins: #{BOARD[:player]} Dealer Wins: #{BOARD[:dealer]}"
 end
 
 # rubocop: disable Metrics/MethodLength
@@ -130,11 +124,12 @@ def deal_first_hand(player, dealer)
   end
 end
 
-def player_hit_loop(player, dealer) #player turn
+# player turn
+def player_hit_loop(player, dealer)
   loop do
     player_total = total(player)
-    prompt("Computer has: #{dealer[0]}, Unknown")
-    prompt("Player has: #{player} Total: #{player_total}")
+    prompt("Computer has: #{readable_hand(dealer)}, Unknown")
+    prompt("Player has: #{readable_hand(player)} | Total: #{player_total}")
     puts '========================='
     prompt('Player: Hit or Stay? (H/S)')
     player_input = gets.chomp
@@ -148,44 +143,51 @@ def dealer_hit_loop(player, dealer)
   loop do # dealer hit
     player_total = total(player)
     dealer_total = total(dealer)
-    
+    break if dealer_total >= DEALER_STAY_AT || bust?(player_total)
 
     prompt 'Dealer Hits!'
     puts '========================='
-    prompt("Dealer has: #{dealer} Total: #{dealer_total}")
+    prompt("Dealer has: #{readable_hand(dealer)} | Total: #{dealer_total}")
     dealer << deck.pop
-    break if dealer_total >= DEALER_STAY_AT || bust?(player_total)
   end
 end
 
 def first_to_five?
-  if BOARD[0][0] == 2
+  if BOARD[:player] == NUM_OF_GAMES
     prompt 'The player has won all five games congratulations!!!!'
-  elsif BOARD[1][0] == 2
+    true
+  elsif BOARD[:dealer] == NUM_OF_GAMES
     prompt 'The dealer has won all five games... Better luck next time!!'
-  else
-    nil
+    true
   end
 end
 
+def readable_hand(hand)
+  read = hand.map do |card_arr|
+    "#{card_arr[1]} of #{card_arr[0]}"
+  end
+  read.join(', ')
+end
+
 loop do # Game Loop
-  opening_greeting 
-  player = [] #Game Hands
-  dealer = [] 
+  opening_greeting
+  player = [] # Game Hands
+  dealer = []
 
-  deal_first_hand(player, dealer) 
+  deal_first_hand(player, dealer)
 
-  player_hit_loop(player, dealer) #turn loops
+  player_hit_loop(player, dealer) # turn loops
   dealer_hit_loop(player, dealer)
 
   final_spread(dealer, player)
   display_win(player, dealer)
-  
-  player_total = total(player) #done for bonus requirement
+
+  player_total = total(player) # done for bonus requirement
   dealer_total = total(dealer)
   score_board(detect_win?(player_total, dealer_total))
-  
-  break if !play_again? || first_to_five? == 2
+
+  break if first_to_five? || !play_again?
+
   system 'clear'
 end
 
