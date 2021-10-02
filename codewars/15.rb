@@ -19,8 +19,7 @@ group all items and check if all items are the same value
 def is_valid_walk(arr)
   return false if arr.length > 10 || arr.length == 1
   storage = arr.group_by {|i| i}.values.map(&:length)
-  return true if storage.all? {|x| x == storage[0]} 
-  false
+  storage.all?(storage[0]) ? true : false
 end
 
 p is_valid_walk(['n','s','n','s','n','s','n','s','n','s']) == true
