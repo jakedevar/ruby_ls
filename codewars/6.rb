@@ -61,29 +61,69 @@ Code
 ----
 =end
 
-def solve(string)
-  result = []
-  chars = string.chars
-  chars.each_with_index do |chr1, indx1|
-    str = chr1
-    chars.each_with_index do |chr2, indx2|
-      next if indx2 < indx1
-      str += chr2 if indx2 > indx1
-      result << str if str.to_i.odd?      
-    end
-  end
-  result.length
+# def solve(string)
+#   result = []
+#   chars = string.chars
+#   chars.each_with_index do |chr1, indx1|
+#     str = chr1
+#     chars.each_with_index do |chr2, indx2|
+#       next if indx2 < indx1
+#       str += chr2 if indx2 > indx1
+#       result << str if str.to_i.odd?      
+#     end
+#   end
+#   result.length
+# end
+
+=begin
+# ------------------- Problem ---------------------
+return the count as an integer of all the substrings that are odd including single digits 
+from the input string 
+
+# ------------------- Examples --------------------
+just numbers no empty strings it looks like 
+be ready to return 0 
+
+# ------------------- Data ------------------------
+using an array for this one to use the with index 
+
+# ------------------- Algorithm -------------------
+call each index on chars
+call each index on chars again 
+counter += 1 if above crurent index and str slice to i is odd?
+
+def solve str
+  split string to chars
+  counter
+  each ind
+  each ind
+  guard clause
+  counter return 
 end
 
+# ------------------- Storm -----------------------
+hypothesis, the count will be below what it should be because the index being called in slice will go to nil
+=end
+
+def solve str
+  chars = str.chars
+  counter = 0 
+  chars.each_index do |ind1|
+    chars.each_index do |ind2|
+      counter += 1 if str[ind1..((ind2 + 1) - str.size)].to_i.odd?
+    end
+  end
+  counter
+end
 
 p solve("1341") == 7
 
-# p solve("1357") == 10
+p solve("1357") == 10
 
-# p solve("13471") == 12
+p solve("13471") == 12
 
-# p solve("134721") == 13
+p solve("134721") == 13
 
-# p solve("1347231") == 20
+p solve("1347231") == 20
 
-# p solve("13472315") == 28
+p solve("13472315") == 28
