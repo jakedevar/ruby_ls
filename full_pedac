@@ -1,22 +1,24 @@
 =begin
-PEDAC Template
-==============
-(Understand the) Problem
+========================
+**(Understand the) Problem**
 ------------------------
+**Explicit Requirements**
+------------------------
+-   Rules: 
 -  Inputs:
 -  Output:
----
-**Explicit **
----
+-  Visual Reference:
+------------------------
 **Clarifying Questions:**
+------------------------
 1.
 2.
 3.
----
+------------------------
 **Implicit Requirements:**
----
+------------------------
 **Mental Model:**
----
+------------------------
 Examples / Test Cases / Edge Cases
 ----------------------------------
 **Examples:**
