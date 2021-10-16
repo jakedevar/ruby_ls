@@ -1,1 +1,4 @@
-p 'abcdefghijklmnopqurstuvwxyz'.gsub(/[a-z&&[aeiou]]/, '')
+class GoodDog
+end
+sarky = GoodDog.new
+# ==instantation
