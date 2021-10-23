@@ -5,14 +5,12 @@ def leap_year?(year)
   elsif year % 100 ==0
     false
   elsif year % 4 ==0
-    true 
+    true
   else
     false
   end
-    
-  
-end
 
+end
 
 #LS soltuion i had to give in after beating it for a while
 def leap_year?(year)
@@ -24,11 +22,11 @@ def leap_year?(year)
     year % 4 == 0
   end
 end
-#wait I actually had gotten it right once !! i thought that all the expressoins below had to evaluate to true but even the LS solution does not 
+#wait I actually had gotten it right once !! i thought that all the expressoins below had to evaluate to true but even the LS solution does not
 # it looks like there are some edge cases built in and you had to read them in order to understand what was going on
 =end
 def leap_year?(year)
-  return true if year % 400 == 0 ||( year % 100 != 0 && year % 4 == 0)
+  return true if year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)
   false
 end
 p leap_year?(2016) == true

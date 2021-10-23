@@ -1,6 +1,4 @@
-
-
- paragraph = "Four score and seven years ago our fathers brought forth
+paragraph = "Four score and seven years ago our fathers brought forth
 on this continent a new nation, conceived in liberty, and
 dedicated to the proposition that all men are created
 equal.
@@ -32,8 +30,8 @@ of freedom -- and that government of the people, by
 the people, for the people, shall not perish from the
 earth."
 
-def longest p
+def longest(p)
   p.split(/[\.\!\?]/)
 end
 
-p longest(paragraph).max_by {|sentance| sentance.length}.split.size
+p longest(paragraph).max_by { |sentance| sentance.length }.split.size

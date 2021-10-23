@@ -2,7 +2,7 @@ def multiply(one, two)
   one * two
 end
 
-def square int
+def square(int)
   multiply(int, int)
 end
 

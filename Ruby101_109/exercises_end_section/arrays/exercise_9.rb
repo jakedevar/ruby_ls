@@ -1,7 +1,6 @@
-#exercise_9.rb
+# exercise_9.rb
 
-#p favorites = [['Dave', 7], ['Miranda', 3], ['Jason', 11]].flatten
-
+# p favorites = [['Dave', 7], ['Miranda', 3], ['Jason', 11]].flatten
 
 =begin
 #this was LOL Wut??? in the comments section

@@ -1,7 +1,7 @@
-#exercie_1.rb
+# exercie_1.rb
 
 def meal
-  return 'Breakfast'
+  'Breakfast'
 end
 
 puts meal

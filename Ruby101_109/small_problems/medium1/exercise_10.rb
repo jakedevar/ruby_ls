@@ -1,13 +1,15 @@
-#exercise_10.rb
+# exercise_10.rb
 
 def fibonacci_last(nth)
-  first, last = [1, 1]
-  3.upto(nth) do 
+  first = 1
+  last = 1
+  3.upto(nth) do
     first, last = [last, first + last]
   end
   last.to_s.chars.last.to_i
 end
-# this above was correct however 
+
+# this above was correct however
 def fibonacci_last(nth)
   last_2 = [1, 1]
   3.upto(nth) do

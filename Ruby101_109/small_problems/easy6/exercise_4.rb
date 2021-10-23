@@ -1,4 +1,4 @@
-#exercise_4.rb
+# exercise_4.rb
 
 # def reverse!(arr)
 #   arr.each do |ele|
@@ -7,8 +7,8 @@
 #     arr.unshift(var_storage)
 #   end
 # end
-#i like my solution however after seeing the ls soution I realized that I maybe could not have done it another way it is important to understand
-#how to write many different versions of the same thing.
+# i like my solution however after seeing the ls soution I realized that I maybe could not have done it another way it is important to understand
+# how to write many different versions of the same thing.
 
 def reverse!(arr)
   left_index = 0
@@ -21,11 +21,11 @@ def reverse!(arr)
   arr
 end
 
-p list = [1,2,3,4]
+p list = [1, 2, 3, 4]
 p result = reverse!(list)
 p result == [4, 3, 2, 1] # true
 p list == [4, 3, 2, 1] # true
-p list.object_id == result.object_id # true
+p list.equal?(result) # true
 
 p list = %w(a b e d c)
 p reverse!(list) == ["c", "d", "e", "b", "a"] # true

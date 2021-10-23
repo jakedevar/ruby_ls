@@ -1,8 +1,8 @@
-#exercise_4.rb
+# exercise_4.rb
 
-def meal 
+def meal
   puts 'Dinner'
-  return 'Breakfast'
+  'Breakfast'
 end
 
 puts meal

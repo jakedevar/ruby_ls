@@ -1,4 +1,4 @@
-#exercise_10.rb
+# exercise_10.rb
 
 def greeting(x)
   while x < 4
@@ -9,4 +9,3 @@ end
 
 number_of_greetings = 2
 greeting(number_of_greetings)
-

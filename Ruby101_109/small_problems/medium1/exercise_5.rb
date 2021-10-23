@@ -1,8 +1,8 @@
-#exercise_5.rb
+# exercise_5.rb
 
 # def diamond(num)
 #   rows = ' ' * num
-#   (num + 1).times do |x| 
+#   (num + 1).times do |x|
 #   puts ('*' * x).center(num) if x.odd?
 #   end
 #   (num - 1).times do |x|
@@ -11,7 +11,7 @@
 #   return
 # end
 
-#LS solution this is one of the only ones I am not typing out in full 
+# LS solution this is one of the only ones I am not typing out in full
 def print_row(grid_size, distance_from_center)
   number_of_stars = grid_size - 2 * distance_from_center
   stars = '*' * number_of_stars

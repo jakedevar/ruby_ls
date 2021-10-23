@@ -1,5 +1,6 @@
 class Student
   attr_accessor :name, :grade
+
   def initialize(name, grade)
     @name = name
     @grade = grade
@@ -10,11 +11,11 @@ class Student
   end
 
   def better_grade_than?(person)
-    return true if self.grade < person.grade
+    return true if grade < person.grade
     false
   end
 
-  private 
+  private
 
   def get_grade
     puts @grade

@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 
 # def twice(int)
 #   arr1 = []
@@ -9,19 +9,19 @@
 #   end
 #   if arr1 != arr2
 #     ((arr2 << arr1).flatten.join.to_i) * 2
-#   else 
+#   else
 #     (arr2 << arr1).flatten.join.to_i
 #   end
-# end  
+# end
 
 def twice(int)
   string_number = int.to_s
   center = string_number.size / 2
-  leftside = center.zero? ? '' : string_number[0..center -1]
+  leftside = center.zero? ? '' : string_number[0..center - 1]
   rightside = string_number[center..-1]
 
   return int if leftside == rightside
-  return int * 2
+  int * 2
 end
 
 p twice(37) == 74

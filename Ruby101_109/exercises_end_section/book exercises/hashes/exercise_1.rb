@@ -1,12 +1,11 @@
-#exercise_1.rb
+# exercise_1.rb
 
-family = {  uncles: ["bob", "joe", "steve"],
-  sisters: ["jane", "jill", "beth"],
-  brothers: ["frank","rob","david"],
-  aunts: ["mary","sally","susan"]
-}
+family = { uncles: ["bob", "joe", "steve"],
+           sisters: ["jane", "jill", "beth"],
+           brothers: ["frank", "rob", "david"],
+           aunts: ["mary", "sally", "susan"] }
 
-#i did it incorrectly, putting in solution
+# i did it incorrectly, putting in solution
 =begin
 
 family.select do |k, v|
@@ -15,11 +14,10 @@ family.select do |k, v|
 end
 =end
 
-immediate_family = family.select do |k, v|
+immediate_family = family.select do |k, _v|
   k == :sisters || k == :brothers
 end
 
 arr = immediate_family.values.flatten
 
 p arr
-

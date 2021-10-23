@@ -1,7 +1,7 @@
-#exercise_7.rb
+# exercise_7.rb
 statement = "The Flintstones Rock".chars
-#gave up on this one I know I had seen a solution to this before
-# but I wasent coming up with anything either with research or ideas 
+# gave up on this one I know I had seen a solution to this before
+# but I wasent coming up with anything either with research or ideas
 # thought it was best to see solution and learn from it in the future
 result = {}
 letters = ('A'..'Z').to_a + ('a'..'z').to_a

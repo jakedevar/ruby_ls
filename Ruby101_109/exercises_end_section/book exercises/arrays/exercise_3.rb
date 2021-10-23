@@ -1,10 +1,10 @@
-#exercise_3.rb
+# exercise_3.rb
 
-arr = [["test", "hello", "world"],["example", "mem"]]
+arr = [["test", "hello", "world"], ["example", "mem"]]
 
 =begin
-  #idea 2 
-def check x  
+  #idea 2
+def check x
   if x.each_
     puts "example"
   else
@@ -14,7 +14,7 @@ end
 =end
 
 =begin
-  
+
 end
 arr.each do |arr, item|
   if item == "example"

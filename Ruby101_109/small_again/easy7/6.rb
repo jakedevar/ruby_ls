@@ -15,10 +15,10 @@ init boolean to true
 and then i am going to call chars on string, then i am going to call each on chars
 then set the param
 then set an if else statment
-in which if chr regex ^a-z i 
+in which if chr regex ^a-z i
 res << chr
 else
-  boolean ? res << chr.upcase : res << chr.downcase 
+  boolean ? res << chr.upcase : res << chr.downcase
 
 end
 end
@@ -27,14 +27,14 @@ res.join
 # ------------------- Code -----------------------
 =end
 
-def staggered_case str
+def staggered_case(str)
   res = []
   bool = true
   str.chars.each do |chr|
     if chr =~ /[^a-z]/i
       res << chr
     else
-      bool ? res << chr.upcase : res << chr.downcase
+      res << (bool ? chr.upcase : chr.downcase)
       bool = !bool
     end
   end

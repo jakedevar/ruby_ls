@@ -7,10 +7,10 @@ Write a method that counts the number of occurrences of each element in a given 
 -  Output: a hash containing the counts
 ---
 **Problem Domain:**
-count every instance of a value in the array, using a hash to increment the count value 
+count every instance of a value in the array, using a hash to increment the count value
 ---
 **Implicit Requirements:**
-A hash will be created by the elements in the array and then the value will be initialized to zero at the outsed 
+A hash will be created by the elements in the array and then the value will be initialized to zero at the outsed
 ---
 **Clarifying Questions:**
 1.
@@ -40,7 +40,7 @@ _Your Edge Cases:_
   -  Output:
 ---
 Data Structure
-inputing an array and returning a hash 
+inputing an array and returning a hash
 --------------
 ---
 Algorithm
@@ -52,17 +52,19 @@ Code
 ----
 =end
 
-
 vehicles = [
   'car', 'car', 'truck', 'car', 'SUV', 'truck',
   'motorcycle', 'motorcycle', 'car', 'truck', 'suv'
 ]
 
-
 def count_occurrences(array)
   hash = {}
   array.each do |ele|
-    hash[ele] = array.count {|item| ele.downcase == item.downcase} unless hash.has_key?(ele.upcase)
+    unless hash.has_key?(ele.upcase)
+      hash[ele] = array.count do |item|
+        ele.downcase == item.downcase
+      end
+    end
   end
   hash
 end

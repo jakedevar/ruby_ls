@@ -1,4 +1,4 @@
-def sequence int
+def sequence(int)
   (1..int).to_a
 end
 

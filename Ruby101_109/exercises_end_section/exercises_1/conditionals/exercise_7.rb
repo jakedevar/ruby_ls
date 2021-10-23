@@ -1,4 +1,4 @@
-#exercise_7.ruby
+# exercise_7.ruby
 
 stoplight = ['green', 'yellow', 'red'].sample
 

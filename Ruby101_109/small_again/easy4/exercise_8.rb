@@ -1,9 +1,10 @@
 def string_to_integer(string)
-  hash = {'0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9}
-  convert = string.chars.map {|ele| hash[ele]}
-  
+  hash = { '0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6,
+           '7' => 7, '8' => 8, '9' => 9 }
+  convert = string.chars.map { |ele| hash[ele] }
+
   value = 0
-  convert.each {|digit| value = 10 * value + digit}
+  convert.each { |digit| value = 10 * value + digit }
   value
 end
 
@@ -24,7 +25,7 @@ def string_to_signed_integer(int)
   case int[0]
   when '-' then -string_to_integer(int[1..-1])
   when '+' then string_to_integer(int[1..-1])
-  else                    string_to_integer(int)
+  else string_to_integer(int)
   end
 end
 

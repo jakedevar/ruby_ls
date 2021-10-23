@@ -2,8 +2,8 @@
 PEDAC Template
 ==============
 (Understand the) Problem
-return the length of the longest vowel chain in the string given 
-check the characters to the vowels given 
+return the length of the longest vowel chain in the string given
+check the characters to the vowels given
 ------------------------
 -  Inputs: a string
 -  Output: an integer representing the longest vowel chain
@@ -45,7 +45,6 @@ Algorithm
 ---------
 take the string and create an array where the vowels are grouped together using split. then map by length and return max
 
-
 **Helper Methods??**
 
 Code
@@ -59,10 +58,10 @@ Code
 PEDAC Template
 ==============
 (Understand the) Problem
-take a string an output the count of the longest vowel chain in the whole string 
+take a string an output the count of the longest vowel chain in the whole string
 ------------------------
--  Inputs: a simple string all lower case letters 
--  Output: a integer reping a count 
+-  Inputs: a simple string all lower case letters
+-  Output: a integer reping a count
 ---
 **Explicit **
 
@@ -98,7 +97,7 @@ _Your Edge Cases:_
 ---
 Data Structure
 --------------
-use an array for this one 
+use an array for this one
 ---
 Algorithm
 ---------
@@ -112,13 +111,13 @@ return max_by legnth
 
 Code
 Def solve str
-  str.chars.chunk_by match.max_by 
+  str.chars.chunk_by match.max_by
 end
 ----
 =end
 
 def solve(str)
-  str.split(/[^aeiou]/i).map {|arr| arr.length}.max
+  str.split(/[^aeiou]/i).map { |arr| arr.length }.max
 end
 
 p solve("codewarriors") #== 2

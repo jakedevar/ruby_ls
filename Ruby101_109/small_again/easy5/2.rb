@@ -2,7 +2,7 @@ def time_of_day(int)
   hours, minutes = int.divmod(60)
   hours = 0 if hours.abs == 24
   hours = (hours + 24).abs if hours < 0
-  hours = hours / 24 if hours > 24
+  hours /= 24 if hours > 24
   format("%02d:%02d", hours, minutes)
 end
 

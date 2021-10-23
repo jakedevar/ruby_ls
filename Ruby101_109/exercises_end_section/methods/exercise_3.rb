@@ -1,4 +1,4 @@
-#exercise_3.ruby
+# exercise_3.ruby
 
 def hello
   "Hello"
@@ -8,7 +8,7 @@ def world
   "World"
 end
 
-#puts "#{hello} #{world}"
+# puts "#{hello} #{world}"
 
-#solution i liked in the comments
+# solution i liked in the comments
 puts hello + " " + world

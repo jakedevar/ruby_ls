@@ -4,16 +4,15 @@ return the word with the amount of letters that rank lowest on the alphabet base
 
 # ------------------- Examples --------------------
 
-
 # ------------------- Data ------------------------
-a simple string with no special characters seperated by spaces and no caps 
+a simple string with no special characters seperated by spaces and no caps
 
 # ------------------- Algorithm -------------------
-create a helper method to init hash of letters 
-create an empty array in the top 
-string split up 
-iterate through them and then iterate through the word adding each to a sum after ieterate through word reset sum but only after appending to array 
-then get the index of the max and use it to get the word 
+create a helper method to init hash of letters
+create an empty array in the top
+string split up
+iterate through them and then iterate through the word adding each to a sum after ieterate through word reset sum but only after appending to array
+then get the index of the max and use it to get the word
 
 # ------------------- Storm -----------------------
 
@@ -38,7 +37,7 @@ def high(string)
     word.chars.each do |chr|
       sum += init_hash()[chr]
     end
-    score_arr << sum 
+    score_arr << sum
   end
   splits[score_arr.index(score_arr.max)]
 end

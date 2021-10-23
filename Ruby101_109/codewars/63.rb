@@ -2,32 +2,31 @@
 # ------------------- Problem ---------------------
 return a facebook like thing where the names of the people who liked something are formated correctly
 input arr of strings
-output a string with the data from arr 
+output a string with the data from arr
 # ------------------- Examples --------------------
-there will be anywhere from 0 to alot in an array 
+there will be anywhere from 0 to alot in an array
 
 # ------------------- Data ------------------------
-using an array for this one to a string 
+using an array for this one to a string
 
 # ------------------- Algorithm -------------------
 def method arr
-  str = 'likes this' 
+  str = 'likes this'
   last name = arr.pop
-  case arr 
-  when arr.size > 2 
+  case arr
+  when arr.size > 2
 
-  
 end
 
 # ------------------- Code -----------------------
 
 =end
 
-def likes arr
+def likes(arr)
   strs = ' likes this'
   str = ' like this'
   case arr
-  when arr.size > 2 
+  when arr.size > 2
     last = arr.pop
     arr.join(', ') + ' and ' + last.join + str
 

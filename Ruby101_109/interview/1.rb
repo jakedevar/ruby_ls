@@ -16,13 +16,13 @@ return chr.next if chr.next != array[i + 1]
 ------------------- Code ------------------------
 =end
 
-def determine_missing_letter arr
+def determine_missing_letter(arr)
   arr.each_with_index do |chr, i|
     return chr.next if chr.next != arr[i + 1]
   end
 end
 
-p determine_missing_letter(['a','b','c','d','f']) == 'e' 
-p determine_missing_letter(['O','Q','R','S']) == 'P'
-p determine_missing_letter(["a","b","c","d","f"]) == "e"
-p determine_missing_letter(["O","Q","R","S"]) == "P"
+p determine_missing_letter(['a', 'b', 'c', 'd', 'f']) == 'e'
+p determine_missing_letter(['O', 'Q', 'R', 'S']) == 'P'
+p determine_missing_letter(["a", "b", "c", "d", "f"]) == "e"
+p determine_missing_letter(["O", "Q", "R", "S"]) == "P"

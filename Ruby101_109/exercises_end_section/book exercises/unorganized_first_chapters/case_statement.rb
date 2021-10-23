@@ -3,6 +3,6 @@ def equal_to_four(x)
     puts "yup"
   else
     puts "nope"
-end
+  end
 end
 equal_to_four(5)

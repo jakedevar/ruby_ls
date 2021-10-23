@@ -7,6 +7,7 @@ end
 
 class Cat < Pet
   attr_reader :name, :age, :color
+
   def initialize(name, age, color)
     super(name, age)
     @color = color

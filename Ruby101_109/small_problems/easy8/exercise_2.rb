@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 
 puts 'Enter a noun:'
 noun = gets.chomp

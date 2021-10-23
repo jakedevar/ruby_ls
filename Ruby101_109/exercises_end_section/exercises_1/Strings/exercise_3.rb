@@ -1,4 +1,4 @@
-#exercise_3.rb
+# exercise_3.rb
 
 name = 'Roger'
 =begin

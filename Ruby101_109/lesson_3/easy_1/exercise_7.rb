@@ -1,4 +1,4 @@
-#exercise_7.rb
+# exercise_7.rb
 flintstones = ["Fred", "Wilms"]
 flintstones << ["Barney", "Betty"]
 flintstones << ["BamBam", "Pebbles"]

@@ -1,4 +1,4 @@
-#exercise_6.rb
+# exercise_6.rb
 
 numbers = {
   high: 100,
@@ -6,5 +6,5 @@ numbers = {
   low: 10
 }
 
-half_numbers = numbers.map { |k, v| v  / 2}
+half_numbers = numbers.map { |_k, v| v / 2 }
 p half_numbers

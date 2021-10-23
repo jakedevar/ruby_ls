@@ -1,33 +1,33 @@
-#exercise_9.rb
+# exercise_9.rb
 =begin
 number_of_lines = nil
 loop do
-  
+
   puts '>> How many output lines do you want? Enter a number >= 3 (Q to quit):'
   number_of_lines = gets
-  
+
   if number_of_lines> 0
   while number_of_lines > 0
     puts 'Launch School is the best!'
     number_of_lines -= 1
   end
-  else 
-    break if number_of_lines == 'q' 
+  else
+    break if number_of_lines == 'q'
     puts ">> That's not enough lines."
   end
-  
-end 
+
+end
 #I struggled with this one. ended up getting the solution below
-=end 
+=end
 
 loop do
-  input_string =nil
+  input_string = nil
   number_of_lines = nil
 
   loop do
     puts '>> How many output lines do you want' \
     'Enter a number >= 3 (Q to Quit):'
-    
+
     input_string = gets.chomp.downcase
     break if input_string == 'q'
 
@@ -44,4 +44,3 @@ loop do
     number_of_lines -= 1
   end
 end
-

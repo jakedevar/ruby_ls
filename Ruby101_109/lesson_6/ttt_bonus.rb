@@ -6,7 +6,7 @@ COMPUTER_MARKER = 'O'
 WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
                 [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + # colums
                 [[1, 5, 9], [3, 5, 7]]
-COMPUTER_CHOICE = %w[c h].freeze
+COMPUTER_CHOICE = %w(c h).freeze
 MAX_WINS = 5
 wins_player = 0
 wins_computer = 0
@@ -93,15 +93,11 @@ def detect_winner(brd)
 end
 
 # find squares computer
-# rubocop: disable Style/RedundantReturn
 def find_at_risk_square(line, board, marker)
   if board.values_at(*line).count(marker) == 2
     board.select { |k, v| line.include?(k) && v == INITIAL_MARKER }.keys.first
-  else
-    nil
   end
 end
-# rubocop: enable Style/RedundantReturn
 
 # offense helper
 def comp_offense(brd, _square)
@@ -156,7 +152,7 @@ end
 
 # input validation
 def input_valid?(input)
-  %w[h c].include?(input.downcase)
+  %w(h c).include?(input.downcase)
 end
 
 # GAME LOOP
@@ -176,7 +172,7 @@ loop do
     else
       prompt('That is not a valid response')
     end
-    break if %w[h c].include?(who_choses_first)
+    break if %w(h c).include?(who_choses_first)
   end
 
   # play game loop

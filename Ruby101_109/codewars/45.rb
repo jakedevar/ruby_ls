@@ -1,22 +1,21 @@
 =begin
 # ------------------- Problem ---------------------
-sort a string by ORDER OF APPERANCE IN THE ALPHA BET REGARDLESS OF CASE 
+sort a string by ORDER OF APPERANCE IN THE ALPHA BET REGARDLESS OF CASE
 delte the punctuation but keep numeral
 
 # ------------------- Examples --------------------
-empty string return empty string also if there is a space 
-
+empty string return empty string also if there is a space
 
 # ------------------- Data ------------------------
-use a mixture of string an array 
+use a mixture of string an array
 
 no just an array nvm sorry
 
 # ------------------- Algorithm -------------------
 def str
   str.chars and delete if regex not alpha or num
-  then sort by downcase and join 
-end 
+  then sort by downcase and join
+end
 
 # ------------------- Storm -----------------------
 

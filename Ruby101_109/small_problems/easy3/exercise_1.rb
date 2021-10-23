@@ -13,12 +13,12 @@ puts 'Enter the sixth number'
 num6 = gets.chomp.to_i
 
 arr = []
-arr.push(num1, num2, num3, num4, num5) 
+arr.push(num1, num2, num3, num4, num5)
 
-if arr.include?(num6) 
-  puts 'the sixth number is already in the array' 
-else 
-  puts 'the sixth number does not appear in the arr' 
+if arr.include?(num6)
+  puts 'the sixth number is already in the array'
+else
+  puts 'the sixth number does not appear in the arr'
 end
 
 #best solution I saw in the comments
@@ -26,7 +26,7 @@ numbers = []
 
 ['1st', '2nd', '3rd', '4th', '5th', 'last'].each do |n|
   puts "==> Enter the #{n} number:";
-  numbers << gets.chomp.to_i    
+  numbers << gets.chomp.to_i
 end
 
 if numbers.first(5).include?(numbers.last)
@@ -34,8 +34,6 @@ if numbers.first(5).include?(numbers.last)
 else
   puts "The number #{numbers.last} does not appear in #{numbers.first(5)}."
 end
-
-
 
 #LS solution below
 numbers = []

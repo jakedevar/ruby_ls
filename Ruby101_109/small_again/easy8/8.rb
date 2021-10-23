@@ -1,6 +1,8 @@
-def double_consonants string
+def double_consonants(string)
   str = ''
-  string.each_char {|ele| ele =~ /[^aeiou' '1-9\!\,\-\.]/ ? str << ele * 2 : str << ele}
+  string.each_char do |ele|
+    str << (ele =~ /[^aeiou' '1-9\!\,\-\.]/ ? ele * 2 : ele)
+  end
   str
 end
 

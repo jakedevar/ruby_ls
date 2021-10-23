@@ -12,7 +12,7 @@ def fun_with_ids
   puts "a_outer is #{a_outer} with an id of: #{a_outer_id} before the block." # 85 both times
   puts "b_outer is #{b_outer} with an id of: #{b_outer_id} before the block." # 180 both times
   puts "c_outer is #{c_outer} with an id of: #{c_outer_id} before the block." # 200 both times
-  puts "d_outer is #{d_outer} with an id of: #{d_outer_id} before the block." # 85 both times 
+  puts "d_outer is #{d_outer} with an id of: #{d_outer_id} before the block." # 85 both times
   puts
 
   1.times do
@@ -21,23 +21,22 @@ def fun_with_ids
     c_outer_inner_id = c_outer.object_id
     d_outer_inner_id = d_outer.object_id
 
-    puts "a_outer id was #{a_outer_id} before the block and is: #{a_outer_inner_id} inside the block." # should be same as previous ones 
+    puts "a_outer id was #{a_outer_id} before the block and is: #{a_outer_inner_id} inside the block." # should be same as previous ones
     puts "b_outer id was #{b_outer_id} before the block and is: #{b_outer_inner_id} inside the block."
     puts "c_outer id was #{c_outer_id} before the block and is: #{c_outer_inner_id} inside the block."
     puts "d_outer id was #{d_outer_id} before the block and is: #{d_outer_inner_id} inside the block."
     puts
 
-    a_outer = 22 #45
+    a_outer = 22 # 45
     b_outer = "thirty three" # 180
-    c_outer = [44] #200
-    d_outer = c_outer[0] #89
+    c_outer = [44] # 200
+    d_outer = c_outer[0] # 89
 
-    puts "a_outer inside after reassignment is #{a_outer} with an id of: #{a_outer_id} before and: #{a_outer.object_id} after." #45, 80
-    puts "b_outer inside after reassignment is #{b_outer} with an id of: #{b_outer_id} before and: #{b_outer.object_id} after." #180 both
-    puts "c_outer inside after reassignment is #{c_outer} with an id of: #{c_outer_id} before and: #{c_outer.object_id} after." #200 both
-    puts "d_outer inside after reassignment is #{d_outer} with an id of: #{d_outer_id} before and: #{d_outer.object_id} after." #89 and 85
+    puts "a_outer inside after reassignment is #{a_outer} with an id of: #{a_outer_id} before and: #{a_outer.object_id} after." # 45, 80
+    puts "b_outer inside after reassignment is #{b_outer} with an id of: #{b_outer_id} before and: #{b_outer.object_id} after." # 180 both
+    puts "c_outer inside after reassignment is #{c_outer} with an id of: #{c_outer_id} before and: #{c_outer.object_id} after." # 200 both
+    puts "d_outer inside after reassignment is #{d_outer} with an id of: #{d_outer_id} before and: #{d_outer.object_id} after." # 89 and 85
     puts
-
 
     a_inner = a_outer
     b_inner = b_outer
@@ -49,10 +48,10 @@ def fun_with_ids
     c_inner_id = c_inner.object_id
     d_inner_id = d_inner.object_id
 
-    puts "a_inner is #{a_inner} with an id of: #{a_inner_id} inside the block (compared to #{a_outer.object_id} for outer)." #45
-    puts "b_inner is #{b_inner} with an id of: #{b_inner_id} inside the block (compared to #{b_outer.object_id} for outer)." #180
-    puts "c_inner is #{c_inner} with an id of: #{c_inner_id} inside the block (compared to #{c_outer.object_id} for outer)." #200
-    puts "d_inner is #{d_inner} with an id of: #{d_inner_id} inside the block (compared to #{d_outer.object_id} for outer)." #89
+    puts "a_inner is #{a_inner} with an id of: #{a_inner_id} inside the block (compared to #{a_outer.object_id} for outer)." # 45
+    puts "b_inner is #{b_inner} with an id of: #{b_inner_id} inside the block (compared to #{b_outer.object_id} for outer)." # 180
+    puts "c_inner is #{c_inner} with an id of: #{c_inner_id} inside the block (compared to #{c_outer.object_id} for outer)." # 200
+    puts "d_inner is #{d_inner} with an id of: #{d_inner_id} inside the block (compared to #{d_outer.object_id} for outer)." # 89
     puts
   end
 
@@ -62,8 +61,24 @@ def fun_with_ids
   puts "d_outer is #{d_outer} with an id of: #{d_outer_id} BEFORE and: #{d_outer.object_id} AFTER the block."
   puts
 
-  puts "a_inner is #{a_inner} with an id of: #{a_inner_id} INSIDE and: #{a_inner.object_id} AFTER the block." rescue puts "ugh ohhhhh"
-  puts "b_inner is #{b_inner} with an id of: #{b_inner_id} INSIDE and: #{b_inner.object_id} AFTER the block." rescue puts "ugh ohhhhh"
-  puts "c_inner is #{c_inner} with an id of: #{c_inner_id} INSIDE and: #{c_inner.object_id} AFTER the block." rescue puts "ugh ohhhhh"
-  puts "d_inner is #{d_inner} with an id of: #{d_inner_id} INSIDE and: #{d_inner.object_id} AFTER the block." rescue puts "ugh ohhhhh"
+  begin
+    puts "a_inner is #{a_inner} with an id of: #{a_inner_id} INSIDE and: #{a_inner.object_id} AFTER the block."
+  rescue StandardError
+    puts "ugh ohhhhh"
+  end
+  begin
+    puts "b_inner is #{b_inner} with an id of: #{b_inner_id} INSIDE and: #{b_inner.object_id} AFTER the block."
+  rescue StandardError
+    puts "ugh ohhhhh"
+  end
+  begin
+    puts "c_inner is #{c_inner} with an id of: #{c_inner_id} INSIDE and: #{c_inner.object_id} AFTER the block."
+  rescue StandardError
+    puts "ugh ohhhhh"
+  end
+  begin
+    puts "d_inner is #{d_inner} with an id of: #{d_inner_id} INSIDE and: #{d_inner.object_id} AFTER the block."
+  rescue StandardError
+    puts "ugh ohhhhh"
+  end
 end

@@ -4,9 +4,11 @@ class Cat
   def self.generic_greeting
     puts "what up"
   end
+
   def personal_greeting
     puts "what up #{name}"
   end
+
   def initialize(name)
     @name = name
   end

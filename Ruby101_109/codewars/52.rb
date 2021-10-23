@@ -1,8 +1,8 @@
 =begin
 # ------------------- Problem ---------------------
-decipher the message that is coded into the string 
+decipher the message that is coded into the string
 the first letter of every word is just the acsii ord number which needs to be transformed
-then the last letter and the second letter need to be swapped 
+then the last letter and the second letter need to be swapped
 
 # ------------------- Examples --------------------
 no special characters just spaces and letters
@@ -11,14 +11,13 @@ no special characters just spaces and letters
 an array to split it up
 
 # ------------------- Algorithm -------------------
-split the string by space 
-
+split the string by space
 
 # ------------------- Code -----------------------
 
 =end
 
-def decipher_this str
+def decipher_this(str)
   first_chr = str.split(/[^1-9]+/).map { |chr| chr.to_i.chr.decode }
 end
 

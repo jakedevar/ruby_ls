@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 puts "how old are you?"
 age = gets.chomp.to_i
 

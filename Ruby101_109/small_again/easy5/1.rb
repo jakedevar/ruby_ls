@@ -1,5 +1,5 @@
-def ascii_value str
-  str.chars.map {|chr| chr.ord}.sum
+def ascii_value(str)
+  str.chars.map { |chr| chr.ord }.sum
 end
 
 p ascii_value('Four score') == 984

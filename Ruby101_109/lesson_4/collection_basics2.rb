@@ -1,4 +1,4 @@
-#collection_basics2.rb
+# collection_basics2.rb
 
 arr = [1, 2, 3, 4, 5]
 arr[0] += 1

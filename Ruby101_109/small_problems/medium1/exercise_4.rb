@@ -1,10 +1,10 @@
-#exercise_4.rb
+# exercise_4.rb
 def hash_maker(int)
   key_arr = (1..int).to_a
   hash = {}
   result = []
   result1 = []
-  key_arr.each { |n| hash[n] = false}
+  key_arr.each { |n| hash[n] = false }
   counter = 1
   until counter > int
     hash.each_pair do |key, value|
@@ -20,8 +20,8 @@ def hash_maker(int)
   end
   result1
 end
-# my solution was correct however I should have broken it up into helper methods with it being so big. 
-#LS soltion
+# my solution was correct however I should have broken it up into helper methods with it being so big.
+# LS soltion
 
 # def initialize_the_lights(num)
 #   lights = Hash.new
@@ -32,7 +32,7 @@ end
 # def on_lights(lights)
 #   lights.select { |_position, state| state == 'on' }.keys
 # end
- 
+
 # def toggle_every_nth_light(lights, nth)
 #   lights.each do |position, state|
 #     if position % nth == 0

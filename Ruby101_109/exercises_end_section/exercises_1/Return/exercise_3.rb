@@ -1,6 +1,6 @@
-#exercise_3.rb
+# exercise_3.rb
 
-def meal 
+def meal
   return 'Breakfast'
   'Dinner'
 end

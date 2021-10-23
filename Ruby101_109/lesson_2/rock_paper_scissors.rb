@@ -1,4 +1,4 @@
-VALID_CHOICES = %w[r p sc l sp]
+VALID_CHOICES = %w(r p sc l sp)
 
 WINS = []
 COMPUTER_WINS = []

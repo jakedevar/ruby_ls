@@ -1,4 +1,4 @@
-#exercises_2.rb
+# exercises_2.rb
 
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -12,6 +12,6 @@ end
 #LS solution
 arr.each do |number|
   if number > 5
-    puts number 
+    puts number
   end
 =end

@@ -2,7 +2,8 @@
 
 CARDS = { 'Ace' => 11, 'Two' => 2, 'Three' => 3, 'Four' => 4, 'Five' => 5, 'Six' => 6, 'Seven' => 7, 'Eight' => 8, 'Nine' => 9,
           'Ten' => 10, 'Jack' => 10, 'Queen' => 10, 'King' => 10 }.freeze # this now seems a little redundant after viewing ls solution
-RAND = %w[Ace Two Three Four Five Six Seven Eight Nine Ten Jack Queen King].freeze
+RAND = %w(Ace Two Three Four Five Six Seven Eight Nine Ten Jack Queen
+          King).freeze
 PLAYER = [].freeze # probs improper grammer because your not supposed to alter constants
 COMPUTER = [].freeze
 
@@ -112,7 +113,10 @@ loop do
       prompt('It\'s a draw!')
     end
   end
-  PLAYER.delete_if { |ele| ele != 0 } # had i not used constants this would not be a problem
+  # had i not used constants this would not be a problem
+  PLAYER.delete_if do |ele|
+    ele != 0
+  end
   COMPUTER.delete_if { |ele| ele != 0 }
   prompt('Want to play again? (Y/N)')
   play_again = gets.chomp.downcase

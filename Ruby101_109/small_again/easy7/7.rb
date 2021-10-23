@@ -1,6 +1,6 @@
 def show_multiplicative_average(arr)
   average = (arr.inject(:*) / arr.size.to_f)
-  puts "The result is #{format("%.3f", average)}"
+  puts "The result is #{format('%.3f', average)}"
 end
 
 p show_multiplicative_average([3, 5])                # => The result is 7.500

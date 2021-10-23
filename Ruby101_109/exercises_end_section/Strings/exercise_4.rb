@@ -1,4 +1,4 @@
-#exercise_4.rb
+# exercise_4.rb
 name = 'Elizabeth'
 
 puts "Hello, #{name}!"

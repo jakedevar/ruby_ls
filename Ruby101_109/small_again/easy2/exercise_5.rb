@@ -7,4 +7,3 @@ if input.include?('!')
 else
   puts "What up #{input}"
 end
-

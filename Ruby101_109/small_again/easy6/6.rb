@@ -1,4 +1,4 @@
-def merge arr1, arr2
+def merge(arr1, arr2)
   arr1.zip(arr2).flatten.uniq.sort
 end
 

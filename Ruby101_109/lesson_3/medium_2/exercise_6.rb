@@ -1,6 +1,6 @@
-#exercise_6.rb
+# exercise_6.rb
 
-#How could the following method be simplified
+# How could the following method be simplified
 # without changing its return value?
 =begin
 def color_valid(color)

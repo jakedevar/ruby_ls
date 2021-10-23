@@ -1,5 +1,4 @@
-#exercise_6.rb
-
+# exercise_6.rb
 
 state = 'tExAs'
 

@@ -1,19 +1,18 @@
 =begin
 # ------------------- Problem ---------------------
-sum the combinations of each 
+sum the combinations of each
 
 # ------------------- Examples --------------------
-
 
 # ------------------- Data ------------------------
 arrays
 
 # ------------------- Algorithm -------------------
-the first thing that comes to mind sounds too complex for somereason but here it goes 
+the first thing that comes to mind sounds too complex for somereason but here it goes
 create a new arr above iterator
 nvm i thought of a simpler way
 untill counter == arr.length
-sum += 
+sum +=
 pop
 increase
 # ------------------- Code -----------------------

@@ -1,4 +1,4 @@
-#exercise_10.rb
+# exercise_10.rb
 
 def add(x, y)
   x + y

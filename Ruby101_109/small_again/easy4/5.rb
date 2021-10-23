@@ -1,5 +1,5 @@
-def multisum int
-  (1..int).to_a.select {|x| x % 3 == 0 || x % 5 == 0}.sum
+def multisum(int)
+  (1..int).to_a.select { |x| x % 3 == 0 || x % 5 == 0 }.sum
 end
 
 p multisum(3) == 3

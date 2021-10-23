@@ -1,4 +1,4 @@
-#doubled_index.rb
+# doubled_index.rb
 
 def double_odd_numbers(numbers)
   doubled_numbers = []
@@ -18,9 +18,9 @@ def double_odd_numbers(numbers)
 end
 
 my_numbers = [1, 4, 3, 7, 2, 6]
-p double_odd_numbers(my_numbers)  # => [2, 4, 6, 14, 2, 6]
+p double_odd_numbers(my_numbers) # => [2, 4, 6, 14, 2, 6]
 
 # not mutated
-my_numbers                      # => [1, 4, 3, 7, 2, 6]
+my_numbers # => [1, 4, 3, 7, 2, 6]
 
-#LS solution was same as mine!!!!
+# LS solution was same as mine!!!!

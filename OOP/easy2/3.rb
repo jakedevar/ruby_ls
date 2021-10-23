@@ -2,10 +2,12 @@
 
 class House
   attr_accessor :price
+
   include Comparable
   def initialize(price)
     @price = price
   end
+
   def <=>(other)
     @price <=> other.price
   end

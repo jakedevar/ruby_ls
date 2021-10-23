@@ -1,8 +1,8 @@
-#exercise_6.rb
+# exercise_6.rb
 =begin
 names = ['Sally', 'Joe', 'Lisa', 'Henry']
 
-loop do 
+loop do
 break if names == []
   puts names.first
   names.delete(names[0])
@@ -11,11 +11,11 @@ end
 puts names
 =end
 
-#LS solution
+# LS solution
 
 names = ['Sally', 'Joe', 'Lisa', 'Henry']
 
-loop do 
+loop do
   puts names.shift
   break if names.empty?
 end

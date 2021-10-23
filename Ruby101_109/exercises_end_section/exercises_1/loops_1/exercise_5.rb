@@ -1,4 +1,4 @@
-#exercise_5.rb
+# exercise_5.rb
 
 numbers = []
 
@@ -7,15 +7,15 @@ loop do
   break if x == 5
   puts 'Enter any number:'
   input = gets.chomp.to_i
-  numbers.unshift(input)  
+  numbers.unshift(input)
 end
 
 p numbers
 
 =begin
- numbers = [] 
- 
- loop do 
+ numbers = []
+
+ loop do
   puts 'Enter any number:'
   input - gets.chomp.to_i
 
@@ -23,4 +23,4 @@ p numbers
   break if numbers.size == 5
  end
  puts numbers
-=end 
+=end

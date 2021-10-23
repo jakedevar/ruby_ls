@@ -1,13 +1,12 @@
-#practice_each.rb
+# practice_each.rb
 
-names= ['bob', 'joe', 'stever', 'janice', 'susan', 'helen']
+names = ['bob', 'joe', 'stever', 'janice', 'susan', 'helen']
 
-#names.each { |name| puts name}
+# names.each { |name| puts name}
 
 x = 1
 
-names.each do |name| 
+names.each do |name|
   puts "#{x}. #{name}"
   x += 1
 end
-

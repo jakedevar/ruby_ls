@@ -1,6 +1,7 @@
 class Vehicle
   attr_accessor :color, :model
   attr_reader :year
+
   def self.calculate_mpg(gas_difference, miles_drive)
     miles_drive / gas_difference
   end
@@ -8,7 +9,7 @@ class Vehicle
   def self.vehicles
     puts "This program has created #{@@vehicles} vehicles"
   end
-  
+
   def initialize
     @@vehicles += 1
   end
@@ -28,7 +29,7 @@ class Vehicle
   def brake(speed)
     @current_speed -= speed
   end
-  
+
   def current_speed
     puts "You are now going #{@current_speed} mph"
   end
@@ -43,17 +44,17 @@ class Vehicle
   end
 
   def age
-    puts "Your #{self.model} is #{years_old} years old"
-  end  
+    puts "Your #{model} is #{years_old} years old"
+  end
 
   private
 
   def years_old
-    Time.now.year - self.year.to_i
+    Time.now.year - year.to_i
   end
 
   def to_s
-    "My car is a #{self.color}, #{self.year}, #{self.model}!"
+    "My car is a #{color}, #{year}, #{model}!"
   end
 end
 
@@ -69,11 +70,9 @@ class MyTruck < Vehicle
 end
 
 class MyCar < Vehicle
-
   CLEARENCE = 8
   print
 end
-
 
 chevy = MyCar.new('2017', 'white', 'malibu')
 chevy.speed_up(20)

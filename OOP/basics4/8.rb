@@ -1,8 +1,9 @@
 class Person
-   def initialize(name)
+  def initialize(name)
     @name = name
   end
-  def name 
+
+  def name
     @name.clone
   end
 end

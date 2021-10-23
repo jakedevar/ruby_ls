@@ -5,7 +5,7 @@ PEDAC Template
 find the smallest substrings that when repeating will create the string
 ------------------------
 -  Inputs: a string
--  Output: the substring and an integer 
+-  Output: the substring and an integer
 ---
 **Explicit **
 ---
@@ -46,13 +46,13 @@ Algorithm
 set a var to empty string
 set var to empty arr
 each char the arg
-append to result 
+append to result
 **Helper Methods??**
 
 Code
-dvide the string by 2 the length 
+dvide the string by 2 the length
 
-return the int that was upto 
+return the int that was upto
 ----
 =end
 
@@ -72,12 +72,12 @@ return the int that was upto
 
 =begin
 # ------------------- Problem ---------------------
-find the smalles substring possible that would be able to be multiplied to create the entire string 
+find the smalles substring possible that would be able to be multiplied to create the entire string
 
 # ------------------- Examples --------------------
-if it cant be reduced then it should return one 
+if it cant be reduced then it should return one
 if its uneven then likely the first example would happen
-no capital letters in this one 
+no capital letters in this one
 empty array should return emptyu arr?
 
 # ------------------- Data ------------------------
@@ -89,17 +89,16 @@ return [string, 1] if string.length.odd?
 init var of str.length /2
 from 1 upto var do |n|
 (1..lenght).each str[0, n] * i
-return [str[], i] if 
-
+return [str[], i] if
 
 # ------------------- Storm -----------------------
 
 =end
 
-def f str
+def f(str)
   (1..str.size).each do |n|
     sub_str = str[0, n]
-    reps = str.size / sub_str.size 
+    reps = str.size / sub_str.size
     return [sub_str, reps] if sub_str * reps == str
   end
 end

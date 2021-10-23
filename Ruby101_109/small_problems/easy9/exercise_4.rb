@@ -1,4 +1,4 @@
-#exercise_4.rb
+# exercise_4.rb
 
 # def sequence(int)
 #   arr = []
@@ -8,14 +8,14 @@
 #   arr
 # end
 
-#Dat LS solution doe 
+# Dat LS solution doe
 # def sequence(int)
 #   (1..int).to_a
 # end
-#further ext
+# further ext
 
 def sequence(int)
-  int < 0 ? (int..-1).to_a : (1..int).to_a 
+  int < 0 ? (int..-1).to_a : (1..int).to_a
 end
 
 p sequence(5) == [1, 2, 3, 4, 5]

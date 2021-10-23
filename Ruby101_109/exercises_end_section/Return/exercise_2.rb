@@ -1,6 +1,6 @@
-#exercise_2.rb
+# exercise_2.rb
 
-def meal 
+def meal
   'Evening'
 end
 

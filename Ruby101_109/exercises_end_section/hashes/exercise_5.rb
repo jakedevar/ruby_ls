@@ -1,4 +1,4 @@
-#exercise_5.ruby
+# exercise_5.ruby
 
 numbers = {
   high: 100,

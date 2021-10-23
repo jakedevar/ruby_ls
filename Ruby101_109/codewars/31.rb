@@ -1,4 +1,4 @@
-def is_anagram str1, str2
+def is_anagram(str1, str2)
   str1.downcase.chars.sort == str2.downcase.chars.sort
 end
 

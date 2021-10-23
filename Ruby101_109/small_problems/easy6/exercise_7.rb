@@ -1,4 +1,4 @@
-#exercise_7.rb
+# exercise_7.rb
 
 # def halvsies(arr)
 #   new_arr1 = []
@@ -9,14 +9,14 @@
 #   last_arr << new_arr1[0] ; last_arr << new_arr2[0]
 #   last_arr
 # end
-#and of course the LS solution is more elegant actually Good ol lewis isom comes out of the wood work and lays a dinger down by using parition which
+# and of course the LS solution is more elegant actually Good ol lewis isom comes out of the wood work and lays a dinger down by using parition which
 # I was kicking myself for not remembering. However on the good side my solution is the first solution i have ever seen that usses nested ternary operators XD
 # def halvsies(arr)
 #   arr.partition { |ele| arr.index(ele) < (arr.size/2.0).round}
 # end
-#ls solution here lewis's solution up there and mine at tippy top
+# ls solution here lewis's solution up there and mine at tippy top
 def halvsies(arr)
-  middle = (arr.size/2.0).ceil
+  middle = (arr.size / 2.0).ceil
   first_half = arr.slice(0, middle)
   second_half = arr.slice(middle, arr.size - middle)
   [first_half, second_half]

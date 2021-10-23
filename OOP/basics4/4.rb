@@ -1,6 +1,7 @@
 class Person
   attr_accessor :first_name
   attr_writer :last_name
+
   def first_equals_last?
     first_name == last_name
   end

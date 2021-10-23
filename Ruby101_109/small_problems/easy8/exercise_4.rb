@@ -1,4 +1,4 @@
-#exercise_4.rb
+# exercise_4.rb
 def leading_substrings(string)
   result = []
   0.upto(string.size - 1) do |index|
@@ -7,18 +7,17 @@ def leading_substrings(string)
   result
 end
 
-
 def substrings(string)
   result = []
   counter = 0
   get = string.chars
-  until counter == (string.size )
-  result << leading_substrings(get)
-  get.shift
-  counter += 1
+  until counter == (string.size)
+    result << leading_substrings(get)
+    get.shift
+    counter += 1
   end
   result.map do |arr|
-    arr.map {|ele| ele.join}
+    arr.map { |ele| ele.join }
   end.flatten
 end
 
@@ -31,8 +30,7 @@ def substrings(string)
   result
 end
 
-#i figured it out however still wanted to know the LS solution 
-
+# i figured it out however still wanted to know the LS solution
 
 p substrings('abcde') == [
   'a', 'ab', 'abc', 'abcd', 'abcde',

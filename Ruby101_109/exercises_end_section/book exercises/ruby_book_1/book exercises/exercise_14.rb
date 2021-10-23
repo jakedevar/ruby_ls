@@ -1,7 +1,7 @@
-#exercise_14.rb
+# exercise_14.rb
 
 a = ['white snow', 'winter wonderland', 'melting ice',
-  'slippery sidewalk', 'salted roads', 'white trees']
+     'slippery sidewalk', 'salted roads', 'white trees']
 
 =begin
 a1 = a
@@ -15,8 +15,8 @@ p string_split(a1)
 
 =end
 
-#LS solution
- 
-a = a.map { |pairs| pairs.split}
+# LS solution
+
+a = a.map { |pairs| pairs.split }
 a = a.flatten
 p a

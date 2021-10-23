@@ -1,5 +1,5 @@
 def sortme(str)
-  str.sort {|a, b| a.downcase <=> b.downcase}
+  str.sort { |a, b| a.downcase <=> b.downcase }
 end
 
 p sortme(["Hello", "there", "I'm", "fine"]) == ["fine", "Hello", "I'm", "there"]

@@ -1,8 +1,8 @@
-#exercise_5.rb
+# exercise_5.rb
 
 person = {
-  name: 'Bob', 
-  occupation: 'web developer', 
+  name: 'Bob',
+  occupation: 'web developer',
   hobbies: 'painting'
 }
 =begin

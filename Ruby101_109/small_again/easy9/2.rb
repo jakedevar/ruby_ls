@@ -1,12 +1,11 @@
 =begin
 # ------------------- Problem ---------------------
-double number is an EVEN number 
+double number is an EVEN number
 
 if the number is not a double number then double that number
-if the number is a double number then return the number 
+if the number is a double number then return the number
 
 # ------------------- Examples --------------------
-
 
 # ------------------- Data ------------------------
 array of digits
@@ -23,10 +22,11 @@ end
 
 =end
 
-def twice int
+def twice(int)
   digits = int.digits
   return int * 2 if digits.size.odd?
-  check_if_double = [digits[0..((digits.size / 2) - 1)], digits[(digits.size / 2)..-1]]
+  check_if_double = [digits[0..((digits.size / 2) - 1)],
+                     digits[(digits.size / 2)..-1]]
   check_if_double[0] == check_if_double[1] ? int : int * 2
 end
 

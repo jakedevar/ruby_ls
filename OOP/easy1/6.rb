@@ -6,7 +6,7 @@ class Car
   end
 
   def increment_mileage(miles)
-    total = self.mileage + miles
+    total = mileage + miles
     self.mileage = total
   end
 

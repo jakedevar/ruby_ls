@@ -1,4 +1,4 @@
-#double_numbers.rb
+# double_numbers.rb
 =begin
 def double_numbers(numbers)
   doubled_numbers = []
@@ -19,7 +19,7 @@ end
 my_numbers = [1, 4, 3, 7, 2, 6]
 double_numbers(my_numbers) # => [2, 8, 6, 14, 4, 12]
 p my_numbers
-LS solution  Below 
+LS solution  Below
 =end
 
 def double_numbers!(numbers, multiplier)
@@ -40,6 +40,6 @@ end
 my_numbers = [1, 4, 3, 7, 2, 6]
 p double_numbers!(my_numbers, 5)
 
-#this is part two of the lesson and I got this one right 
-# though it was not as complex as solution as the first one 
+# this is part two of the lesson and I got this one right
+# though it was not as complex as solution as the first one
 # was to write

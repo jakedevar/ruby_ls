@@ -1,4 +1,4 @@
-#each_method_exercise.rb
+# each_method_exercise.rb
 
 x = [1, 2, 3, 4, 5]
 

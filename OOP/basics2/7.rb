@@ -5,8 +5,8 @@ class Cat
     @name = name
   end
 
-  def to_s 
-    "#{name}"
+  def to_s
+    name.to_s
   end
 end
 

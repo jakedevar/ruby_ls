@@ -1,4 +1,3 @@
-
 # def rotate_array(arr)
 #   x = arr[0]
 #   arr << x
@@ -6,11 +5,11 @@
 #   arr
 # end
 
-#shit didnt read the question all the way through I modified the og array and it said not to. This is the LS solution below 
+# shit didnt read the question all the way through I modified the og array and it said not to. This is the LS solution below
 def rotate_array(arr)
   arr[1..-1] + [arr[0]]
 end
-#further expo
+# further expo
 
 # def string_rotate(string)
 #   new_new = string.chars

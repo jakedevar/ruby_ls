@@ -1,10 +1,10 @@
-#exercise_3.rb
+# exercise_3.rb
 
 def negative(int)
   if int > 0
-    int - (int *2)
-  elsif int < 0 
-    int 
+    int - (int * 2)
+  elsif int < 0
+    int
   else
     0
   end

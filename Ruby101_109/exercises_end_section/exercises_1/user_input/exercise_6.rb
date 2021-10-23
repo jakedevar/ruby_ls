@@ -1,4 +1,4 @@
-#exercise_6.rb
+# exercise_6.rb
 
 PASSWORD = "password"
 =begin
@@ -8,14 +8,13 @@ loop do
   if input == PASSWORD
     puts "Welcome"
     break
-  end 
+  end
 end
 =end
 
+# LS solution I forgot to add invalid password
 
-#LS solution I forgot to add invalid password
-
-loop do 
+loop do
   puts '>> Please enter your password:'
   password_try = gets.chomp
   break if password_try = PASSWORD

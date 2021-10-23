@@ -1,4 +1,4 @@
-def get_grade one, two, three
+def get_grade(one, two, three)
   average = [one, two, three].sum / 3
   case average
   when 90..100 then 'A'

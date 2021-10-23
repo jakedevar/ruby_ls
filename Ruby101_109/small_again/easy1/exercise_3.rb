@@ -1,7 +1,7 @@
 =begin
 # ------------------- Problem ---------------------
-Write a method that takes on argument, a positive integer, and returns 
-a list of the digits in the number 
+Write a method that takes on argument, a positive integer, and returns
+a list of the digits in the number
 
 # ------------------- Examples --------------------
 puts digit_list(12345) == [1, 2, 3, 4, 5]     # => true
@@ -16,8 +16,6 @@ return an array of the brokent up digits
 Take the argument and return an array of the digits using .digits
 
 # ------------------- Storm -----------------------
-
-
 
 =end
 

@@ -1,29 +1,26 @@
-#exercise_5.rb
+# exercise_5.rb
 
 def valid_triangle?(one, two, three)
-  arr = [one, two, three].sort {|a, b| b <=> a}
+  arr = [one, two, three].sort { |a, b| b <=> a }
   if arr.one?(0)
-    return false 
-  elsif ((arr[1] + arr[2]) < arr[0])
-    return false
-  else 
-    return true 
+    false
+  else
+    !((arr[1] + arr[2]) < arr[0])
   end
 end
 
 def triangle(one, two, three)
-  arr = [one, two, three].sort {|a, b| b <=> a}
+  arr = [one, two, three].sort { |a, b| b <=> a }
   if valid_triangle?(one, two, three) && (arr[0] == arr[1] && arr[1] == arr[2])
     :equilateral
   elsif valid_triangle?(one, two, three) && (arr[0] + arr[1]) == (arr[2] * 4)
     :isosceles
   elsif valid_triangle?(one, two, three) && (arr[0] > arr[1] && arr[1] > arr[2])
     :scalene
-  else 
+  else
     :invalid
   end
-end 
-
+end
 
 p triangle(3, 3, 3) == :equilateral
 p triangle(3, 3, 1.5) == :isosceles

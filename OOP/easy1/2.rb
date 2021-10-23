@@ -1,4 +1,4 @@
-# load the problem into brain first 
+# load the problem into brain first
 
 class Pet
   attr_reader :name

@@ -4,13 +4,12 @@ build an array with the entries being the first leeter plus ther other letters
 
 # ------------------- Examples --------------------
 
-
 # ------------------- Data ------------------------
 an array
 
 # ------------------- Algorithm -------------------
 create empty string
-create coutner 
+create coutner
 create array with slots for each spot in str
 map s += str[counter]
 counter += 1
@@ -28,11 +27,11 @@ str
 #     counter += 1
 #     s
 #   end
-# end 
+# end
 
 # to many steps comparitively but still a decent solution i think
 
-def leading_substrings str
+def leading_substrings(str)
   result = []
   0.upto(str.size - 1) do |i|
     result << str[0..i]

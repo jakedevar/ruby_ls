@@ -1,11 +1,11 @@
 =begin
 # ------------------- Problem ---------------------
-take the string and sort it so that the capital letters are in front of the lowercasae leter all in alphabetical order 
+take the string and sort it so that the capital letters are in front of the lowercasae leter all in alphabetical order
 
 # ------------------- Examples --------------------
-no numbers 
+no numbers
 there is an empty string
-no numbers or sepcial characters including spaces 
+no numbers or sepcial characters including spaces
 
 # ------------------- Data ------------------------
 an array obvi
@@ -15,7 +15,7 @@ take the string and downcase then sort the map with index if string downcasesort
 
 # ------------------- Storm -----------------------
 hypo, i think this is going to capitalize every char after the first one
-actual scratch that i think this will work because its not mutating the method 
+actual scratch that i think this will work because its not mutating the method
 =end
 
 # def find_children str
@@ -25,8 +25,8 @@ actual scratch that i think this will work because its not mutating the method
 
 # not a bad solution by i knew there was an easiwer one and this is it
 
-def find_children str
-  str.chars.sort_by { |char| [char.downcase, char]}.join
+def find_children(str)
+  str.chars.sort_by { |char| [char.downcase, char] }.join
 end
 
 p find_children("ABab") #== "AaBb"

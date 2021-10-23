@@ -1,4 +1,4 @@
-#exercise_9.rb
+# exercise_9.rb
 
 def crunch(string)
   new_string = ''

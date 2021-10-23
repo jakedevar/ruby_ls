@@ -1,9 +1,9 @@
-#exercise_10.ruby
+# exercise_10.ruby
 
 stoplight = ['green', 'yellow', 'red'].sample
 
-case stoplight 
-  when 'green'; puts "Go!" 
-  when 'yellow'; puts "Slow down!" 
-   when 'red'; puts "Stop!"
+case stoplight
+when 'green' then puts "Go!"
+when 'yellow' then puts "Slow down!"
+when 'red' then puts "Stop!"
 end

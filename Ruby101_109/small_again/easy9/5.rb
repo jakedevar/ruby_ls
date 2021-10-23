@@ -1,6 +1,6 @@
-def uppercase? str
-  return true if str.chars.all? {|chr| chr == chr.upcase}
-  false  
+def uppercase?(str)
+  return true if str.chars.all? { |chr| chr == chr.upcase }
+  false
 end
 
 p uppercase?('t') == false

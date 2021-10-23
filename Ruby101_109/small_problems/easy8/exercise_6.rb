@@ -1,4 +1,4 @@
-#exercise_6.rb
+# exercise_6.rb
 
 def fizzbuzz(int1, int2)
   (int1..int2).select do |x|
@@ -8,7 +8,7 @@ def fizzbuzz(int1, int2)
       puts 'Fizz'
     elsif x % 5 == 0
       puts 'Buzz'
-    else 
+    else
       puts x
     end
   end

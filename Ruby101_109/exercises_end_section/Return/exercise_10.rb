@@ -1,4 +1,4 @@
-#exercise_10.ruby
+# exercise_10.ruby
 
 def tricky_number
   if true
@@ -9,4 +9,4 @@ def tricky_number
 end
 
 puts tricky_number
-#1 and i was correct 
+# 1 and i was correct

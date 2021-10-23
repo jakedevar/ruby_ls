@@ -1,4 +1,4 @@
-#exercise_3.ruby
+# exercise_3.ruby
 sun = ['visible', 'hidden'].sample
 
 puts "The sun is so bright!" if sun == 'visible'

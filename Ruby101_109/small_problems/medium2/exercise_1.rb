@@ -2,24 +2,15 @@ def longest_sentance(words)
   result_num = 0
   result_sentance = ''
   sentance = words.split(/\.|\?|!/)
-  
+
   sentance.each do |sense|
     if sense.split.length > result_num
-      result_num = sense.split.length 
-      result_sentance = sense 
+      result_num = sense.split.length
+      result_sentance = sense
     end
   end
-puts result_num, result_sentance
+  puts result_num, result_sentance
 end
-
-
-
-
-
-
-
-
-
 
 text = 'Four score and seven years ago our fathers brought forth
 on this continent a new nation, conceived in liberty, and

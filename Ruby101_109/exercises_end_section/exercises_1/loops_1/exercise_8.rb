@@ -1,4 +1,4 @@
-#exercise_8.rb
+# exercise_8.rb
 =begin
 number = 0
 
@@ -6,7 +6,6 @@ until number == 10
   number += 1
   next puts number if number.even?
 end
-
 
 #this is a solution I thought was brilliant in the comments
 number = 0

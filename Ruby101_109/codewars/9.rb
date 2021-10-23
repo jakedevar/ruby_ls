@@ -2,8 +2,8 @@
 PEDAC Template
 ==============
 (Understand the) Problem
-keep the letters at the front and the back of a word the same but sort the inner letters alpha beticalty 
-punctuation must remain in the same place as it started 
+keep the letters at the front and the back of a word the same but sort the inner letters alpha beticalty
+punctuation must remain in the same place as it started
 ------------------------
 -  Inputs: a string of words or word
 -  Output: a string of words or word
@@ -11,9 +11,9 @@ punctuation must remain in the same place as it started
 **Explicit **
 ---
 dont touch punctuation
-sort alphabeticaly 
+sort alphabeticaly
 **Clarifying Questions:**
-1. no numbers 
+1. no numbers
 2.
 3.
 ---
@@ -43,19 +43,19 @@ _Your Edge Cases:_
 ---
 Data Structure
 --------------
-a simple string containing only letters and punctation 
+a simple string containing only letters and punctation
 ---
 Algorithm
 ---------
 split by space
 return a result array
-take split and delete 1,,-2 add to array then sort and insert into current string 
+take split and delete 1,,-2 add to array then sort and insert into current string
 
 **Helper Methods??**
 
 Code
-get index of punctation and add at place on stringusing delete on the string and adding the character 
-deelte everything that is not aplha related from the string and save some where else 
+get index of punctation and add at place on stringusing delete on the string and adding the character
+deelte everything that is not aplha related from the string and save some where else
 ----
 =end
 
@@ -66,17 +66,16 @@ def scramble_words(string)
     chars = word.chars
     arr = []
     punctation = []
-    chars.each {|chr| punctation << chr if chr.match(/[^a-zA-Z\s]/)}
+    chars.each { |chr| punctation << chr if chr.match(/[^a-zA-Z\s]/) }
     arr << chars.shift
     arr << chars.pop
     arr.insert(1, chars.sort)
     result << arr.join
-    
   end
   result.join(' ')
 end
 
-# was about to give up because wtf is the punctuation but codewars wouldent let me see the solution because rank was too low. going to do easy stuff first 
+# was about to give up because wtf is the punctuation but codewars wouldent let me see the solution because rank was too low. going to do easy stuff first
 
 # p scramble_words('professionals') == 'paefilnoorsss'
 

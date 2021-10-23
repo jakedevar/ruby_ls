@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 =begin
 def predict_weather
   sunshine = ['true', 'false'].sample

@@ -1,4 +1,4 @@
-#exercise_9.rb
+# exercise_9.rb
 
 number_a = 0
 number_b = 0
@@ -9,7 +9,6 @@ loop do
   next if number_a != 5 && number_b != 5
   puts "5 was reached!"
   break
-  
 end
 
 =begin
@@ -18,7 +17,7 @@ end
   number_a = 0
 number_b = 0
 
-loop do 
+loop do
   number_a += rand (2)
   number_b += rand(2)
   next if [number_a, number-b].max < 5
@@ -26,7 +25,7 @@ loop do
   break
 end
 =end
-#LS solution 
+# LS solution
 
 number_a = 0
 number_b = 0

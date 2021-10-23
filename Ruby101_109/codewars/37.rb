@@ -1,21 +1,20 @@
 =begin
 # ------------------- Problem ---------------------
-find the multiples of 3 or 5 between 1 and the target number 
+find the multiples of 3 or 5 between 1 and the target number
 sum all of those multiples together
 
 # ------------------- Examples --------------------
 no negatives are used it seems
-0 is not given it seems 
-
+0 is not given it seems
 
 # ------------------- Data ------------------------
-I will use a range for this and select from the range 
+I will use a range for this and select from the range
 
 # ------------------- Algorithm -------------------
 def method int
   call range one to int
   select on range with n % 3 or 5 equal zero
-on select call sum 
+on select call sum
 end
 
 # ------------------- Storm -----------------------

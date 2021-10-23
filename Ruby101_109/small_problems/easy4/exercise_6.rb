@@ -1,4 +1,4 @@
-#exercise_6.rb
+# exercise_6.rb
 =begin
 def running_total(arr)
   total = 0
@@ -12,9 +12,8 @@ def running_total(array)
 end
 =end
 def running_total(arr)
-  arr.map  {|x| x.inject { |a, i| a + i}}
+  arr.map { |x| x.inject { |a, i| a + i } }
 end
-
 
 p running_total([2, 5, 13]) == [2, 7, 20]
 p running_total([14, 11, 7, 15, 20]) == [14, 25, 32, 47, 67]

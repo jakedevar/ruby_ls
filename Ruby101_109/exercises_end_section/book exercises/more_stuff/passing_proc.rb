@@ -1,4 +1,4 @@
-#passing_proc.rb
+# passing_proc.rb
 
 def take_proc(proc)
   [1, 2, 3, 4, 5].each do |number|

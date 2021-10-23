@@ -1,8 +1,9 @@
-#problem: fix the class so that the expected output comes 
+# problem: fix the class so that the expected output comes
 # loading problem into brain
 
 class Book
   attr_reader :title, :author
+
   def initialize(author, title)
     @author = author
     @title = title

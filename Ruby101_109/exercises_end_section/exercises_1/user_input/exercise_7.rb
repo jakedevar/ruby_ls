@@ -1,4 +1,4 @@
-#exercise_7.rb
+# exercise_7.rb
 
 USER_NAME = "admin"
 PASSWORD = "password"
@@ -14,9 +14,9 @@ end
 
 puts "Welcome!"
 
-# my solution and LS solution were the same 
-# because i used the format from the last exercise as 
-# and example 
+# my solution and LS solution were the same
+# because i used the format from the last exercise as
+# and example
 # note: they used new lines in between for readability
 =begin
 USERNAME = 'admin'

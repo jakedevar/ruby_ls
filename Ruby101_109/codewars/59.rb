@@ -5,13 +5,13 @@ return 1 if there is a stright triple of one number in the first int and a strig
 # ------------------- Examples --------------------
 0?
 nil?
-im assuming no also no strings 
+im assuming no also no strings
 
 # ------------------- Data ------------------------
-im using a hash for this to tally stuff then use that key to retrun 1 if hash2 also has the key as two 
+im using a hash for this to tally stuff then use that key to retrun 1 if hash2 also has the key as two
 
 # ------------------- Algorithm -------------------
-def triple double 
+def triple double
   hash1 = int.digits.tally
   hash2 = int2.digits.tally
   hash1.keys.each doseph if v == 3 and hash2[k] == 2 return 1
@@ -34,12 +34,12 @@ end
 #   digi1 = int1.digits
 #   digi2 = int2.digits
 #   digi1.each do |i|
-#     return 1 if digi1.count(i) == 3 && digi2.count(i) == 2 
+#     return 1 if digi1.count(i) == 3 && digi2.count(i) == 2
 #   end
 #   0
 # end
 
-# broken kata, both work but one test fails which i test here and is not a random test that works on my machine but not that one i guess 
+# broken kata, both work but one test fails which i test here and is not a random test that works on my machine but not that one i guess
 
 p triple_double(1112, 122) #== 0
 

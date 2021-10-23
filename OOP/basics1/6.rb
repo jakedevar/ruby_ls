@@ -3,7 +3,7 @@ class Cat
     @name = name
   end
 
-  def greet 
+  def greet
     puts "Hello! My name is #{@name}!"
   end
 end

@@ -1,6 +1,7 @@
-#collection_basics3.rb
+# collection_basics3.rb
 
-hsh = { apple: 'Produce', carrot: 'Produce', pear: 'Produce', broccoli: 'Produce' }
+hsh = { apple: 'Produce', carrot: 'Produce', pear: 'Produce',
+        broccoli: 'Produce' }
 hsh[:apple] = 'Fruit'
 hsh # => { :apple => "Fruit", :carrot => "Produce", :pear => "Produce", :broccoli => "Produce" }
 hsh[:apple] = 'Fruit'

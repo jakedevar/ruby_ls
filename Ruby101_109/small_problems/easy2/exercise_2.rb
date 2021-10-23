@@ -1,7 +1,7 @@
-#exercise_2.rb
+# exercise_2.rb
 =begin
 build a program that asks for length and width of a room in meters
-and then have the program display the area of the room in btoh 
+and then have the program display the area of the room in btoh
 square meters and square feet
 
 puts a question for both and then gets chomp it brotha

@@ -12,13 +12,14 @@ using the Date class in ruby
 
 ------------------- Algorithm -------------------
 
-
 ------------------- Code ------------------------
 =end
 require 'date'
 
 def friday_13th(year)
-  Date.new(year).step(Date.new(year,-1,-1)).map{|d| d.mday if d.friday?}.to_a.compact.select {|d| d == 13}.size
+  Date.new(year).step(Date.new(year, -1, -1)).map do |d|
+    d.mday if d.friday?
+  end.to_a.compact.select { |d| d == 13 }.size
 end
 
 p friday_13th(2015) == 3

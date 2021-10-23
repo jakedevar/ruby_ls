@@ -1,11 +1,9 @@
-#exercise_7,rb
+# exercise_7,rb
 
 def show_multiplicative_average(arr)
   storage = arr.inject(:*) / arr.length.to_f
   format('%.3f', storage)
 end
-
-
 
 p show_multiplicative_average([3, 5])                # => The result is 7.500
 p show_multiplicative_average([6])                   # => The result is 6.000

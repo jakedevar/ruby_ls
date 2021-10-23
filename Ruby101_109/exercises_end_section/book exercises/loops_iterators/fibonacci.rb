@@ -1,10 +1,10 @@
-#fibonacci.rb
+# fibonacci.rb
 
 def fibonacci(number)
   if number < 2
-    number 
+    number
   else
-    fibonacci(number -1) + fibonacci(number - 2)
+    fibonacci(number - 1) + fibonacci(number - 2)
   end
 end
 

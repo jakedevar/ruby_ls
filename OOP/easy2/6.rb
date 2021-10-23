@@ -2,6 +2,7 @@
 class Wallet
   include Comparable
   attr_writer :amount
+
   def initialize(amount)
     @amount = amount
   end
@@ -11,6 +12,7 @@ class Wallet
   end
 
   protected
+
   attr_reader :amount
 end
 

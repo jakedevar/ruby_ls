@@ -1,17 +1,17 @@
-#exercise_4.rb
+# exercise_4.rb
 
 def leap_year?(year)
   if year < 1752 && year % 4 == 0
-    true  
+    true
   elsif year % 400 == 0
-   true
+    true
   elsif year % 100 == 0
     false
   else
     year % 4 == 0
-  end   
+  end
 end
-#mine was exactly launch schools 
+# mine was exactly launch schools
 
 p leap_year?(2016) == true
 p leap_year?(2015) == false

@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 
 # BLOCK = ['B', 'X', 'D', 'C', 'N', 'G', 'R','F', 'J', 'H', 'V', 'L', 'Z']
 # BLOCK2 = ['O', 'K', 'Q', 'P', 'A', 'T', 'E', 'S', 'W', 'U', 'I', 'Y', 'M']
@@ -12,11 +12,11 @@
 #     end
 #   end
 # end
-#this one ended up working out. I find that as long as I dont give up I can usually come up with a solution that can work, wait mine didnt work all the way actually my bad
+# this one ended up working out. I find that as long as I dont give up I can usually come up with a solution that can work, wait mine didnt work all the way actually my bad
 BLOCK = %w(BO XK DQ CP NA GT RE FS JW HU VI LY ZM)
 def block_word?(string)
   string_up = string.upcase
-  BLOCK.none? { |pair| string_up.count(pair) >= 2}
+  BLOCK.none? { |pair| string_up.count(pair) >= 2 }
 end
 
 p block_word?('BATCH') #== true

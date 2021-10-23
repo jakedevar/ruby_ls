@@ -9,22 +9,20 @@ given
 using count on the string and a sum should be easy
 i am going to init two sums left and right and init to 0
 then the sum plus equals right and left respectivley the count of the regex match of ( or )
-the return true if left - right == 0 
+the return true if left - right == 0
 false
 
 ------------------- Algorithm -------------------
 
-
 ------------------- Code ------------------------
 =end
-
 
 def balanced?(str)
   sum = 0
   str.each_char do |chr|
-  sum += 1 if chr == '('
-  sum -= 1 if chr == ')'
-  break if sum < 0
+    sum += 1 if chr == '('
+    sum -= 1 if chr == ')'
+    break if sum < 0
   end
   sum.zero?
 end

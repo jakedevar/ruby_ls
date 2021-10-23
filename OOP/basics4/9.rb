@@ -2,6 +2,7 @@ class Person
   def age=(age)
     @age = age * 2
   end
+
   def age
     @age * 2
   end

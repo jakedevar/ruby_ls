@@ -1,4 +1,4 @@
-#exercise_3.rb
+# exercise_3.rb
 puts 'what is the bill?'
 bill = gets.chomp.to_f
 puts 'what is the tip percentage?'

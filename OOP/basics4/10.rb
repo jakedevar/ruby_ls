@@ -1,5 +1,6 @@
 class Person
   attr_writer :name
+
   def name
     first_name, last_name = @name.split
     first_name + ' ' + last_name

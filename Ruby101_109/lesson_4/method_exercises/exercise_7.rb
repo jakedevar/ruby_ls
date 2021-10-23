@@ -1,4 +1,4 @@
-#exercise_7.rb
+# exercise_7.rb
 [1, 2, 3].any? do |num|
   puts num
   num.odd?
@@ -17,5 +17,5 @@ The return value of the block is determined by the return value of the last expr
 
 Since the Array#any? method returns true if the block ever returns a value other than false or nil, and the block returns true on the first iteration, we know that any? will return true. What is also interesting here is any? stops iterating after this point since there is no need to evaluate the remaining items in the array; therefore, puts num is only ever invoked for the first item in the array: 1.
 
-I was half right I didnt know the other part 
+I was half right I didnt know the other part
 =end

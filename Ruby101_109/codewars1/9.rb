@@ -2,7 +2,7 @@
 ------------------- Problem ---------------------
 input a string
 output a string
-return a string where the first and last chracters remain 
+return a string where the first and last chracters remain
 and the interior is sorted alphabetically
 
 punctuation should remain the same
@@ -15,7 +15,7 @@ punctuation should remain the same
 =end
 
 def scramble_words(words)
-  words.gsub(/(?<=\w)([^ ]+)(?=\w)/)#{|a| cs = a.scan(/\w/).sort; a.gsub(/\w/){cs.shift}}
+  words.gsub(/(?<=\w)([^ ]+)(?=\w)/) # {|a| cs = a.scan(/\w/).sort; a.gsub(/\w/){cs.shift}}
 end
 
 p scramble_words('professionals') #== 'paefilnoorsss'

@@ -8,6 +8,7 @@ end
 
 class Truck < Vehicle
   attr_accessor :bed_type
+
   def initialize(year, bed)
     super(year)
     self.bed_type = bed

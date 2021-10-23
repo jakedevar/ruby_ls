@@ -39,11 +39,11 @@ _Your Edge Cases:_
 ---
 Data Structure
 --------------
-a simple sentacne encased in double quotes sometimes with punctuation 
+a simple sentacne encased in double quotes sometimes with punctuation
 ---
 Algorithm
 ---------
-delete all the punctuation and then uniq and sort 
+delete all the punctuation and then uniq and sort
 
 **Helper Methods??**
 
@@ -52,7 +52,9 @@ Code
 =end
 ALPHA = ('a'..'z').to_a
 def panagram?(string)
-  return true if string.downcase.chars.uniq.sort.delete_if {|ele| ele =~ /[^A-Za-z]/} == ALPHA
+  return true if string.downcase.chars.uniq.sort.delete_if do |ele|
+                   ele =~ /[^A-Za-z]/
+                 end == ALPHA
   false
 end
 

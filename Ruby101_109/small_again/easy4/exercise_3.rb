@@ -3,17 +3,17 @@ PEDAC Template
 ==============
 (Understand the) Problem
 ------------------------
--  Inputs: year as an integer 
+-  Inputs: year as an integer
 -  Output: boolean
 ---
 **Problem Domain:**
 ---
 **Implicit Requirements:**
 --- you will return a boolean
-there will be math involved 
+there will be math involved
 **Clarifying Questions:**
 1. is there negative years?
-2. 
+2.
 3.
 ---
 **Mental Model:**
@@ -44,35 +44,31 @@ and if else statment will do the trick on this one
 ---
 Algorithm
 ---------
-if year is % by 100 and not % 400 
+if year is % by 100 and not % 400
 Code
 ----
-=end 
+=end
 
 def leap_year?(year)
   if year % 100 == 0 && year % 400 != 0
     false
   elsif year % 400 == 0 || year % 4 == 0
     true
-  else 
+  else
     false
   end
 end
 
-
-
-
-
- p leap_year?(2016) == true
- p leap_year?(2015) == false
- p leap_year?(2100) == false
- p leap_year?(2400) == true
- p leap_year?(240000) == true
- p leap_year?(240001) == false
- p leap_year?(2000) == true
- p leap_year?(1900) == false
- p leap_year?(1752) == true
- p leap_year?(1700) == false
- p leap_year?(1) == false
- p leap_year?(100) == false
- p leap_year?(400) == true
+p leap_year?(2016) == true
+p leap_year?(2015) == false
+p leap_year?(2100) == false
+p leap_year?(2400) == true
+p leap_year?(240000) == true
+p leap_year?(240001) == false
+p leap_year?(2000) == true
+p leap_year?(1900) == false
+p leap_year?(1752) == true
+p leap_year?(1700) == false
+p leap_year?(1) == false
+p leap_year?(100) == false
+p leap_year?(400) == true

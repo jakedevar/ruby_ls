@@ -1,8 +1,10 @@
 class Transform
   attr_accessor :str
+
   def initialize(str)
     @str = str
   end
+
   def uppercase
     self.str = str.upcase
   end

@@ -3,4 +3,3 @@ module Transportation
   class Truck < Vehicle; end
   class Car < Vehicle; end
 end
-

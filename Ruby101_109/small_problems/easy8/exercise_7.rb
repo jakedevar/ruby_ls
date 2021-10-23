@@ -1,4 +1,4 @@
-#exercise_7.rb
+# exercise_7.rb
 
 # def repeater(string)
 #   string.chars.map { |ele| ele * 2}.join

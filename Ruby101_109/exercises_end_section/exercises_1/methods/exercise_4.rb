@@ -1,4 +1,4 @@
-#exercise_4.ruby
+# exercise_4.ruby
 
 def hello
   'Hello'
@@ -8,15 +8,14 @@ def world
   'World'
 end
 
-
-def greet 
+def greet
   "#{hello} #{world}"
 end
 
 =begin
-#or 
-def greet 
+#or
+def greet
   hello + ' ' + world
 end
 =end
-puts greet  
+puts greet

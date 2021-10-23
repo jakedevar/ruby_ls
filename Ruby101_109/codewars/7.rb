@@ -13,10 +13,10 @@ take the index of the word with a counter and add to str
 **Clarifying Questions:**
 1. will the target letters always include letters in order with the array of words
 2. must it be case sensitive
-3. 
+3.
 ---
 **Implicit Requirements:**
-yes it is in order 
+yes it is in order
 ---
 **Mental Model:**
 ---
@@ -34,7 +34,7 @@ p nth_char(['Chad', 'Morocco', 'India', 'Algeria', 'Botswana', 'Bahamas', 'Ecuad
 ---
 Data Structure
 --------------
-an array of words that are strings 
+an array of words that are strings
 ---
 Algorithm
 ---------
@@ -50,7 +50,7 @@ Code
 # def nth_char(arr)
 #   str = ''
 #   counter = 0
-#   loop do 
+#   loop do
 #     break if counter >= arr.length
 #     word = arr[counter]
 #     str += word[counter]
@@ -60,7 +60,7 @@ Code
 # end
 
 def nth_char(arr)
-  arr.map.with_index { |n, i| n[i]}.join
+  arr.map.with_index { |n, i| n[i] }.join
 end
 
 p nth_char(['yoda', 'best', 'has']) #== 'yes'
@@ -71,4 +71,5 @@ p nth_char(['X-ray']) == 'X'
 
 p nth_char(['No', 'No']) == 'No'
 
-p nth_char(['Chad', 'Morocco', 'India', 'Algeria', 'Botswana', 'Bahamas', 'Ecuador', 'Micronesia']) ==  'Codewars'
+p nth_char(['Chad', 'Morocco', 'India', 'Algeria', 'Botswana', 'Bahamas',
+            'Ecuador', 'Micronesia']) == 'Codewars'

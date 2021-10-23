@@ -1,8 +1,8 @@
-def repeater str
+def repeater(str)
   s = ''
-  str.each_char {|chr| s << chr * 2}
+  str.each_char { |chr| s << chr * 2 }
   s
-end 
+end
 
 p repeater('Hello') == "HHeelllloo"
 p repeater("Good job!") == "GGoooodd  jjoobb!!"

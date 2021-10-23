@@ -1,4 +1,4 @@
-#exercise_9.rb
+# exercise_9.rb
 
 =begin
 words = 'car human elephant airplane'.split(' ')
@@ -8,6 +8,6 @@ words_array = words.to_a
 words_array.each { |x| puts "#{x}'s"}
 =end
 
-#solution i liked 
+# solution i liked
 words = 'car human elephant airplane'
-words.split.each {|x| puts x + 's'}
+words.split.each { |x| puts x + 's' }

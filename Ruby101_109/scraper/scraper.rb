@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'csv'
 
 def scraping(url)
-  p html = open("#{url}").read
+  p html = open(url.to_s).read
 end
 
 scraping("https://en.wikipedia.org/wiki/Termite")

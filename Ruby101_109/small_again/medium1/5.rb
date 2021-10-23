@@ -12,7 +12,7 @@ ones provided are good enough
 i am going to use Intger#times for this sob
 
 ------------------- Algorithm -------------------
-take the arg and then 
+take the arg and then
 init a counter at 1
 
 call times on int
@@ -20,8 +20,8 @@ init a var that is the counter minus the int / 2
   calling puts "#{' ' * var}#{counter * '*'}#{}" using interpolation on this one
 end
 
-shoot forgot about the bottom half, not to worry this is easy just flithe logic more or less and use untill 
-probs could break up into top and bottom half methods but wont for brevity of time 
+shoot forgot about the bottom half, not to worry this is easy just flithe logic more or less and use untill
+probs could break up into top and bottom half methods but wont for brevity of time
 
 ------------------- Code ------------------------
 =end

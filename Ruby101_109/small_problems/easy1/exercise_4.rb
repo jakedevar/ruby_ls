@@ -1,11 +1,11 @@
-#exercise_4.rb
+# exercise_4.rb
 
 vehicles = [
   'car', 'car', 'truck', 'car', 'SUV', 'truck',
   'motorcycle', 'motorcycle', 'car', 'truck'
 ]
 def count_cars(vehicles_arr)
-  motor_vehicles = {car: [], SUV: [], truck: [], motorcycle: []}
+  motor_vehicles = { car: [], SUV: [], truck: [], motorcycle: [] }
   vehicles_arr.each do |vehicle|
     if vehicle == 'car'
       motor_vehicles[:car] << vehicle
@@ -17,7 +17,7 @@ def count_cars(vehicles_arr)
       motor_vehicles[:SUV] << vehicle
     end
   end
-  motor_vehicles.each do |key,value|
+  motor_vehicles.each do |key, value|
     puts "#{key} => #{value.length}"
   end
 end

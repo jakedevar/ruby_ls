@@ -1,6 +1,6 @@
 =begin
 # ------------------- Problem ---------------------
-return a string of the longest running alphabetical ordered string within the string argument given 
+return a string of the longest running alphabetical ordered string within the string argument given
 
 # ------------------- Examples --------------------
 p longest('asd') == 'as'
@@ -18,15 +18,15 @@ p longest('z') == 'z'
 p longest('zyba') == 'z'
 
 # ------------------- Data ------------------------
-a simple string of lowercase characters no special characters all lower case 
+a simple string of lowercase characters no special characters all lower case
 
 # ------------------- Algorithm -------------------
-create an array of alpha bet 
+create an array of alpha bet
 chars array the string
 check index of element to alpha
-save ele in array as long as index is equal or greater than last index else append that store array to result and empty store array 
-save chars in another array 
-if then check so array can be set to zero if thats the case 
+save ele in array as long as index is equal or greater than last index else append that store array to result and empty store array
+save chars in another array
+if then check so array can be set to zero if thats the case
   set ind to index if index is >= ind
 
 # ------------------- Storm -----------------------
@@ -44,13 +44,12 @@ def longest(string)
     else
       result << storage
       storage = []
-      storage << ele 
+      storage << ele
       ind = ALPHA.index(ele)
     end
   end
-  result.sort.max {|a, b| a.length <=> b.length}.join
+  result.sort.max { |a, b| a.length <=> b.length }.join
 end
-
 
 p longest('asd') #== 'as'
 

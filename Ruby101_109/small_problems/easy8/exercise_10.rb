@@ -1,9 +1,8 @@
-#exercise_10.rb
+# exercise_10.rb
 
 def center_of(string)
-  string.length.odd? ? string[string.length / 2] : string[(string.length / 2) -1] + string[string.length / 2] 
+  string.length.odd? ? string[string.length / 2] : string[(string.length / 2) - 1] + string[string.length / 2]
 end
-
 
 p center_of('I love ruby') == 'e'
 p center_of('Launch School') == ' '

@@ -1,8 +1,7 @@
-
-
 def fibonacci_last(int)
-  first, last = [1, 1]
-  3.upto(int) do 
+  first = 1
+  last = 1
+  3.upto(int) do
     first, last = [last, first + last]
   end
   last.to_s.chars.last

@@ -64,7 +64,7 @@ loop do # main loop
   operator = nil
   loop do
     operator = gets.chomp
-    if %w[1 2 3 4].include?(operator)
+    if %w(1 2 3 4).include?(operator)
       break
     else
       prompt(MESSAGES['choose'])

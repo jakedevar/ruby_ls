@@ -1,4 +1,4 @@
-#exercise_10.rb
+# exercise_10.rb
 
 # def buy_fruit(arr)
 #   new_arr = []
@@ -20,8 +20,8 @@
 # end
 
 def buy_fruit(arr)
-  arr.map { |fruit, quantity| [fruit] * quantity}.flatten
+  arr.map { |fruit, quantity| [fruit] * quantity }.flatten
 end
 
 p buy_fruit([["apples", 3], ["orange", 1], ["bananas", 2]]) ==
-  ["apples", "apples", "apples", "orange", "bananas","bananas"]
+  ["apples", "apples", "apples", "orange", "bananas", "bananas"]

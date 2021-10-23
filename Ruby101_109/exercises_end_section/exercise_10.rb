@@ -1,11 +1,11 @@
-#exercise_10.rb
+# exercise_10.rb
 
 =begin
 def valid_number?(number_string)
   number_string.to_i.to_s == number_string && number_string.to_i != 0
 end
 
-loop do 
+loop do
   sum = nil
   int_1 = nil
   int_2 = nil
@@ -18,9 +18,9 @@ loop do
     puts "#{int_1} + #{int_2} = #{sum}"
   end
   break if sum == true
-end 
+end
 
-I am rushing through because I am going to work in a few mintues and this is the 
+I am rushing through because I am going to work in a few mintues and this is the
 last exercise that I have to do. It is clear to me that I need to spend more time
   on this subject and that I will most likley do this whole exercise block again
     after I read up more on things like scope and also when my brain is feeling more fresh

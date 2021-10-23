@@ -1,1 +1,1 @@
-9.times { puts 'games'}
+9.times { puts 'games' }

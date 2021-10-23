@@ -4,7 +4,7 @@ class Cat
     @@count += 1
   end
 
-  def self.total 
+  def self.total
     puts @@count
   end
 end

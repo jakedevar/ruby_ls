@@ -1,31 +1,23 @@
 # #exercise_11.rb
 result = {}
 words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
-  'fowl', 'veil', 'wolf', 'diet', 'vile', 'edit', 'tide',
-  'flow', 'neon']
+          'fowl', 'veil', 'wolf', 'diet', 'vile', 'edit', 'tide',
+          'flow', 'neon']
 
-
-  words.each do |word|
-    key = word.split('').sort.join
-    if result.has_key?(key)
-      result[key].push(word)
-    else
-      result[key] = [word]
-    end
+words.each do |word|
+  key = word.split('').sort.join
+  if result.has_key?(key)
+    result[key].push(word)
+  else
+    result[key] = [word]
   end
-  
-  result.each_value do |v|
-    puts "------"
-    p v
-  end
+end
 
-
+result.each_value do |v|
+  puts "------"
+  p v
+end
 
 # ["demo", "dome", "mode"]
 # ["neon", "none"]
 # #(etc)
-
-
-
-
-

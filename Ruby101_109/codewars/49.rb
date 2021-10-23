@@ -1,7 +1,7 @@
 =begin
 # ------------------- Problem ---------------------
-break the integer up into single digits. 
-then take them to the power of the number given which increases by one every time you take the next number to 
+break the integer up into single digits.
+then take them to the power of the number given which increases by one every time you take the next number to
 the new power
 
 # ------------------- Examples --------------------
@@ -21,16 +21,19 @@ then return true if n times power == the sum of the maped arr
 
 def dig_pow(n, p)
   count = p - 1
-  powered = n.to_s.chars.map { |i| i.to_i }.map { |n| count += 1 ; n**count }
+  powered = n.to_s.chars.map { |i| i.to_i }.map do |n|
+    count += 1
+    n**count
+  end
   count = 0
   i = 0
-  loop do 
+  loop do
     break if i >= powered.sum
     count += 1
     i = n * count
   end
   return -1 if powered.sum != i
-  return powered.sum / n 
+  powered.sum / n
 end
 
 p dig_pow(89, 1) #== 1

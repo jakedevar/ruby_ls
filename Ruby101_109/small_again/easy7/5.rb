@@ -1,5 +1,5 @@
-def staggered_case str
-  str.chars.map.with_index { |chr, i| i.even? ? chr.upcase : chr.downcase}.join
+def staggered_case(str)
+  str.chars.map.with_index { |chr, i| i.even? ? chr.upcase : chr.downcase }.join
 end
 
 p staggered_case('I Love Launch School!') == 'I LoVe lAuNcH ScHoOl!'

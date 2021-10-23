@@ -1,5 +1,3 @@
-
-
 def real_palindrome?(string)
   cleaned = string.gsub(/[^A-Za-z]/, '')
   return true if cleaned.downcase == cleaned.downcase.reverse

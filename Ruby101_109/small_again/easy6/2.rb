@@ -1,5 +1,5 @@
-def remove_vowels arr
-  arr.map {|word| word.gsub(/[aeiou]/i, '')}
+def remove_vowels(arr)
+  arr.map { |word| word.gsub(/[aeiou]/i, '') }
 end
 
 p remove_vowels(%w(abcdefghijklmnopqrstuvwxyz)) == %w(bcdfghjklmnpqrstvwxyz)

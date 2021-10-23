@@ -5,7 +5,6 @@ produce = {
   'broccoli' => 'Vegetable'
 }
 
-
 def select_fruit(key)
   counter = 0
   fruit_storage = []
@@ -16,12 +15,11 @@ def select_fruit(key)
       fruit_storage << produce_arr[counter]
     end
     counter += 1
-    
+
     break if counter == key.size
   end
   p fruit_storage
 end
-
 
 select_fruit(produce)
 

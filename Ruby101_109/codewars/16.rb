@@ -1,5 +1,7 @@
 def spinWords(string)
-  string.split(' ').map {|word| word.length > 4 ? word.reverse : word}.join(' ')
+  string.split(' ').map do |word|
+    word.length > 4 ? word.reverse : word
+  end.join(' ')
 end
 
 p spinWords("Welcome") #== "Hey wollef sroirraw"

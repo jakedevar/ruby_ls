@@ -1,4 +1,4 @@
-#exercise_6.rb
+# exercise_6.rb
 
 # def staggered_case(string)
 #   result = ''
@@ -17,17 +17,17 @@
 #   result
 # end
 
-#so mine does work. this is the LS logic below 
+# so mine does work. this is the LS logic below
 def staggered_case(string)
   result = ''
   caps_yes = true
   string.chars.each do |char|
     if char =~ /[a-z]/i
-      if caps_yes
-        result += char.upcase
-      else
-        result += char.downcase
-      end
+      result += if caps_yes
+                  char.upcase
+                else
+                  char.downcase
+                end
       caps_yes = !caps_yes
     else
       result += char
@@ -35,9 +35,6 @@ def staggered_case(string)
   end
   result
 end
-
-
-
 
 p staggered_case('I Love Launch School!') == 'I lOvE lAuNcH sChOoL!'
 p staggered_case('ALL CAPS') == 'AlL cApS'

@@ -9,9 +9,8 @@ def helper(word)
 end
 
 def swap(str)
-  str.split(/ /).map { |word| helper(word)}.join' '
+  str.split(/ /).map { |word| helper(word) }.join ' '
 end
-
 
 p swap('Oh what a wonderful day it is') == 'hO thaw a londerfuw yad ti si'
 p swap('Abcde') == 'ebcdA'

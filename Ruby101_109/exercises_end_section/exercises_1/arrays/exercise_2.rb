@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 
 pets = ['cat', 'dog', 'fish', 'lizard']
 

@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 
 def rotate_array(arr)
   arr[1..-1] + [arr[0]]

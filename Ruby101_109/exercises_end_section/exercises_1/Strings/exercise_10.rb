@@ -1,4 +1,4 @@
-#exercise_10.rb
+# exercise_10.rb
 
 colors = 'blue pink yellow orange'
 

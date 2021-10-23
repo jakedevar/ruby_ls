@@ -1,14 +1,14 @@
-#exercise_10.rb
-og_arr = [{a: 1}, {b: 2, c: 3}, {d: 4, e: 5, f: 6}]
+# exercise_10.rb
+og_arr = [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }]
 
 og_arr.map do |sub_hash|
   sub_hash.each_value do |value|
     value += 1
-  end  
+  end
 end
 
-#LS solution
-[{a: 1}, {b: 2, c: 3}, {d: 4, e: 5, f: 6}].map do |hsh|
+# LS solution
+[{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }].map do |hsh|
   incremented_hash = {}
   hsh.each do |key, value|
     incremented_hash[key] = value + 1

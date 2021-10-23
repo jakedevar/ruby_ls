@@ -1,4 +1,4 @@
-#passing_blocks.rb
+# passing_blocks.rb
 
 def take_block(number, &block)
   block.call(number)

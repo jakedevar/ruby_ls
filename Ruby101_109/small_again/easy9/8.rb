@@ -1,11 +1,10 @@
-def sequence times, num
+def sequence(times, num)
   count = 0
-  (1..times).to_a.map do |int|
+  (1..times).to_a.map do |_int|
     count += 1
     num * count
   end
 end
-
 
 p sequence(5, 1) == [1, 2, 3, 4, 5]
 p sequence(4, -7) == [-7, -14, -21, -28]

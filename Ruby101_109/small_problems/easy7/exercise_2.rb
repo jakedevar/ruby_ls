@@ -1,5 +1,3 @@
-
-
 # def letter_case_count(string)
 #   hash = {lowercase: 0, uppercase: 0, neither: 0}
 #   hash[:lowercase] = string.count("/[a-z]/")
@@ -8,13 +6,13 @@
 #   hash
 # end
 
-#after seeing LS solution
+# after seeing LS solution
 def letter_case_count(string)
   hash = {}
   characters = string.chars
-  hash[:lowercase] = characters.count { |char| char =~ /[a-z]/}
-  hash[:uppercase] = characters.count { |char| char =~ /[A-Z]/}
-  hash[:neither] = characters.count { |char| char =~ /[^A-Za-z]/}
+  hash[:lowercase] = characters.count { |char| char =~ /[a-z]/ }
+  hash[:uppercase] = characters.count { |char| char =~ /[A-Z]/ }
+  hash[:neither] = characters.count { |char| char =~ /[^A-Za-z]/ }
   hash
 end
 

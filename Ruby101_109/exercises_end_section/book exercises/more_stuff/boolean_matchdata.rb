@@ -1,4 +1,4 @@
-#boolean_matchdata.rb
+# boolean_matchdata.rb
 
 def has_a_b?(string)
   if /b/.match(string)

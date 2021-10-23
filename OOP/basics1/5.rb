@@ -1,6 +1,5 @@
 class Cat
   def initialize(name)
-    
     @name = name
     puts "I'm a #{@name}!"
   end

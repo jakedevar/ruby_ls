@@ -15,7 +15,7 @@
 #   end
 # end
 # class Car < Vehicle
- 
+
 # end
 
 # class Motorcycle < Vehicle

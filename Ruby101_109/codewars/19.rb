@@ -1,12 +1,10 @@
 =begin
 # ------------------- Problem ---------------------
-given an input of a string and a list of exceptions 
+given an input of a string and a list of exceptions
 
 # ------------------- Examples --------------------
 
-
 # ------------------- Data ------------------------
-
 
 # ------------------- Algorithm -------------------
 take the string and split
@@ -22,12 +20,11 @@ def title_case(string, except = '')
   ex = except.split
   ex.each do |word|
     i = store2.index(word.downcase.capitalize)
-    store2[i].downcase! unless i == nil
+    store2[i].downcase! unless i.nil?
   end
   store2.unshift(store[0])
   store2.join ' '
 end
-
 
 p title_case('a clash of KINGS', 'a an the of') == 'A Clash of Kings'
 

@@ -1,29 +1,29 @@
-#exercise_9.rb
+# exercise_9.rb
 
 def bubble_sort!(arr)
   counter = 1
   swap = 0
-  loop do 
-   if swap > 0 
-    loop do 
-      break if arr.size == counter
-      if arr[counter - 1] < arr[counter]
-        counter += 1
-        swap += 1
-      else
-        holder = arr[counter - 1]
-        arr[counter - 1] = arr[counter]
-        arr[counter] = holder
-        counter += 1
-        swap = true
+  loop do
+    if swap > 0
+      loop do
+        break if arr.size == counter
+        if arr[counter - 1] < arr[counter]
+          counter += 1
+          swap += 1
+        else
+          holder = arr[counter - 1]
+          arr[counter - 1] = arr[counter]
+          arr[counter] = holder
+          counter += 1
+          swap = true
+        end
       end
     end
-  else 
   end
-  end
-    arr
+  arr
 end
-#LS solution
+
+# LS solution
 def bubble_sort!(array)
   loop do
     swapped = false
@@ -38,12 +38,11 @@ def bubble_sort!(array)
   nil
 end
 
-
-#array = [5, 3]
+# array = [5, 3]
 # p bubble_sort!(array)
 # array == [3, 5]
 
- array = [6, 2, 7, 1, 4]
+array = [6, 2, 7, 1, 4]
 p bubble_sort!(array)
 # array == [1, 2, 4, 6, 7]
 

@@ -13,10 +13,8 @@ end
 =end
 def ascii_value(string)
   sum = 0
-   string.each_char { |char| p char.ord.chr == char }
-  
+  string.each_char { |char| p char.ord.chr == char }
 end
-
 
 ascii_value('Four score') == 984
 ascii_value('Launch School') == 1251

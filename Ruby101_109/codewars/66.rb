@@ -1,18 +1,17 @@
 =begin
 # ------------------- Problem ---------------------
-take each word if there is more than one and reverse it and then combine with 1 + 2, 3 + 4 and so on 
-untill there are no more words 
-input a string and oupt a string 
+take each word if there is more than one and reverse it and then combine with 1 + 2, 3 + 4 and so on
+untill there are no more words
+input a string and oupt a string
 # ------------------- Examples --------------------
-
 
 # ------------------- Data ------------------------
 
-arrays always 
+arrays always
 # ------------------- Algorithm -------------------
 take the string and split set to var
-untill arr.size = 1 
-var = iterate and map the array so words are flipped 
+untill arr.size = 1
+var = iterate and map the array so words are flipped
 var = then go through and combine unless arr.size -1 is odd then untill that index
 
 # ------------------- Code -----------------------
@@ -27,7 +26,6 @@ def reverse_and_combine_text(str)
   end
   words.join
 end
-
 
 p reverse_and_combine_text("abc def") == "cbafed"
 

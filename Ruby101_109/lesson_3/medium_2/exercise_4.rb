@@ -1,6 +1,6 @@
-#exercise_4.rb
+# exercise_4.rb
 
-def tricky_method_two(a_string_param, an_array_param)
+def tricky_method_two(a_string_param, _an_array_param)
   a_string_param << 'rutabaga'
   an_array_param = ['pumpkins', 'rutabaga']
 end

@@ -1,4 +1,4 @@
-#exercise_6.rb
+# exercise_6.rb
 
 def get_quote(person)
   if person == 'Yoda'
@@ -13,10 +13,10 @@ end
 puts 'Confucius says:'
 puts '"' + get_quote('Confucius') + '"'
 
-#although this is correct there is another way to solve thit
-#by adding explicit return statements it ends up working so that 
-#it dosent just evaluate the last line ran which would be eienstien 
-#in which case anything other than einstein would be inccorect 
+# although this is correct there is another way to solve thit
+# by adding explicit return statements it ends up working so that
+# it dosent just evaluate the last line ran which would be eienstien
+# in which case anything other than einstein would be inccorect
 =begin
 def get_quote(person)
   if person == 'Yoda'

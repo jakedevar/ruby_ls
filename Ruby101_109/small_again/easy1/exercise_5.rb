@@ -13,15 +13,13 @@ inputs a string a returns a string, have to convert to array in the method to re
 
 # ------------------- Algorithm -------------------
 
-
 # ------------------- Storm -----------------------
 take the string in question and split(/ /) use reverse_each to append to new array and then join(', ')
-
 
 =end
 def reverse_sentence(sentance)
   result = []
-  sentance.split(/ /).reverse_each {|ele| result << ele}
+  sentance.split(/ /).reverse_each { |ele| result << ele }
   result.join(' ')
 end
 

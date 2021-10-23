@@ -1,4 +1,4 @@
-#boolean_regex.rb
+# boolean_regex.rb
 
 def has_a_b?(string)
   if string =~ /b/
@@ -10,5 +10,5 @@ end
 
 has_a_b?("basketball")
 has_a_b?("football")
-has_a_b?"hockey"
+has_a_b? "hockey"
 has_a_b?("golf")

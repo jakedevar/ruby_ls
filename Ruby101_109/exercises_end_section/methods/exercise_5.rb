@@ -1,13 +1,13 @@
-#exercise_5.ruby
+# exercise_5.ruby
 names = ['Dave', 'Sally', 'George', 'Jessica']
 activities = ['walking', 'running', 'cycling']
 
 def name(people)
-  return people.sample
+  people.sample
 end
 
 def activity(verb)
-  return verb.sample
+  verb.sample
 end
 
 def sentence(x, y)

@@ -1,6 +1,9 @@
 def running_total(arr)
   sum = 0
-  arr.map {|x| sum += x; sum}
+  arr.map do |x|
+    sum += x
+    sum
+  end
 end
 
 p running_total([2, 5, 13]) == [2, 7, 20]

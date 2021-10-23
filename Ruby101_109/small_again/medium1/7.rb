@@ -1,6 +1,6 @@
 =begin
 ------------------- Problem ---------------------
-replace all of the words representing numbers in the string to the actuall numbers 
+replace all of the words representing numbers in the string to the actuall numbers
 easy son
 
 ------------------- Examples --------------------
@@ -18,15 +18,15 @@ because then i am going to gsub! with the regex inputing the word that is passed
 ------------------- Code ------------------------
 =end
 
-WORDS = %w[zero one two three four five six seven eight nine]
+WORDS = %w(zero one two three four five six seven eight nine)
 
-def init_hash 
+def init_hash
   hsh = Hash.new(0)
-  WORDS.each_with_index {|word, i| hsh[word] = i.to_s}
+  WORDS.each_with_index { |word, i| hsh[word] = i.to_s }
   hsh
 end
 
-def word_to_digit str
+def word_to_digit(str)
   WORDS.each do |word|
     str.gsub!(/#{word}/, init_hash()[word])
   end

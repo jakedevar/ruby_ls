@@ -1,4 +1,4 @@
-#exercise_9.rb
+# exercise_9.rb
 
 def reversed_number(int)
   int.to_s.reverse.to_i

@@ -9,7 +9,7 @@ given
 loops!
 
 ------------------- Algorithm -------------------
-just do the loop method you already know how to do 
+just do the loop method you already know how to do
 
 ------------------- Code ------------------------
 =end
@@ -18,7 +18,7 @@ just do the loop method you already know how to do
 #   fib1 = 1
 #   fib2 = 1
 #   counter = 2
-#   loop do 
+#   loop do
 #     fib3 = fib1 + fib2
 #     fib1 = fib2
 #     fib2 = fib3
@@ -26,11 +26,12 @@ just do the loop method you already know how to do
 #     return fib3 if counter == int
 #   end
 # end
-# LS solution 
+# LS solution
 
 def fibonacci(int)
-  first, last = [1, 1]
-  3.upto(int) do 
+  first = 1
+  last = 1
+  3.upto(int) do
     first, last = [last, first + last]
   end
   last

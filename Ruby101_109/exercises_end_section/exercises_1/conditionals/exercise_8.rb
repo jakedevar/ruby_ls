@@ -1,12 +1,12 @@
-#exercise_8.rb
+# exercise_8.rb
 
 status = ['awake', 'tired'].sample
 
 x = status == 'awake' ? "Be productive!" : "Go to sleep!"
 
-puts x 
+puts x
 
-=begin 
+=begin
 #LS Solution
 alert = if status == 'awake'
           'Be productive!'
@@ -16,4 +16,4 @@ alert = if status == 'awake'
 
 puts alert
 
-=end 
+=end

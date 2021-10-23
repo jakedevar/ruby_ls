@@ -1,24 +1,22 @@
 =begin
 ------------------- Problem ---------------------
 create a method that computs the nth number of the fibonnaci sequence
-using recurssion 
+using recurssion
 
 ------------------- Examples --------------------
 given
 
 ------------------- Data ------------------------
-recursion like the problem says 
+recursion like the problem says
 
 ------------------- Algorithm -------------------
-
 
 ------------------- Code ------------------------
 =end
 
 def fibonacci(int)
-  
   return 1 if int <= 2
-  fibonacci(int - 1) + fibonacci(int - 2) 
+  fibonacci(int - 1) + fibonacci(int - 2)
 end
 
 # p fibonacci(1) == 1

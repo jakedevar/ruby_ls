@@ -1,11 +1,9 @@
-#exception_example.rb
+# exception_example.rb
 
 names = ['bob', 'joe', 'steve', nil, 'frank']
 
 names.each do |name|
-  begin
-    puts "#{name}'s name has #{name.length} letters in it."
-  rescue
-    puts "something is wrong"
-  end
+  puts "#{name}'s name has #{name.length} letters in it."
+rescue StandardError
+  puts "something is wrong"
 end

@@ -1,12 +1,12 @@
-def solve(s) 
+def solve(s)
   res = []
   chars = s.chars
-  chars.each_with_index do |chr, ind1|
-    chars.each_with_index do |chr, ind2|
-      res << chars[ind1..ind2].join.to_i.odd?    
+  chars.each_with_index do |_chr, ind1|
+    chars.each_with_index do |_chr, ind2|
+      res << chars[ind1..ind2].join.to_i.odd?
     end
   end
-  res#.compact.size
+  res # .compact.size
 end
 
 p solve("1341") #== 7

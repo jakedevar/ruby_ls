@@ -3,12 +3,15 @@ module Towable
     'I can tow a trailer!'
   end
 end
+
 class Vehicle
   attr_reader :year
+
   def initialize(year)
     @year = year
   end
 end
+
 class Truck < Vehicle
   include Towable
 end

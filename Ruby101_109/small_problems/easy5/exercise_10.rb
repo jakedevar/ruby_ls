@@ -1,4 +1,4 @@
-#exericse_10.rb
+# exericse_10.rb
 =begin
 def print_in_box(string)
   top_and_bottom = []
@@ -19,7 +19,7 @@ end
 =end
 
 def print_in_box(string)
-  top_box = "+#{ '-' * (string.size + 2)}+"
+  top_box = "+#{'-' * (string.size + 2)}+"
   empty_line = "|#{' ' * (string.size + 2)}|"
 
   puts top_box
@@ -31,4 +31,4 @@ end
 
 print_in_box('lool')
 
-#i knew LS would have an elegant solution and i was right but thats ok. it doesnot have to be perfect the first time!! really glad I learned this way now
+# i knew LS would have an elegant solution and i was right but thats ok. it doesnot have to be perfect the first time!! really glad I learned this way now

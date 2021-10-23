@@ -1,11 +1,10 @@
 =begin
 # ------------------- Problem ---------------------
-find the maximum number you can obtain by deleting just one digit 
-input is a digit 
-output is also a digit 
+find the maximum number you can obtain by deleting just one digit
+input is a digit
+output is also a digit
 
 # ------------------- Examples --------------------
-
 
 # ------------------- Data ------------------------
 an array given by digits
@@ -16,7 +15,7 @@ def delte_digits int
   var find index of min
   gsub index of with ''
   revers var then join to i
-end 
+end
 
 # ------------------- Storm -----------------------
 
@@ -40,8 +39,8 @@ end
 #   (0...digits.size).map { |idx| (digits[0...idx] + digits[(idx + 1)..-1]).join.to_i}.max
 # end
 
-def delete_digit int
-  (s=int.to_s.chars).combination(s.size-1).max.join.to_i
+def delete_digit(int)
+  (s = int.to_s.chars).combination(s.size - 1).max.join.to_i
 end
 
 p delete_digit(152) #== 52

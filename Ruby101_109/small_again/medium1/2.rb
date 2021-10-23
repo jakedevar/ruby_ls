@@ -1,9 +1,8 @@
 =begin
 # ------------------- Problem ---------------------
-write a method that uses the method from the previous problem to rotate the last target numbers worth of the number 
+write a method that uses the method from the previous problem to rotate the last target numbers worth of the number
 
 # ------------------- Examples --------------------
-
 
 # ------------------- Data ------------------------
 arrays!!
@@ -23,7 +22,7 @@ def method with the integer and target number
 
 =end
 
-def rotate_array arr
+def rotate_array(arr)
   arr[1..-1] + [arr[0]]
 end
 
@@ -39,7 +38,6 @@ def rotate_rightmost_digits(number, n)
   all_digits[-n..-1] = rotate_array(all_digits[-n..-1])
   all_digits.join.to_i
 end
-
 
 p rotate_rightmost_digits(735291, 1) == 735291
 p rotate_rightmost_digits(735291, 2) == 735219

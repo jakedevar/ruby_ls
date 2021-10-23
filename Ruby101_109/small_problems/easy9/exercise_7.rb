@@ -1,11 +1,11 @@
-#exercise_7.rb
+# exercise_7.rb
 
 # def swap_name(name)
 #   name << ','
 #   name.split.reverse.join' '
 # end
 
-#LS
+# LS
 def swap_name(name)
   name.split(' ').reverse.join(', ')
 end

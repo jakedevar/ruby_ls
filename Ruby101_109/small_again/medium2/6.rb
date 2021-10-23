@@ -2,15 +2,14 @@
 ------------------- Problem ---------------------
 do the same thing as last problem but this time do it for acute right and obtuse angles
 
-
     right One angle of the triangle is a right angle (90 degrees)
     acute All 3 angles of the triangle are less than 90 degrees
     obtuse One angle is greater than 90 degrees.
-To be a valid triangle, the sum of the angles must be exactly 180 degrees, 
+To be a valid triangle, the sum of the angles must be exactly 180 degrees,
 and all angles must be greater than 0: if either of these conditions is not satisfied, the triangle is invalid
 
 ------------------- Examples --------------------
-given 
+given
 
 ------------------- Data ------------------------
 and array and case statments
@@ -21,13 +20,13 @@ init array with one, two, three
 ------------------- Code ------------------------
 =end
 
-def triangle one, two, three
+def triangle(one, two, three)
   arr = [one, two, three]
-  case
-  when arr.sum != 180 || arr.min <= 0 then :invalid
-  when arr.one? {|x| x == 90} then :right
-  when arr.one? {|x| x > 90} then :obtuse
-  else :acute
+  if arr.sum != 180 || arr.min <= 0 then :invalid
+  elsif arr.one? { |x| x == 90 } then :right
+  elsif arr.one? { |x| x > 90 } then :obtuse
+  else
+    :acute
   end
 end
 

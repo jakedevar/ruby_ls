@@ -1,3 +1,3 @@
-#exercise_7.rb
+# exercise_7.rb
 
-#B
+# B

@@ -1,4 +1,4 @@
-#exercise_4.rb
+# exercise_4.rb
 require 'time'
 
 puts 'What is your age?'

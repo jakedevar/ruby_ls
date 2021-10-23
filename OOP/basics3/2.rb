@@ -8,9 +8,10 @@ end
 
 class Truck < Vehicle
   def initialize(year)
-    super 
+    super
     start_engine
   end
+
   def start_engine
     puts 'Ready to go!'
   end

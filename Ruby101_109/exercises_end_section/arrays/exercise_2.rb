@@ -1,4 +1,4 @@
-#exercise_2.rb
+# exercise_2.rb
 
 =begin
 pets = ['cat', 'dog', 'fish', 'lizard']

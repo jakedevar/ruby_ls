@@ -5,9 +5,8 @@ if not complete match then whoever is the min
 
 # ------------------- Examples --------------------
 
-
 # ------------------- Data ------------------------
-arr 
+arr
 
 # ------------------- Algorithm -------------------
 set a keys arr
@@ -16,11 +15,10 @@ iterate throuh keys and subtract the key from the value and add to the array bot
 fiind the index of the min and use it to grab the key from keys
 
 set index value to arr.max
-set min arr to goign to use each with object to append the final value of k-v to and then get the min from there 
-i = j if i is less than value return i 
+set min arr to goign to use each with object to append the final value of k-v to and then get the min from there
+i = j if i is less than value return i
 max = arr.max
 i = 0
-
 
 # ------------------- Code -----------------------
 
@@ -47,12 +45,12 @@ i = 0
 # I truly dont understand wtf the array brackets are doing inside this mofo but here is the refactored soltuoin
 # again this solution works but it did no pass that same random test. I knew there was nothing more  icould do so threw in the towl
 
-def nexus hsh
-  hsh.min_by {|k, v| [(k - v).abs, k]}[0]
+def nexus(hsh)
+  hsh.min_by { |k, v| [(k - v).abs, k] }[0]
 end
 
-p nexus({1 => 3, 3 => 3, 5 => 1}) #== 3
+p nexus({ 1 => 3, 3 => 3, 5 => 1 }) #== 3
 
-p nexus({1 => 10, 2 => 6, 3 => 4, 5 => 1}) #== 3
+p nexus({ 1 => 10, 2 => 6, 3 => 4, 5 => 1 }) #== 3
 
-p nexus({1 => 10, 2 => 3, 3 => 4, 5 => 1}) #== 2
+p nexus({ 1 => 10, 2 => 3, 3 => 4, 5 => 1 }) #== 2

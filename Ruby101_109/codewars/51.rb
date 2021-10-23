@@ -1,24 +1,24 @@
 =begin
 # ------------------- Problem ---------------------
 input: a string and a chunk size number
-output : a string 
-take the each slice of the string with the target number and if the sum of the cubes of its digits is even reverse and put in string 
-otherwise just rotate the number  
+output : a string
+take the each slice of the string with the target number and if the sum of the cubes of its digits is even reverse and put in string
+otherwise just rotate the number
 
 # ------------------- Examples --------------------
-if a string is empty or it is impossible to chunk then return an empty string 
+if a string is empty or it is impossible to chunk then return an empty string
 
 # ------------------- Data ------------------------
 a string an an array
 
 # ------------------- Algorithm -------------------
 return str if string == '' or targ = 0 || targ > size / 2
-init an empty string 
-var = string to i digits reverse each sclice target number  to a 
-var each do if blah blah blah += to string then return string 
+init an empty string
+var = string to i digits reverse each sclice target number  to a
+var each do if blah blah blah += to string then return string
 
 helper method:::
-take the arr and iterate over it mapping the stuff taking the empty string and chunk arr as arguments 
+take the arr and iterate over it mapping the stuff taking the empty string and chunk arr as arguments
 # ------------------- Code -----------------------
 
 =end
@@ -29,28 +29,26 @@ def revrot(string, chunk)
   helper str, chunk_arr
 end
 
-def helper str, chunk_arr
+def helper(str, chunk_arr)
   chunk_arr.map do |sub_arr|
     sub_arr.map do |int|
       int**3
     end
     str << sub_arr.reverse.join if sub_arr.sum.even?
     str << (sub_arr << rotate(sub_arr)).join
-  end 
+  end
   str
 end
 
-def rotate arr
+def rotate(arr)
   arr.shift
 end
-
 
 # p revrot("1234", 0) == ""
 
 # p revrot("", 0) == ""
 
 # p revrot("1234", 5) == ""
-
 
 p revrot("733049910872815764", 5) #== "330479108928157"
 

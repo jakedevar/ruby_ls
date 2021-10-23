@@ -1,7 +1,7 @@
-#exercise_1.rb
+# exercise_1.rb
 
 x = ""
 
-#or
+# or
 
 empty_string = String.new

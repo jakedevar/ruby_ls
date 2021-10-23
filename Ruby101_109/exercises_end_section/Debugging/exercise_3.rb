@@ -1,4 +1,4 @@
-#exercise_3.ruby
+# exercise_3.ruby
 
 def multiply_by_five(n)
   n * 5

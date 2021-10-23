@@ -1,9 +1,8 @@
-#exercise_4.rb
-
+# exercise_4.rb
 
 person = {
-  name: 'Bob', 
-  occupation: 'web developer', 
+  name: 'Bob',
+  occupation: 'web developer',
   hobbies: 'painting'
 }
 

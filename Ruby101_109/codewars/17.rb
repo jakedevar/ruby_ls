@@ -1,16 +1,15 @@
 =begin
 # ------------------- Problem ---------------------
-take an integer in the input and out put a string version in which the the number is broken down into expanded form 
+take an integer in the input and out put a string version in which the the number is broken down into expanded form
 
 # ------------------- Examples --------------------
 
-
 # ------------------- Data ------------------------
-a simple integer and out put a simple string 
+a simple integer and out put a simple string
 
 # ------------------- Algorithm -------------------
 break the number up
-put the approprait amount of zeros next to the number and add to a string 
+put the approprait amount of zeros next to the number and add to a string
 each with index on chars unless is zero then index to -1 times do + 0 and add to result
 # ------------------- Storm -----------------------
 =end

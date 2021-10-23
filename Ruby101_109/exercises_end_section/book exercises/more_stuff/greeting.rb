@@ -1,4 +1,4 @@
-#greeting.rb
+# greeting.rb
 =begin
 def greet(person)
   puts "hello, " + person
@@ -9,11 +9,11 @@ greet(1)
 =end
 
 def space_out_letters(person)
-  return person.split("").join(" ")
+  person.split("").join(" ")
 end
 
 def greet(person)
-  return "H e l l o, " + space_out_letters(person)
+  "H e l l o, " + space_out_letters(person)
 end
 
 def decorate_greeting(person)

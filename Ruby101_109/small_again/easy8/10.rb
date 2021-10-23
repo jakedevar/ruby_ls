@@ -1,11 +1,10 @@
-def center_of str
+def center_of(str)
   if str.size.odd?
     str[str.size / 2]
-  else 
-    str[((str.size / 2)-1), 2]
+  else
+    str[((str.size / 2) - 1), 2]
   end
 end
-
 
 p center_of('I love ruby') == 'e'
 p center_of('Launch School') == ' '

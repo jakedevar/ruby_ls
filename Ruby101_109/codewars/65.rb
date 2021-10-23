@@ -2,7 +2,7 @@
 # ------------------- Problem ---------------------
 return true if every item in array is an int or a float (with no decimals? wtf? it has to have a decimal to be a float)
 and return true for an empty array
-return false for every other input 
+return false for every other input
 
 # ------------------- Examples --------------------
 [1, 2, 3, 4, 5, 6, 7, 8]
@@ -13,16 +13,14 @@ return false for every other input
 
 # ------------------- Data ------------------------
 
-
 # ------------------- Algorithm -------------------
-
 
 # ------------------- Code -----------------------
 
 =end
 
 def is_int_array(arr)
-  arr.each { |ele| return false if ele != ele.to_i}
+  arr.each { |ele| return false if ele != ele.to_i }
   true
 end
 

@@ -1,8 +1,8 @@
-#while_loop_exercise.rb
+# while_loop_exercise.rb
 
 word = gets.chomp.upcase
 
-=begin 
+=begin
 while word != "STOP"
   puts "whats the magic word?"
   if word == "STOP"
@@ -14,11 +14,9 @@ end
 =end
 
 x = ""
-while x != "STOP" do
+while x != "STOP"
   puts "Hi, How are you feeling?"
   ans = gets.chomp
   puts "Want me to ask you again?"
   x = gets.chomp
 end
-
-

@@ -1,16 +1,16 @@
-words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
-  'fowl', 'veil', 'wolf', 'diet', 'vile', 'edit', 'tide',
-  'flow', 'neon']
+words = ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
+         'fowl', 'veil', 'wolf', 'diet', 'vile', 'edit', 'tide',
+         'flow', 'neon']
 
 def word(words)
   res = []
-  words.each_with_index do |word, ind1|
+  words.each_with_index do |word, _ind1|
     yes = word.chars.sort
-    words.each_with_index do |o_word, ind2|
+    words.each_with_index do |o_word, _ind2|
       res << o_word if yes == o_word.chars.sort
     end
   end
-  res.chunk {|word| word.chars.sort}.to_a.map {|sub| sub[1]}
+  res.chunk { |word| word.chars.sort }.to_a.map { |sub| sub[1] }
 end
 
 p word(words)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-VALUES = %w[2 3 4 5 6 7 8 9 10 J Q K A].freeze
-SUIT = %w[C S H D].freeze
+VALUES = %w(2 3 4 5 6 7 8 9 10 J Q K A).freeze
+SUIT = %w(C S H D).freeze
 
 def prompt(phrase)
   puts "=> #{phrase}"
@@ -100,7 +100,7 @@ loop do # main game loop
     loop do
       prompt('Would you like to Hit or Stay? (H/S)')
       player_input = gets.chomp.downcase
-      break if %w[h s].include?(player_input)
+      break if %w(h s).include?(player_input)
 
       prompt('That is not a valid input please try again')
     end

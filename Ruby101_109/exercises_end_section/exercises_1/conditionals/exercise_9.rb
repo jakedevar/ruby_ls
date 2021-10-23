@@ -1,4 +1,4 @@
-#exercise_9.ruby
+# exercise_9.ruby
 
 number = rand(10)
 

@@ -1,9 +1,9 @@
-def swapcase str
-  str.chars.map do |ele| 
+def swapcase(str)
+  str.chars.map do |ele|
     if ele == ele.downcase
-    ele.upcase 
+      ele.upcase
     elsif ele == ele.upcase
-    ele.downcase 
+      ele.downcase
     end
   end.join
 end

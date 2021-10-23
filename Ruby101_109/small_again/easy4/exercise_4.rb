@@ -3,7 +3,7 @@ def major_leap_year?(year)
     false
   elsif year % 400 == 0 || year % 4 == 0
     true
-  else 
+  else
     false
   end
 end
@@ -11,11 +11,10 @@ end
 def leap_year?(year)
   if year > 1752
     major_leap_year?(year)
-  else 
+  else
     year % 4 == 0
   end
 end
-
 
 p leap_year?(2016) == true
 p leap_year?(2015) == false

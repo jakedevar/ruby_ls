@@ -1,6 +1,6 @@
-#exercise_1.rb
+# exercise_1.rb
 =begin #feeling bad because of time and medicine also no food
-#rushing rn to finish book 
+#rushing rn to finish book
 a = "laboratory"
 b = "experiment"
 c = "pans labyrinth"

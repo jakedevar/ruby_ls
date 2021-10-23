@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-SUITS = %w[H D S C].freeze
-VALUES = %w[2 3 4 5 6 7 8 9 10 J Q K A].freeze
+SUITS = %w(H D S C).freeze
+VALUES = %w(2 3 4 5 6 7 8 9 10 J Q K A).freeze
 
 def prompt(msg)
   puts "=> #{msg}"
@@ -103,7 +103,7 @@ loop do
     loop do
       prompt 'Would you like to (h)it or (s)tay?'
       player_turn = gets.chomp.downcase
-      break if %w[h s].include?(player_turn)
+      break if %w(h s).include?(player_turn)
 
       prompt "Sorry, must enter 'h' or 's'."
     end

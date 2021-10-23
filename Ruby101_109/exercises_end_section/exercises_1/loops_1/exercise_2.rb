@@ -1,8 +1,8 @@
-#exercise_2.rb
+# exercise_2.rb
 
 loop do
   puts 'This is the outer loop'
-  
+
   loop do
     puts 'This is the inner loop'
     break

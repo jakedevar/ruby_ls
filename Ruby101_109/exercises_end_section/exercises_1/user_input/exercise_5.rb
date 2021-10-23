@@ -1,10 +1,10 @@
-#exercise_5.rb
+# exercise_5.rb
 =begin
-x = nil 
+x = nil
 
 puts "How many output lines do you want? Enter a number >= 3:"
 
-loop do 
+loop do
   x = gets.chomp.to_i
 if x >= 3
   x.times { puts "Launch School is the best!" }
@@ -15,7 +15,7 @@ else
 end
 =end
 
-#LS solution
+# LS solution
 number_of_lines = nil
 loop do
   puts '>> How many output lines do you want? Enter a number >= 3:'
