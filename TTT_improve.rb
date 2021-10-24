@@ -16,7 +16,7 @@ class Board
     @squares[key]
   end
 
-  def set_square_at(key, marker)
+  def []=(key, marker)
     @squares[key].marker = marker
   end
 
@@ -32,20 +32,15 @@ class Board
     !!winning_marker
   end
 
-  def count_human_marker(squares)
-    squares.collect(&:marker).count(TTTGame::HUMAN_MARKER)
+  def marked?
+    marker != INITIAL_MARKER
   end
 
-  def count_computer_marker(squares)
-    squares.collect(&:marker).count(TTTGame::COMPUTER_MARKER)
-  end
-
-  def winning_marker
+   def winning_marker
     WINNING_LINES.each do |line|
-      if count_human_marker(@squares.values_at(*line)) == 3
-        return TTTGame::HUMAN_MARKER
-      elsif count_computer_marker(@squares.values_at(*line)) == 3
-        return TTTGame::COMPUTER_MARKER
+      squares = @squares.values_at(*line)
+      if three_identical_markers?(squares)      # => we wish this method existed
+        return squares.first.marker             # => return the marker, whatever it is
       end
     end
     nil
@@ -53,6 +48,29 @@ class Board
 
   def reset
     (1..9).each { |key| @squares[key] = Square.new(INITIAL_MARKER) }
+  end
+
+  def draw
+    puts ""
+    puts "     |     |     "
+    puts "  #{@squares[1]}  |  #{@squares[2]}  |  #{@squares[3]}  "
+    puts "     |     |     "
+    puts "-----+-----+------"
+    puts "     |     |     "
+    puts "  #{@squares[4]}  |  #{@squares[5]}  |  #{@squares[6]}  "
+    puts "     |     |     "
+    puts "-----+-----+------"
+    puts "     |     |     "
+    puts "  #{@squares[7]}  |  #{@squares[8]}  |  #{@squares[9]}  "
+    puts "     |     |     "
+  end
+
+  private
+
+  def three_identical_markers?(squares)
+    markers = squares.select(&:marked?).collect(&:marker)
+    return false if markers.size != 3
+    markers.min == markers.max
   end
 end
 
@@ -132,11 +150,17 @@ class TTTGame
       puts "Sorry, that's not a valid choice."
     end
     
-    board.set_square_at(square, human.marker)
+    board.[]=(square, human.marker)
   end
 
   def computer_moves
-    board.set_square_at(board.unmarked_keys.sample, computer.marker)
+    board.[]=(board.unmarked_keys.sample, computer.marker)
+  end
+
+  def current_player
+    boolean = true
+    boolean ? human_moves : computer_moves
+    boolean = !boolean
   end
 
   def display_result
@@ -182,9 +206,9 @@ class TTTGame
     sys_clear
     display_welcome_message
     loop do 
-      display_board
+      board.draw
       loop do
-        human_moves
+        current_player
         break if board.someone_won? || board.full?
         
         computer_moves
