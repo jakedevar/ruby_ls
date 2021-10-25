@@ -1,0 +1,12 @@
+problem: add a score board to this SOB, and make it so it breaks when the score limit is reached 
+example: computer = 5 dude = 0
+   data: just an interpolated string with the scores in them
+   algo: make a scoreboard class: in the class init a wins constant and a computer score and a human score. and instance methods for add person and computer wins. also make a to_s method to show board...make a collaborator object withing TTT to act as the board. 
+
+notes:
+I need to look at the detect winner method so that i can break out
+also i need to set the wins to a constant
+need to think about where this belongs: it's a has-a relationship so it belongs in its own scoreboard class 
+how to use the instance variables for the score 
+
+should i add a method to score board to break out of the game? probably not but maybe placing the wins constant in the TTT class would be more appropriate because thats where the break logic is 
