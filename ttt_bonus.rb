@@ -213,8 +213,7 @@ class TTTGame
       prompt "Name cannot be empty! Please enter a valid input."
     end
     human.name = input
-    computer.name = ['Hal', 'Nombre', 'R2D2', 'Ralph']
-                     'Sky Net'].sample
+    computer.name = ['Hal', 'Nombre', 'R2D2', 'Ralph'].sample
   end
 
   def moves_first
