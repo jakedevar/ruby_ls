@@ -25,44 +25,100 @@ class Deck
     @cards = SUITS.product(VALUES).shuffle
   end
   
-  def deal 
-
+  def deal(dealer_hand, player_hand) 
+    2.times do 
+      dealer_hand << cards.pop
+      player_hand << cards.pop
+    end
   end  
 end
 
 class Player
-  def initialize
+  attr_accessor :hand, :sum
+  attr_reader :name
 
+  def initialize(name)
+    @hand = []
+    @name = name
+    @sum = 0
   end
 
-  def hand
-
+  def hit(deck)
+    @hand << deck.pop
   end
 
-  def hit
-
+  def stay?(input)
+    true if input == 's'
   end
 
-  def stay
-
+  def deal_conversion(card)
+    if card.to_i != 0
+      card.to_i
+    elsif card == 'ace'
+      @sum > 21 ? 1 : 11
+    else 
+      10
+    end
   end
 
   def total
-
+    total = 0
+    @hand.each {|card| total += deal_conversion(card[1])}
+    @sum = total
   end
 
   def busted?
 
   end
+  
+  def show_hand
+    total
+    puts "#{self.name} has a total of: #{@sum}"
+    @hand.each do |card|
+      puts "#{card[1]} of #{card[0]}"
+    end
+  end  
 end
 
+class Dealer < Player
+  def show_hand_beginning
+    puts "Dealer has:"
+    puts "#{@hand[0][1]} of #{@hand[0][0]}"
+    puts "Hidden"
+  end
+end
 
 class Game
-  deck = Deck.new
-  def play 
-    p deck.cards
+  attr_reader :deck, :dealer, :player
+
+  def initialize
+    @deck = Deck.new
+    @dealer = Dealer.new("Dealer")
+    @player = Player.new("Player")
   end
 
+  def play 
+    deck.deal(dealer.hand, player.hand)
+    show_initial_cards
+  end
+
+  private 
+
+  def show_initial_cards
+    system 'clear'
+    dealer.show_hand_beginning
+    puts ""
+    player.show_hand
+  end
+
+  def player_turn
+    hit? || stay?
+    bust?
+
+  end
+
+
+  
   # loop do 
    
 

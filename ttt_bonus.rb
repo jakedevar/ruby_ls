@@ -213,7 +213,7 @@ class TTTGame
       prompt "Name cannot be empty! Please enter a valid input."
     end
     human.name = input
-    computer.name = ['Fat Tony the Enforcer', 'Nombre', 'The Chosen One',
+    computer.name = ['Hal', 'Nombre', 'R2D2', 'Ralph']
                      'Sky Net'].sample
   end
 
