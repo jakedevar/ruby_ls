@@ -2,13 +2,19 @@
 ==========================
          Problem
 --------------------------
+create a 21 game by using OOP in ruby
 
+I can create it how ever i want with whatever classes or modules that I think will fit
+I would like to code a whole new game from scratch!!
+This way I can compare what I used to be able to do to what I can do now!!!!
 --------------------------
 **Explicit Requirements**
 --------------------------
--   Rules: 
--  Inputs:
--  Output:
+- Rules: 
+    -code a new game from scratch
+    -only look at 21 code when you absolutly need to but you wont though so just use it as a reference check
+-  Inputs: a deck of cards along with suits that make up 52 cards
+-  Output: a winning statment that shows if someone won or not 
 --------------------------
 **Clarifying Questions:**
 --------------------------
@@ -18,25 +24,25 @@
 --------------------------
 **Implicit Requirements:**
 --------------------------
-
+make a whole game by yourself which you actually have already done about 200 hours ago lol 
 --------------------------
 Examples/Test Cases/Edge's
 --------------------------
-copy pasta
 -  Visual Reference:
 
 --------------------------
      Data Structure
 --------------------------
-
+an array of sub arrays that represent cards which turn into values 
 --------------------------
        Algorithm
 --------------------------
-
-  **??Helper Methods??**
+problem: create the deck
+1. create constants that represent the suits and the cards
+2. take the constants and pass both into each other as product and shuffle
+3. store that in a deck variable
 
 --------------------------
           Notes
 --------------------------
 
-=end

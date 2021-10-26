@@ -16,8 +16,13 @@ verbs: bust, hit, stay, deal
 =end
 
 class Deck
-  def initialize
+  SUITS = %w(clubs hearts diamonds spades)
+  VALUES = %w(2 3 4 5 6 7 8 9 jack queen king ace)
 
+  attr_accessor :cards
+  
+  def initialize
+    @cards = SUITS.product(VALUES).shuffle
   end
   
   def deal 
@@ -53,11 +58,20 @@ end
 
 
 class Game
-  loop do 
-    deal_cards 
-    show_initial_cards
-    player_turn
-    dealer_turn
-    show_result
+  deck = Deck.new
+  def play 
+    p deck.cards
   end
+
+  # loop do 
+   
+
+  #   # deal_cards 
+  #   # show_initial_cards
+  #   # player_turn
+  #   # dealer_turn
+  #   # show_result
+  # end
 end
+
+Game.new.play
