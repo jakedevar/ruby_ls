@@ -14,6 +14,7 @@ when you are satisfied you can choose to stay where you are
 nouns: deck, player, dealer, hand, deck, game, total, participant
 verbs: bust, hit, stay, deal
 =end
+require 'pry'
 
 class Deck
   SUITS = %w(clubs hearts diamonds spades)
@@ -45,10 +46,7 @@ class Player
 
   def hit(deck)
     @hand << deck.pop
-  end
-
-  def stay?(input)
-    true if input == 's'
+    total
   end
 
   def deal_conversion(card)
@@ -67,12 +65,19 @@ class Player
     @sum = total
   end
 
-  def busted?
+  def busted?(other_player)
     if @sum > 21
       puts ''
       puts "#{name} busted!! Total: #{@sum}"
+      puts ""
+      puts "#{other_player} won!!"
       return true
     end
+    false
+  end
+
+  def bust?
+    return true if @sum > 21
     false
   end
   
@@ -86,6 +91,11 @@ class Player
 end
 
 class Dealer < Player
+  
+  def initialize(name)
+    super
+  end
+
   def show_hand_beginning
     puts "Dealer has: Unknown"
     puts "#{@hand[0][1]} of #{@hand[0][0]}"
@@ -108,11 +118,15 @@ class Game
   end
 
   def play 
-    deck.deal(dealer.hand, player.hand)
-    show_initial_cards
-    player_turn
-    dealer_turn
-    show_end_cards
+    loop do 
+      deck.deal(dealer.hand, player.hand)
+      show_initial_cards
+      player_turn
+      break if player.busted?(dealer.name)
+      dealer_turn
+      break if player.busted?(player.name) 
+      show_end_cards
+    end
   end
 
   private 
@@ -132,25 +146,30 @@ class Game
   end
 
   def player_turn
-    loop do 
-      puts "would you like to hit or stay? (h/s)"
-      input = gets.chomp.downcase
-      puts "That is not a valid input" if !%w(h s).include?(input)
-      break if input == 's'
-      player.hit(deck.cards)
-      clear
-      show_initial_cards
-      break if player.busted?
-    end
+    input = nil
+    # loop do 
+    #   loop do 
+        # puts "Would you like to hit or stay? (h/s)"
+        # input = gets.chomp.downcase
+    #     break if %w(h s).include?(input)
+    #     puts "That is not a valid input"
+    #   end
+    #   break if input == 's'
+    #   player.hit(dealer.cards) if input == 'h'
+      
+    #   binding.pry
+    #   clear
+    #   show_initial_cards
+    #   break if player.bust?
+    # end
   end
 
   def dealer_turn
     loop do 
       dealer.total
-      break if dealer.busted? || dealer.stay?
+      break if dealer.bust? || dealer.stay?
       dealer.hit(deck.cards)
     end
-
   end
 
   def clear
