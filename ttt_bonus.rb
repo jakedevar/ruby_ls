@@ -199,10 +199,17 @@ class TTTGame
       break if %w(x o).include?(input)
       prompt "Please enter a valid input"
     end
-    input == 'o' ? human.marker = O : computer.marker = X
+    marker_assignment(input)
   end
 
-  def assign_marker_constants; end
+  # rubocop:disable Style/GuardClause
+  def marker_assignment(answer)
+    if answer == 'o'
+      human.marker = O
+      computer.marker = X
+    end
+  end
+  # rubocop:enable Style/GuardClause
 
   def choose_name
     input = nil
@@ -213,7 +220,7 @@ class TTTGame
       prompt "Name cannot be empty! Please enter a valid input."
     end
     human.name = input
-    computer.name = ['Hal', 'Nombre', 'R2D2', 'Ralph'].sample
+    computer.name = ['Hal', 'C3P0', 'R2D2', 'Ralph'].sample
   end
 
   def moves_first
@@ -283,6 +290,7 @@ class TTTGame
 
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/CyclomaticComplexity
   def computer_moves
     move = nil
     if !move
@@ -298,13 +306,13 @@ class TTTGame
     if !move && board.move_to_middle_square_first
       move = board.move_to_middle_square_first
       board[move] = computer.marker
-    else
-      board[board.unmarked_keys.sample] = computer.marker
     end
+    board[board.unmarked_keys.sample] = computer.marker if !move
   end
+
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
-
+  # rubocop:enable Metrics/CyclomaticComplexity
   def current_player_moves
     if human_turn?
       human_moves
