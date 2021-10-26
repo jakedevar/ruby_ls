@@ -68,7 +68,12 @@ class Player
   end
 
   def busted?
-
+    if @sum > 21
+      puts ''
+      puts "#{name} busted!! Total: #{@sum}"
+      return true
+    end
+    false
   end
   
   def show_hand
@@ -82,9 +87,14 @@ end
 
 class Dealer < Player
   def show_hand_beginning
-    puts "Dealer has:"
+    puts "Dealer has: Unknown"
     puts "#{@hand[0][1]} of #{@hand[0][0]}"
     puts "Hidden"
+  end
+
+  def stay?
+    return true if @sum >= 17
+    false
   end
 end
 
@@ -100,24 +110,52 @@ class Game
   def play 
     deck.deal(dealer.hand, player.hand)
     show_initial_cards
+    player_turn
+    dealer_turn
+    show_end_cards
   end
 
   private 
 
   def show_initial_cards
-    system 'clear'
+    clear
     dealer.show_hand_beginning
     puts ""
     player.show_hand
   end
 
+  def show_end_cards
+    clear
+    dealer.show_hand
+    puts ""
+    player.show_hand
+  end
+
   def player_turn
-    hit? || stay?
-    bust?
+    loop do 
+      puts "would you like to hit or stay? (h/s)"
+      input = gets.chomp.downcase
+      puts "That is not a valid input" if !%w(h s).include?(input)
+      break if input == 's'
+      player.hit(deck.cards)
+      clear
+      show_initial_cards
+      break if player.busted?
+    end
+  end
+
+  def dealer_turn
+    loop do 
+      dealer.total
+      break if dealer.busted? || dealer.stay?
+      dealer.hit(deck.cards)
+    end
 
   end
 
-
+  def clear
+    system 'clear'
+  end
   
   # loop do 
    

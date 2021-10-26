@@ -42,7 +42,24 @@ problem: create the deck
 2. take the constants and pass both into each other as product and shuffle
 3. store that in a deck variable
 
+problem: show initial cards
+1. take each hand 
+2. iterate through the hand 
+3. print the hand to the screen as a string
+4. make sure the string includes the suite and the name 
+
+problem: player turn
+1. show card total 
+    a. make a deal conversion  
+2. ask if the player wants to hit or stay?
+3. keep hitting until stay is selected 
+
+problem: deal conversion
+1. create a sum instance variable 
+2. in hit run through the card that is given and add to sum 
 --------------------------
           Notes
 --------------------------
 
+on the player turn problem; a loop would probably be appropriate to keep hitting and break if stay
+stay needs to be a boolean
