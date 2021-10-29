@@ -146,60 +146,30 @@ end
 # ===============================================================
 
 class Player
+  include Center
   attr_accessor :marker, :name
 
   def initialize(marker)
     @marker = marker
     @name = nil
   end
-end
 
-class Human < Player
-end
-
-class Computer < Player
-end
-
-# ===============================================================
-
-class TTTGame
-  include Center
-
-  X = "X"
-  O = "O"
-  WINS = 5
-
-  attr_reader :board, :human, :computer, :scoreboard
-
-  def initialize
-    @board = Board.new
-    @human = Player.new(X)
-    @computer = Player.new(O)
-    @scoreboard = ScoreBoard.new
-    @current_marker = nil
-  end
-
-  def play
-    clear
-    display_welcome_message
-    choose_name
-    choose_marker
-    main_game
-    display_goodbye_message
-  end
-
-  private
-
-  def main_game
-    moves_first
+  def choose_name
+    input = nil
     loop do
-      display_board
-      player_move
-      display_result
-      break if tournament_wins_reached || !play_again?
-      reset
-      display_play_again_message
-      moves_first
+      prompt "What's you name?"
+      input = gets.chomp
+      break if input != ''
+      prompt "Name cannot be empty! Please enter a valid input."
+    end
+    @name = input
+  end
+
+  def player_move
+    loop do
+      current_player_moves
+      break if board.someone_won? || board.full?
+      clear_screen_and_display_board if human_turn?
     end
   end
 
@@ -223,16 +193,101 @@ class TTTGame
   end
   # rubocop:enable Style/GuardClause
 
-  def choose_name
-    input = nil
-    loop do
-      prompt "What's you name?"
-      input = gets.chomp
-      break if input != ''
-      prompt "Name cannot be empty! Please enter a valid input."
+  def current_player_moves
+    if human_turn?
+      human_moves
+      @current_marker = computer.marker
+    else
+      computer_moves
+      @current_marker = human.marker
     end
-    human.name = input
-    computer.name = ['Hal', 'C3P0', 'R2D2', 'Ralph'].sample
+  end
+
+  def human_turn?
+    @current_marker == human.marker
+  end
+end
+
+class Human < Player
+
+  def human_moves
+    prompt "Choose a square (#{board.joinor(board.unmarked_keys)}): "
+    square = nil
+    loop do
+      square = gets.chomp.to_i
+      break if board.unmarked_keys.include?(square)
+      prompt "Sorry, that's not a valid choice."
+    end
+
+    board[square] = human.marker
+  end
+end
+
+class Computer < Player
+  def computer_moves(board)
+    if board.two_in_a_line?(computer.marker)
+      move = board.o_and_d_move(computer.marker,
+                                board.two_in_a_line?(computer.marker))
+      board[move] = computer.marker
+    elsif board.two_in_a_line?(human.marker)
+      move = board.o_and_d_move(human.marker,
+                                board.two_in_a_line?(human.marker))
+      board[move] = computer.marker
+    elsif board.move_to_middle_square_first
+      move = board.move_to_middle_square_first
+      board[move] = computer.marker
+    else
+      board[board.unmarked_keys.sample] = computer.marker
+    end
+  end
+  
+  def choose_name
+    @name = ['Hal', 'C3P0', 'R2D2', 'Ralph'].sample
+  end
+end
+
+# ===============================================================
+
+class TTTGame
+  include Center
+
+  X = "X"
+  O = "O"
+  WINS = 5
+
+  attr_reader :board, :human, :computer, :scoreboard
+
+  def initialize
+    @board = Board.new
+    @human = Human.new(X)
+    @computer = Computer.new(O)
+    @scoreboard = ScoreBoard.new
+    @current_marker = nil
+  end
+
+  def play
+    clear
+    display_welcome_message
+    human.choose_name
+    computer.choose_name
+    human.choose_marker
+    main_game
+    display_goodbye_message
+  end
+
+  private
+
+  def main_game
+    moves_first
+    loop do
+      display_board
+      player_move
+      display_result
+      break if tournament_wins_reached || !play_again?
+      reset
+      display_play_again_message
+      moves_first
+    end
   end
 
   def moves_first
@@ -245,15 +300,7 @@ class TTTGame
     end
     return @current_marker = human.marker if input == 'h'
     @current_marker = computer.marker
-  end
-
-  def player_move
-    loop do
-      current_player_moves
-      break if board.someone_won? || board.full?
-      clear_screen_and_display_board if human_turn?
-    end
-  end
+  end  
 
   def display_welcome_message
     prompt "Welcome to Tic Tac Toe!!"
@@ -271,10 +318,6 @@ class TTTGame
     display_board
   end
 
-  def human_turn?
-    @current_marker == human.marker
-  end
-
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Layout/LineLength
   def display_board
@@ -286,46 +329,9 @@ class TTTGame
     prompt ''
   end
   # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Layout/LineLength
+  # rubocop:enable Layout/LineLength  
 
-  def human_moves
-    prompt "Choose a square (#{board.joinor(board.unmarked_keys)}): "
-    square = nil
-    loop do
-      square = gets.chomp.to_i
-      break if board.unmarked_keys.include?(square)
-      prompt "Sorry, that's not a valid choice."
-    end
 
-    board[square] = human.marker
-  end
-
-  def computer_moves
-    if board.two_in_a_line?(computer.marker)
-      move = board.o_and_d_move(computer.marker,
-                                board.two_in_a_line?(computer.marker))
-      board[move] = computer.marker
-    elsif board.two_in_a_line?(human.marker)
-      move = board.o_and_d_move(human.marker,
-                                board.two_in_a_line?(human.marker))
-      board[move] = computer.marker
-    elsif board.move_to_middle_square_first
-      move = board.move_to_middle_square_first
-      board[move] = computer.marker
-    else
-      board[board.unmarked_keys.sample] = computer.marker
-    end
-  end
-
-  def current_player_moves
-    if human_turn?
-      human_moves
-      @current_marker = computer.marker
-    else
-      computer_moves
-      @current_marker = human.marker
-    end
-  end
 
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength

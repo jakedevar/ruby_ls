@@ -103,7 +103,7 @@ class Dealer < Player
   end
 
   def stay?
-    return true if @sum >= 17
+    return true if self.sum >= 17
     false
   end
 end
@@ -118,18 +118,30 @@ class Game
   end
 
   def play 
+    
     loop do 
       deck.deal(dealer.hand, player.hand)
       show_initial_cards
       player_turn
       break if player.busted?(dealer.name)
       dealer_turn
-      break if player.busted?(player.name) 
+      break if dealer.busted?(player.name) 
       show_end_cards
+      break unless play_again?
     end
   end
 
   private 
+
+  def play_again?
+    puts "Do you want to play again? (y/n)"
+    input = gets.chomp.downcase
+    if input == 'y'
+      Game.new.play
+      return true 
+    end
+    false      
+  end
 
   def show_initial_cards
     clear
@@ -143,25 +155,28 @@ class Game
     dealer.show_hand
     puts ""
     player.show_hand
+
+    puts "Player has won!!" if player.sum > dealer.sum 
+    puts "Dealer has won..." if dealer.sum > player.sum
+    puts "It's a tie" if player.sum == dealer.sum 
   end
 
   def player_turn
     input = nil
-    # loop do 
-    #   loop do 
-        # puts "Would you like to hit or stay? (h/s)"
-        # input = gets.chomp.downcase
-    #     break if %w(h s).include?(input)
-    #     puts "That is not a valid input"
-    #   end
-    #   break if input == 's'
-    #   player.hit(dealer.cards) if input == 'h'
-      
-    #   binding.pry
-    #   clear
-    #   show_initial_cards
-    #   break if player.bust?
-    # end
+    loop do 
+      loop do 
+        puts "Would you like to hit or stay? (h/s)"
+        input = gets.chomp.downcase
+        break if %w(h s).include?(input)
+        puts "That is not a valid input"
+      end
+      binding.pry
+      break if input == 's'
+      player.hit(deck.cards) if input == 'h'
+      clear
+      show_initial_cards
+      break if player.bust?
+    end
   end
 
   def dealer_turn
