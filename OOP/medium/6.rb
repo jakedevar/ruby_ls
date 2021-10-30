@@ -44,10 +44,13 @@ copy pasta
 --------------------------
 1. init the guessing game
 	- create a number var with rand or sample
+	- input var
 2. create player input loop
 3. if then statment to display message
 4. display winner 
 5. put all of this in a play loop to be called to play 
+6. create win? method
+
 
 --------------------------
           Notes
@@ -56,27 +59,25 @@ copy pasta
 =end
 
 class GuessingGame
-	@@guesses = 0
+	@@guesses = 7
 	def initialize
-		@number = (1..100).sample
+		@number = rand(1..100)
+		@input = nil
 	end
 
 	def player_input
-		input = nil	
 		puts "Please guess a number between 1-100:"
 		loop do 
-			input = gets.chomp.to_i
-			break if (1..100).to_a.include?(input)
-			puts "Invalid iput. Please guess a number between 1-100:"
+			@input = gets.chomp.to_i
+			break if (1..100).to_a.include?(@input)
+			puts "Invalid input. Please guess a number between 1-100:"
 		end
-		input 
 	end
 
 	def guess
-		input = player_input
-		if input < @number 
+		if @input < @number 
 			display_low_msg
-		elsif input > @number 
+		elsif @input > @number 
 			display_high_msg
 		else
 			display_win_msg
@@ -88,10 +89,12 @@ class GuessingGame
 	end
 
 	def display_low_msg
+		@@guesses -= 1
 		puts "You're guess is too low!"
 	end
 
 	def display_high_msg
+		@@guesses -= 1
 		puts "You're guess is too high!"
 	end
 
@@ -100,8 +103,25 @@ class GuessingGame
 		puts "You win!!!!"
 	end
 
-	def play
+	def out_of_guesses?
+		if @@guesses == 0
+			puts "You are out of guesses... You lose!!"
+			return true
+		end
+		false
+	end
 
+	def win?
+			@input == @number
+		end
+
+	def play
+		loop do
+			player_input 
+			guess
+			break if out_of_guesses? || win?
+			display_guesses_remaining
+		end
 	end
 end
 
