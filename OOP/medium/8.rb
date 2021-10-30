@@ -2,18 +2,24 @@ class Card
   include Comparable
   attr_reader :rank, :suit
 
+  VALUES = {'Jack' => 11, 'Queen' => 12, 'King' => 13, 'Ace' => 14}
+
   def initialize(rank, suit)
     @rank = rank
     @suit = suit
   end
 
-
-  def == other
-    @rank == other.rank
+  def to_s
+    "#{rank} of #{suit}"
   end
-def <=>(other)
-  @rank <=> other.rank    
-end
+
+  def values
+    VALUES.fetch(rank, rank)
+  end
+
+  def <=>(other)
+    values <=> other.values    
+  end
  
 end
 
@@ -21,7 +27,7 @@ end
 cards = [Card.new(2, 'Hearts'),
          Card.new(10, 'Diamonds'),
          Card.new('Ace', 'Clubs')]
-# puts cards
+puts cards
 puts cards.min == Card.new(2, 'Hearts')
 puts cards.max == Card.new('Ace', 'Clubs')
 
