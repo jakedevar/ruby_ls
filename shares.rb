@@ -16,4 +16,6 @@ def current_return_on_investment(price_of_share, money_to_buy, todays_price)
 	puts ">> #{(shares * todays_price).round(2)} <<".center(80)
 end
 
-current_return_on_investment(0.000007316, 17.56, 1)
+
+
+current_return_on_investment(0.000007316, 100, 0.50)
