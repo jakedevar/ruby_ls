@@ -1,0 +1,173 @@
+The concept of self in OO Ruby
+# Your assignment, therefore, is to write a blog post about a Ruby OOP concept.
+# The blog post may assume some basic knowledge about programming (i.e. 101 level concepts), but no prior knowledge of OO concepts
+# The post should, therefore, seek to explain concepts clearly and precisely enough for such an audience to understand the concept
+# make sure to add pictures 
+# make sure to add code examples 
+# The concept of self in OO Ruby
+What is included in the concept of self in Ruby. In other words, this is a story board:
+The concept of instance methods, objects, classes, instantiating objects, the scope of self, the method lookup path, encapsulation and polymorphism to understand why classes exist, what is OOP
+Introduction:
+The concept of self can be a tricky concept for those who are new to Ruby OOP. Self seems to be a nebulous concept that can mean many different things depending on the context that it is used. But before we can get to that we need to walk back a few steps. What I will address in this blog post is not only what self is and how it can be used in Ruby to be explicit about what you are referencing in your program. But also all the bits and pieces that fit together to help explain exactly what self is and how we can use it in the context of our programming language. 
+Let's back up a little bit. 
+But hold on you might say… I have heard that everything in Ruby is an object… but what on earth is an object? Not to mention I have never even heard of a class? Furthermore, OOP sounds like a foreign language? 
+Lets back up a bit. 
+What is a class
+Let's start with the basics. 
+What even is OOP? OOP is short for the term Object-Oriented Programming. It was created in the early days of programming in response to programs getting larger and more complex. One tiny change in one part of the program would have a ripple effect that would affect the entire program. This made maintaining large programs very difficult and it was made clear that programmers needed a way to change bits of code without the entire program breaking. They needed a way to organize their code into sections that only worked with small parts of the code so that the program was not one massive dependency.
+In Ruby, you may have heard that everything is an object. For most Rubyists, it has been hammered into your heads ever since you started learning the basics of the Ruby language. Though this is not necessarily true as there are a few things that are not objects in ruby such as neither methods nor blocks are objects, nor are if statements, argument lists, to name a few. However, when we are referencing an object in terms of our program in Ruby what we are referencing is instances of a class Even if you are just a fledgling Rubyist you have been working with classes the entire time already. The example below shows us that when we call Object#class on any of the examples below what is returned is the class of the Object that it comes from!
+p "string".class #=> output: String
+p 1.class #=> output: Integer
+p [].class #=> output: Array
+
+All of the objects that you have been working with so far in ruby have all come from their own classes.
+Classes act like molds for Objects. They tell objects what attributes they will have, as well as the state of the object and the behaviors that the object will be able to execute. Classes and objects have a relationship that depends on each other to exist. If there were no objects there would be no need to organize code in ways that allow objects to be have a state or even to have behaviors to execute. The same could be said for the opposite as well. Objects can be considered as instances of classes and is how they receive all of their states and behaviors. 
+Below is an example of how we would create a class in Ruby. It is a simple process and is very simple to defining a method normally. All you must do is use the class keyword before you name your class which must be in camel case format. 
+class Person
+end
+The next step is instantiating an object and is just as easy as creating a class. All you must do is call the class and call the new method on it like so. I am going to store the new object in a local variable so that we can use it later.
+class Person
+end
+jake = Person.new 
+In order to understand why objects can hold a state we need to talk about what an instance variable is. Instance variables hold data and belong to the object that holds them in its state. Unlike local variables, instance variables can have the same name though contain different data that is stored within them. The way that we do that in ruby is by calling what is known as a constructior mehtod called initialize the example below demonstrates how this method will run as soon as we instantiate our object. 
+class Person
+  def initialize 
+    @name = 'Jake'
+    @age = 26
+  end
+end
+jake = Person.new
+p jake #=> output: #<Person:0x0000556559caa288 @name="Jake", @age=26>
+What is output is the result of calling the inspect method on our object that is stored in the local variable jake . The result is that we see the object-id as well as the two instance variables @name and @age and the values that we stored in each the string "jake" and the integer 26 . From this we can see that this object is storing these values in its state and this is where we can start to see how valueable OOP is in terms of keeping data in containers. THough this is just the begining. 
+There are two concepts that go along with OOP that are very important in terms of why OOP exists and some of the major benifits of OO in Ruby. They are called polymorphism as well as encapsulation. 
+if we break down the word polymorphism we see that poly- means many and morph means forms. Which literally means many forms. Polymorphism is the concept that many types of data can respond to the same interface. 
+Encapuslation is when certain peices of funcitonality are hidden away from being accessed by the rest of the code base. 
+
+Objects have access to behaviors that are defined in their class, as they are instances of that class that they were instantiated from. Bam lets stop right there on the word instance because i am about to explain what behaviors are and what they have to do with the word instance. 
+
+Instance methods
+Instance methods are methods within a class that the objects of that class have access to. Even though they are held within the class the class itself does not have access to these methods. They can be called by the object and act to save us from rewriting bits of code for other methods. They have the benefit of being hidden from the rest of the codebase that does not have access to these methods so there is no way for a programmer to change anything without direct conscious intent. 
+
+Class methods
+class methods are methods that are defined by putting self in front of a regular method definition like so. They are the same as regual methods with the exception that the only thing that can call these methods is the class itself. Unlike intance mehtods, class methods can only be called by the class that they reside in. They are used to hold pieces of functionality that do not
+class Person
+  def self.speak
+    "Hello my name is Jake"
+  end
+end
+Though once we do that the only way that we can call this method is by using the class to access it like so. 
+class Person
+  def self.speak
+    "Hello my name is Jake"
+  end
+end
+puts Person.speak #=> output: Hello my name is Jake
+now that we have all that out of the way lets get to what self is What exactly are we talking about when we are talking about self? for the uninitiated in Ruby OOP self may just mean exactly what it has meant since you learned to speak. Websters Dictionary defines self as: JAKE PUT THE MERRIAM WEBSTER DEF HERE AS EXAMPLE
+And without diving to deep into this that is exactly what it means in the concept of Ruby OOP. Self is in reference to the thing that is calling either a Class or Object. Since we now know what an object and a class are let's get into what self is.
+Self is referring to the calling object. That is, what even is accessing that method or thing at that very moment. Self can reference either the calling object or the class depending on the context that it is used in.
+Let's take a look at an example here 
+class Person
+  
+  #=======Instance Methods=======#
+attr_reader :name, :age
+  
+  def initialize 
+    @name = 'Jake'
+    @age = 26
+  end
+def person_age
+    "#{self.name} is #{self.age} years old"
+  end
+#=========Class Method=========#
+def self.speak
+    "Hello my name is the Person Class"
+  end
+end
+jake = Person.new
+puts jake.person_age #=> output: Jake is 26 years old
+puts Person.speak #=> output: Hello my name is the Person Class
+As we can see the output of the last two lines is what we would expect for calling instance methods and class methods in the appropriate places. But let's switch it up a bit and have the object call the class method and the class call the instance method person_age. 
+class Person
+  
+  #=======Instance Methods=======#
+  attr_reader :name, :age
+  
+  def initialize 
+    @name = 'Jake'
+    @age = 26
+  end
+  def person_age
+    "#{self.name} is #{self.age} years old"
+  end
+#=========Class Method=========#
+def self.speak
+    "Hello my name is the Person Class"
+  end
+end
+jake = Person.new
+puts Person.person_age #=> output: undefined method `person_age' for Person:Class (NoMethodError)
+puts jake.speak #=> output: undefined method `speak' for #<Person:0x000055a033e8def0 @name="Jake", @age=26> (NoMethodError)
+Now that's a big difference. But wait you might say. Doesn't self indicate the object that is calling the method? Yes and no. It is extremely important to note that the context in which we use self determines what self will be referring to. 
+If we use self outside of an instance method we are referring to the class 
+EXAMPLE
+If we use self inside of an instance method we are referencing the object that is calling that instance method. 
+EXAMPLE
+Self is a great way for us to be explicit about what we are referencing in our program. We can even take this a step further and talk about how we can use self to call setter methods within our program.
+First I have to explain what a setter method is
+A setter method is a method in Ruby that allows us to change the value of an instance variable. We can define a setter method by one of the two following ways. The first is like so 
+class Person
+  def name=(name)
+   @name = name 
+  end
+end
+Setter methods are created by naming it the same thing as the instance variable that they are trying to change. 
+another way to create a setter method and is usually the preferred way to do so in Ruby is with the attr_accessor or attr_writer method and looks like this 
+class Person
+  attr_accessor :name
+        #or# 
+  attr_writer :name
+end
+ The problem with calling these methods is that we cannot call them like we normally would with a getter method or another instance method. We need to call these methods from within our program with self at the beggining of the method call in order for Ruby to determine if we are creating a local variable or if we are trying to call a setter method. This would look something like this in a program.
+class Person
+  attr_accessor :name, :age
+  
+  def initialize 
+    @name = 'Jake'
+    @age = 26
+  end
+def person_age
+    "#{self.name} is #{self.age} years old"
+  end
+  
+  def change_info(name, age)
+    self.age = age 
+    self.name = name 
+  end
+end
+jake = Person.new
+puts jake.person_age #=> output: Jake is 26 years old
+jake.change_info('Rob', 32)
+puts jake.person_age #=> output: Rob is 32 years old
+If we had not placed self in front of the age and name setter method calls then we would have gotten something that looked like this. 
+class Person
+  attr_accessor :name, :age
+  
+  def initialize 
+    @name = 'Jake'
+    @age = 26
+  end
+def person_age
+    "#{self.name} is #{self.age} years old"
+  end
+  
+  def change_info(name, age)
+    age = age 
+    name = name 
+  end
+end
+jake = Person.new
+puts jake.person_age #=> output: Jake is 26 years old
+jake.change_info('Rob', 32)
+puts jake.person_age #=> output: Jake is 26 years old
+In this example, we can see that by removing self from the setter method we get a different output than the previous example. Here because ruby thinks that we are initializing a local variable instead of the setter methods. Nothing in the state of the Person object that is stored in the local variable jake has been changed at all. In this instance using and understanding what self means in the cone
+By now you should have a decent understanding of why self behaves differently in the context of what scope it resides in. that it is used in as well as the
