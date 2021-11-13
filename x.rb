@@ -1,8 +1,7 @@
 class Person
-  def initialize 
-    @name = 'Jake'
-    @age = 26
+  def self.what_is_self
+    self
   end
 end
-jake = Person.new
-p jake 
+
+p Person.what_is_self
