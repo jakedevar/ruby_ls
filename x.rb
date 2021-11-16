@@ -1,7 +1,12 @@
 class Person
-  def self.what_is_self
-    self
+  def initialize
+    @type = 'Person'
   end
+
+  private 
+  attr_reader :type
 end
 
-p Person.what_is_self
+cat = Person.new 
+
+p cat 
