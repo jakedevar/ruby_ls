@@ -1,11 +1,12 @@
 require 'minitest/autorun'
-require 'minitest/reporters'
-MiniTest::Reporters.use!
+# require 'minitest/reporters'
+# MiniTest::Reporters.use!
 
-class Yes < MiniTest::Test
+class YesTest < MiniTest::Test
 	
 
 	def test_odd
-		assert 1.odd?
+		assert 2.odd?, 'its not an odd value'
 	end
 end
+
