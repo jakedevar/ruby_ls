@@ -13,9 +13,11 @@
 --------------------------
 **Explicit Requirements**
 --------------------------
--   Rules: 
--  Inputs:
--  Output:
+-   Rules: - arr as arg
+  - method should yield the contsnts of array to the block 
+  - which should assign your block variables so that is ignores the first two elements and groups the remaining elements as a raptor arr
+-  Inputs: arr 
+-  Output: 
 --------------------------
 **Clarifying Questions:**
            or

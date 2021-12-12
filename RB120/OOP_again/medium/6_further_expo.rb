@@ -1,1 +1,0 @@
-6_further_expo.rb

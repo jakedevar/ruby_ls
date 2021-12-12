@@ -1,5 +1,9 @@
-def yes num, &block
-  puts num * 2
+def get_me_a_return str 
+  hello(yield(str))
 end
 
-goosem 5
+def hello yes 
+  puts yes
+end
+
+get_me_a_return('yes') {'hello'}
