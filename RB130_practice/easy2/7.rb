@@ -1,4 +1,4 @@
-def each_with_object(arr, sym)
+def each_with_object arr, sym 
   arr.each {|ele| yield(ele, sym)}
   sym
 end

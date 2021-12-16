@@ -1,10 +1,6 @@
-def none?(arr, &block)
-	!any?(arr, &block)
-end
-
-def any?(arr)
-	arr.each  {|ele| return true if yield(ele)}
-	false
+def none? array 
+	array.each {|ele| return false if yield(ele)}
+	true
 end
 
 p none?([1, 3, 5, 6]) { |value| value.even? } == false

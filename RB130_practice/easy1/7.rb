@@ -1,53 +1,5 @@
-=begin
-==========================
-         Problem
---------------------------
-Write a method called all? that behaves similarly for Arrays. It should take an Array as an argument, and a block. 
-
-It should return true if the block returns true for all of the element values. Otherwise, it should return false.
-
-Your method should stop processing elements of the Array as soon as the block returns false.
-
-If the Array is empty, all? should return true, regardless of how the block is defined.
---------------------------
-**Explicit Requirements**
---------------------------
--   Rules: 
--  Inputs:
--  Output:
---------------------------
-**Clarifying Questions:**
-           or
-** Verbs and Nouns OOP **
---------------------------
-- 
---------------------------
-**Implicit Requirements:**
---------------------------
-
---------------------------
-Examples/Test Cases/Edge's
---------------------------
-
--  Visual Reference:
-
---------------------------
-     Data Structure
---------------------------
-
---------------------------
-       Algorithm
---------------------------
-1. iterate through 
-
---------------------------
-          Notes
---------------------------
-
-=end
-
-def all?(arr)
-	arr.each {|ele| return false if !yield(ele)}
+def all? array 
+	array.each {|ele| return false if yield(ele) == false}
 	true
 end
 

@@ -1,10 +1,15 @@
 require 'minitest/autorun'
-require 'minitest/reporters'
-MiniTest::Reporters.use!
 
-class No < MiniTest::Test
-  def test_
-    list = ['xyz', 'no']
-    refute_includes list, 'yes'
-  end
+class Nist 
+	def process 
+		self 
+	end 
+end 
+
+class NistTest < MiniTest::Test
+	def test_
+	list = Nist.new 
+	assert_same list, list.process
 end
+end 
+

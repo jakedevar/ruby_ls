@@ -1,23 +1,7 @@
-# def max_by(arr)
-# 	res = -10000000
-# 	store = nil 
-# 	arr.each {|n| store = n if res < yield(n); res = yield(n) if res < yield(n)}
-# 	store
-# end
-
 def max_by arr 
-	return nil if arr.empty?
-	max_ele = arr.first 
-	mav_value = yield(arr.first)
-
-	arr[1..-1].each do |ele|
-		yielded_val = yield(ele)
-		max_ele = ele if yielded_val > mav_value
-		mav_value = yielded_val if yielded_val > mav_value
-	end
-
-	max_ele
+	arr.inject(arr[0]) { |mem, var|  mem = var if yield(var) > yield(mem); mem}
 end
+
 
 
 p max_by([1, 5, 3]) { |value| value + 2 } == 5

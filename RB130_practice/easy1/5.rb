@@ -1,47 +1,13 @@
-words = "Nqn Ybirynpr
-Tenpr Ubccre
-Nqryr Tbyqfgvar
-Nyna Ghevat
-Puneyrf Onoontr
-Noqhyynu Zhunzznq ova Zhfn ny-Xujnevmzv
-Wbua Ngnanfbss
-Ybvf Unvog
-Pynhqr Funaaba
-Fgrir Wbof
-Ovyy Tngrf
-Gvz Orearef-Yrr
-Fgrir Jbmavnx
-Xbaenq Mhfr
-Fve Nagbal Ubner
-Zneiva Zvafxl
-Lhxvuveb Zngfhzbgb
-Unllvz Fybavzfxv
-Tregehqr Oynapu"
-
 ALPHA = ('a'..'z').to_a
 
-# def rot13(words)\
-# 	str = ''
-# 	new_words = words.gsub("\n", ' ')
-# 	new_words.downcase.chars.each do |chr|
-# 		str << chr if chr == ' ' || chr == "-"
-# 		next if chr == ' ' || chr == "-"
-# 		num = ALPHA.index(chr) - 13
-# 		str << ALPHA[num]
-# 	end
-# 	str.split.map(&:capitalize).join(' ')
-# end
-
-def rot13(words)
-	yes = words.each_char.reduce('') {|str, char| str + decipher_char(char).chr}.gsub("\n", ' ') 
+def names 
+names = File.open('names.txt', 'r')
+puts yield(names.read) 
+names.close 
 end
 
-def decipher_char(chr)
-	case chr 
-	when 'a'..'m', 'A'..'M' then chr.ord + 13 
-	when 'n'..'z', 'N'..'Z' then chr.ord - 13
-	else chr.ord 
-	end
+names do |txt| 
+	txt.split.map do |name|
+		name.chars.map {|chr| next if chr == ' ' || chr == '-' ; ALPHA[ALPHA.index(chr.downcase) - 13]}.join.capitalize
+	end 
 end
-
-p rot13(words)

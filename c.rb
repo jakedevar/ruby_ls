@@ -1,9 +1,7 @@
-def get_me_a_return str 
-  hello(yield(str))
+def yes(&yes) 
+  yield
 end
 
-def hello yes 
-  puts yes
-end
+a = proc {puts 'ya'}
+yes(&a)
 
-get_me_a_return('yes') {'hello'}

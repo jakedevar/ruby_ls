@@ -1,11 +1,7 @@
 class Tree
   include Enumerable
 
-  def each 
+  def <=>; end 
 
-  end
-
-  def <=>
-
-  end
+  def each; end 
 end

@@ -58,14 +58,14 @@ class Diamond
     bool = false 
     arr = ('A'..ltr).to_a
     counter = 0 
-    res = []
+    res = ""
     until counter < 0 
-      res << spaces(counter, arr)
+      res << (spaces(counter, arr) + "\n")
       counter += 1 if !bool 
       counter -= 1 if bool
       bool = !bool if counter == arr.size - 1
     end
-    puts res.join("\n")
+    res
   end
 
   def self.spaces counter, arr 
@@ -74,4 +74,4 @@ class Diamond
   end
 end
 
-Diamond.make_diamond('E')
+# puts Diamond.make_diamond('C')

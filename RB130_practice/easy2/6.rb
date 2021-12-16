@@ -1,6 +1,6 @@
 def each_with_index arr 
-  counter = 0 
-  arr.each {|ele| yield(ele, counter); counter += 1}
+  arr.inject(0) {|ind, e| yield(e, ind); ind += 1}
+  arr
 end
 
 result = each_with_index([1, 3, 6]) do |value, index|
