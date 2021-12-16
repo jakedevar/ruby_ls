@@ -1,7 +1,5 @@
-def yes(&yes) 
-  yield
+def sandy
+  file = file.open('text.txt', 'r')
+  yield(file.read)
+  file.close
 end
-
-a = proc {puts 'ya'}
-yes(&a)
-
