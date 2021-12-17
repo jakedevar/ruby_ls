@@ -1,8 +1,3 @@
-# problem: pop
-# i have to delete the last item from the list while simultaniusly returning the value
-# 1. iterate to last item, 2. set last item to var 3. make nextnode = nil
-require 'pry'
-
 class SimpleLinkedList
   attr_accessor :head
 
@@ -16,7 +11,7 @@ class SimpleLinkedList
     last_node = head
     counter = 0
 
-    loop do 
+    loop do
       counter += 1
 
       break if last_node.next_node.nil?
@@ -34,39 +29,50 @@ class SimpleLinkedList
     if head.nil?
       self.head = Element.new(value, nil)
     else
-      old = head 
+      old = head
       self.head = Element.new(value, old)
     end
   end
 
   def peek
     return nil if empty?
-    last = head
-    until last.next_node.nil? 
-      # binding.pry
-      last = last.next_node
-    end
-    last.value
+    head.value
   end
 
-  def reverse; end
+  def reverse
+    arr = to_a.reverse
+    SimpleLinkedList.from_a(arr)
+  end
 
-  def to_a; end
+  def to_a
+    res = []
+    return res if empty?
+    last = head
+    loop do
+      res << last.value
+      break if last.next_node.nil?
+      last = last.next_node
+    end
+    res
+  end
 
   def self.from_a(arr)
     list = SimpleLinkedList.new
     return list if arr.nil?
-    arr.each { |ele| list.push(ele) }
+    arr.reverse_each { |ele| list.push(ele) }
     list
   end
 
   def pop
     last_node = head
-    until last_node.next_node.next_node.nil?
+    loop do
+      break if last_node.next_node.nil? || last_node.next_node.next_node.nil?
       last_node = last_node.next
     end
-    value = last_node.next_node.value
-    last_node.next_node = nil
+    value = last_node.value
+    self.head = head.next_node if !last_node.next_node.nil?
+    self.head = nil if last_node.next_node.nil?
+
     value
   end
 end
@@ -91,11 +97,3 @@ class Element
     next_node
   end
 end
-
-# ll = SimpleLinkedList.new
-# ll.push(1)
-# ll.push(2)
-# # ll.push(30)
-
-# p ll.pop
-# p ll.head.next
