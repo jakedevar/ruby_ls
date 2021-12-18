@@ -1,9 +1,9 @@
 # Group 1
-my_proc = proc { |thing| puts "This is a #{thing}." }
-puts my_proc
-puts my_proc.class
-my_proc.call
-my_proc.call('cat')
+# my_proc = proc { |thing| puts "This is a #{thing}." }
+# puts my_proc
+# puts my_proc.class
+# my_proc.call
+# my_proc.call('cat')
 
 =begin 
 it seems that there is a to_s method for the proc class jsut like objects 
@@ -57,5 +57,8 @@ so arity is lenient, also there needs to be an argument defined in a block or th
 =end
 
 =begin 
-iyt 
+it seems as though procs can be called without needing an argument also lambdas have strict arity and are apart of Procs, also return operates differently
+in lambdas as it does with procs 
+there is no lambda class
+blocks need at least to reference a variable or method that actually exits either as the blocks argument even if its nil 
 =end
