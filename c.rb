@@ -1,5 +1,7 @@
-def sandy
-  file = file.open('text.txt', 'r')
-  yield(file.read)
-  file.close
+def a_method(&block)
+  p block.class
+end
+
+a_method do
+  puts 5
 end
