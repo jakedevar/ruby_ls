@@ -1,7 +1,8 @@
-def a_method(&block)
-  p block.class
+def time_it(&a)
+  time_before = Time.now
+  yield
+  time_after= Time.now
+  puts "It took #{time_after - time_before} seconds."
 end
 
-a_method do
-  puts 5
-end
+time_it(&{'yes'})

@@ -49,28 +49,32 @@ rememebr the name will have to be generated on instantiation
 
 class Robot
 	@@names = []
-	attr_accessor :name 
+	attr_writer :name 
 
 	def initialize
-		gen_name
+		@name = gen_name 
 	end
 
 	def gen_name 
-		gen = ('AA'..'ZZ').to_a.sample + rand(100...1000).to_s
-		new_name = gen 
-		until !@@names.include?(new_name)
-			new_name = gen 
+		new_name = nil 
+		until !@@names.include?(new_name) && new_name != nil
+			letters = ('AA'..'ZZ').to_a.sample
+			numbers = (100..999).to_a.sample
+			new_name = "#{letters}#{numbers}"
 		end
 		@@names << new_name
-		self.name = new_name
+		new_name
 	end
 
-	def reset
-		@@names.delete(name)
-		self.name = nil
+	def name 
+		return @name if @name 
 		self.name = gen_name
 	end
 
+	def reset 
+		@@names.delete(name)
+		self.name = nil
+	end
 end
 
 # p Robot.new.name
